@@ -1,6 +1,6 @@
 <!-- Everest Scholars: Podia loader.
      Pasted ONCE into Podia → Settings → Analytics → Third-party code → "Website tracking code".
-     It shows the page from this GitHub repo (deployed on Vercel) on the homepage only.
+     It shows the page from this GitHub repo (published with GitHub Pages) on the homepage only.
      You should never need to change this; edit index.html instead. -->
 <script>(function(){var p=location.pathname.replace(/\/+$/,'');if(p===''||p==='/p/home'){document.documentElement.classList.add('es-home');}})();</script>
 <style>
@@ -11,7 +11,7 @@ html.es-home body{overflow-x:hidden}
 <script>
 (function () {
   if (!document.documentElement.classList.contains('es-home')) return;
-  var SRC = 'https://everest-scholars-site.vercel.app/index.html';
+  var SRC = 'https://shadowcoder1.github.io/everest-scholars-site/index.html';
   fetch(SRC, { cache: 'no-cache', mode: 'cors' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
     .then(function (html) {
