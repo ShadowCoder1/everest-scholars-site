@@ -11,7 +11,7 @@ html.es-home body{overflow-x:hidden}
 <script>
 (function () {
   if (!document.documentElement.classList.contains('es-home')) return;
-  var SRC = 'https://__VERCEL_HOST__/index.html';
+  var SRC = 'https://everest-scholars-site.vercel.app/index.html';
   fetch(SRC, { cache: 'no-cache', mode: 'cors' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
     .then(function (html) {
