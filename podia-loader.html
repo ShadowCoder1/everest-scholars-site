@@ -1,0 +1,35 @@
+<!-- Everest Scholars: Podia loader.
+     Pasted ONCE into Podia → Settings → Analytics → Third-party code → "Website tracking code".
+     It shows the page from this GitHub repo (deployed on Vercel) on the homepage only.
+     You should never need to change this; edit index.html instead. -->
+<script>(function(){var p=location.pathname.replace(/\/+$/,'');if(p===''||p==='/p/home'){document.documentElement.classList.add('es-home');}})();</script>
+<style>
+html.es-home body>*:not(#es):not(script):not(style):not(link):not(template){display:none!important}
+html.es-home,html.es-home body{margin:0!important;padding:0!important;background:#0a0c10!important}
+html.es-home body{overflow-x:hidden}
+</style>
+<script>
+(function () {
+  if (!document.documentElement.classList.contains('es-home')) return;
+  var SRC = 'https://__VERCEL_HOST__/index.html';
+  fetch(SRC, { cache: 'no-cache', mode: 'cors' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var scripts = [], frag = document.createDocumentFragment();
+      Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) {
+        if (n.nodeName === 'SCRIPT') scripts.push(n); else frag.appendChild(document.importNode(n, true));
+      });
+      document.body.appendChild(frag);
+      scripts.forEach(function (s) {
+        var el = document.createElement('script');
+        if (s.src) el.src = s.src; else el.textContent = s.textContent;
+        document.body.appendChild(el);
+      });
+    })
+    .catch(function (e) {
+      if (window.console) console.error('Everest Scholars page failed to load', e);
+      document.documentElement.classList.remove('es-home');
+    });
+})();
+</script>

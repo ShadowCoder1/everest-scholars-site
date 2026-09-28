@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Everest Scholars</title><meta name="robots" content="noindex"><style>html,body{margin:0;padding:0}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+#es{
+  --night:#0a0c10;--night-2:#0f1217;
+  --on-night:#f4f5f7;--on-night-2:#aab1bc;--on-night-3:#808894;
+  --night-line:rgba(255,255,255,.12);--night-line-2:rgba(255,255,255,.2);
+  --paper:#ffffff;--mist:#f4f5f7;
+  --ink:#0b0d12;--ink-2:#464c56;--ink-3:#626873;
+  --line:#e4e6ea;--line-2:#cdd1d7;
+  --glow:#f2a766;
+  --r:6px;
+  --gap:32px;
+  --pad-x:clamp(20px,4.2vw,64px);
+  --max:1280px;
+  --sans:"Switzer",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Fragment Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink);background:#fff;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+  font-kerning:normal;overflow-x:clip;position:relative;
+}
+#es,#es *,#es *::before,#es *::after{box-sizing:border-box}
+#es h1,#es h2,#es h3,#es h4,#es h5,#es h6,#es p,#es ul,#es ol,#es li,#es dl,#es dt,#es dd,#es figure,#es blockquote{margin:0;padding:0}
+#es ul,#es ol{list-style:none}
+#es h1,#es h2,#es h3,#es h4{font-weight:500;color:inherit;font-family:inherit}
+#es a{color:inherit;text-decoration:none}
+#es img,#es svg{display:block;max-width:100%}
+#es button,#es input{font:inherit;color:inherit;margin:0}
+#es button{cursor:pointer;background:none;border:0;padding:0}
+#es summary{list-style:none;cursor:pointer}
+#es summary::-webkit-details-marker{display:none}
+#es b,#es strong{font-weight:500}
+#es sup{font-size:.7em;line-height:0;vertical-align:super}
+#es :focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:2px}
+#es .es-light :focus-visible,#es .es-mist :focus-visible,#es .es-nav.is-light:not(.is-open) :focus-visible{outline-color:var(--ink)}
+#es [id^="es-"]{scroll-margin-top:68px}
+#es .es-path[id],#es .es-all[id]{scroll-margin-top:100px}
+#es .es-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#es .es-nw{white-space:nowrap}
+#es [hidden]{display:none!important}
+
+#es .es-wrap{max-width:calc(var(--max) + 2*var(--pad-x));margin:0 auto;padding:0 var(--pad-x)}
+#es .es-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+
+/* ---------- buttons and links ---------- */
+#es .es-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:var(--r);font-size:15px;font-weight:500;line-height:1;white-space:nowrap;transition:background-color .2s,color .2s,box-shadow .2s}
+#es .es-btn svg,#es .es-go svg{width:14px;height:14px;flex:none;transition:transform .25s var(--ease)}
+#es .es-btn-light{background:#fff;color:var(--ink)}
+#es .es-btn-ghost{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+#es .es-go{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-size:15px;font-weight:500;color:var(--ink)}
+#es .es-go span{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-color:var(--line-2);transition:text-decoration-color .2s}
+
+/* ---------- wordmark + nav ---------- */
+#es .es-mark{display:inline-flex;align-items:baseline;min-height:44px;padding-top:12px;font-size:18px;font-weight:600;letter-spacing:-.028em;line-height:1;white-space:nowrap}
+#es .es-mark span{font-weight:400;margin-left:.26em;opacity:.82}
+#es .es-nav{position:fixed;top:0;left:0;right:0;z-index:60;color:#fff;transition:background-color .35s,color .35s,box-shadow .35s}
+#es .es-nav-in{display:flex;align-items:center;height:68px}
+#es .es-nav.is-scrolled{background:rgba(10,12,16,.84);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+#es .es-nav.is-scrolled.is-light{background:rgba(255,255,255,.88);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+#es .es-links{display:flex;gap:2px;margin-left:auto;margin-right:18px}
+#es .es-links a{font-size:14.5px;padding:10px 14px;opacity:.78;transition:opacity .2s}
+#es .es-menu-btn{display:none}
+#es .es-nav .es-btn{height:38px;padding:0 17px;font-size:14px}
+#es .es-nav .es-btn-light{transition:background-color .35s,color .35s}
+#es .es-nav.is-scrolled.is-light .es-btn-light{background:var(--ink);color:#fff}
+
+/* ---------- hero ---------- */
+#es .es-hero{position:relative;background:var(--night);color:#fff;min-height:max(700px,100svh);max-height:1080px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+#es .es-hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden;container-type:size;--tx:71cqw;--ty:35cqh}
+#es .es-hero-media img{position:absolute;max-width:none;
+  --w:max(calc(var(--tx) / .4975),calc((100cqw - var(--tx)) / .5025),calc(var(--ty) / .406 * 1.5),calc((100cqh - var(--ty)) / .594 * 1.5));
+  width:var(--w);height:calc(var(--w) / 1.5);left:calc(var(--tx) - var(--w) * .4975);top:calc(var(--ty) - var(--w) / 1.5 * .406);
+  transform-origin:49.75% 40.6%;animation:es-dawn 2.4s var(--ease) both}
+@keyframes es-dawn{from{opacity:.2;transform:scale(1.04);filter:brightness(.45) saturate(.5)}to{opacity:1;transform:none;filter:none}}
+#es .es-hero-scrim{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(ellipse 44% 40% at 18% 64%,rgba(10,12,16,.55),rgba(10,12,16,0) 100%),
+   linear-gradient(180deg,rgba(10,12,16,.55) 0,rgba(10,12,16,0) 15%),
+   linear-gradient(90deg,rgba(10,12,16,.74) 0,rgba(10,12,16,.4) 36%,rgba(10,12,16,0) 60%),
+   linear-gradient(180deg,rgba(10,12,16,0) 50%,rgba(10,12,16,.7) 76%,#0a0c10 100%)}
+#es .es-pin{position:absolute;left:var(--tx);top:var(--ty);width:0;height:0;pointer-events:none}
+#es .es-pin-dot{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18);animation:es-fade .5s .9s both}
+#es .es-pin-line{position:absolute;left:-.5px;bottom:14px;width:1px;height:78px;background:linear-gradient(0deg,rgba(255,255,255,.2),rgba(255,255,255,.75));transform-origin:50% 100%;animation:es-rise .6s 1s var(--ease) both}
+#es .es-pin-label{position:absolute;left:14px;bottom:62px;white-space:nowrap;font-family:var(--mono);font-size:12px;line-height:1.55;color:rgba(255,255,255,.92);animation:es-fade .6s 1.3s both}
+#es .es-pin-label span{display:block;color:rgba(255,255,255,.58)}
+@keyframes es-rise{from{transform:scaleY(0)}to{transform:none}}
+@keyframes es-fade{from{opacity:0}to{opacity:1}}
+@keyframes es-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes es-line{from{transform:translateY(104%)}to{transform:none}}
+
+#es .es-hero-body{margin-top:auto;padding-top:132px;width:100%}
+#es .es-status{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:24px;text-wrap:balance;animation:es-up .8s .15s var(--ease) both}
+#es .es-hero h1{font-size:clamp(46px,6.9vw,104px);line-height:.96;letter-spacing:-.046em;font-weight:500}
+#es .es-hero h1 .es-l{display:block;overflow:hidden;padding-bottom:.07em;margin-bottom:-.07em}
+#es .es-hero h1 .es-l>span{display:block;animation:es-line 1s var(--ease) both}
+#es .es-hero h1 .es-l:nth-child(1)>span{animation-delay:.2s}
+#es .es-hero h1 .es-l:nth-child(2)>span{animation-delay:.3s}
+#es .es-lede{margin-top:26px;max-width:27em;font-size:clamp(17px,1.35vw,19.5px);line-height:1.5;color:rgba(255,255,255,.86);text-wrap:balance;animation:es-up .9s .45s var(--ease) both}
+#es .es-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;animation:es-up .9s .55s var(--ease) both}
+
+#es .es-idx{width:100%;margin-top:clamp(52px,7vh,92px);padding-bottom:34px;animation:es-fade 1s .8s both}
+#es .es-idx ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+#es .es-idx a{display:grid;grid-template-columns:minmax(0,1fr) 14px;grid-template-areas:"n c" "d d";column-gap:12px;align-items:center;height:100%;border-top:1px solid rgba(255,255,255,.22);padding:16px 0 4px;transition:border-color .25s}
+#es .es-idx-n{grid-area:n;font-size:15px;font-weight:500}
+#es .es-idx-d{grid-area:d;margin-top:5px;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.62)}
+#es .es-idx-c{grid-area:c;width:14px;height:14px;opacity:.5;transition:opacity .25s,transform .25s var(--ease)}
+
+/* ---------- section scaffolding ---------- */
+#es .es-sec{padding:clamp(96px,10.5vw,152px) 0}
+#es .es-head{align-items:baseline}
+#es .es-label{grid-column:1/4;font-size:14.5px;font-weight:500;line-height:1.3;color:var(--ink)}
+#es .es-h2,#es .es-head h2{font-size:clamp(34px,4.4vw,64px);line-height:1.02;letter-spacing:-.042em;font-weight:500;text-wrap:balance}
+#es .es-head h2{grid-column:4/13;max-width:15em}
+#es .es-sub{grid-column:4/11;margin-top:22px;font-size:clamp(17px,1.35vw,19px);color:var(--ink-2);max-width:34em;text-wrap:pretty}
+#es .es-sub-w{max-width:37em}
+#es .es-dark{background:var(--night);color:var(--on-night)}
+#es .es-dark .es-label{color:var(--on-night)}
+#es .es-dark .es-sub{color:var(--on-night-2)}
+#es .es-light{background:var(--paper)}
+#es .es-mist{background:var(--mist)}
+
+/* ---------- route ---------- */
+#es .es-route{padding-top:clamp(80px,8vw,120px)}
+#es .es-chart{position:relative;height:clamp(280px,22vw,310px);margin-top:clamp(112px,10vw,150px)}
+#es .es-gl{position:absolute;left:0;right:0;height:0;border-top:1px dashed rgba(255,255,255,.1)}
+#es .es-gl span{position:absolute;right:0;top:7px;font-family:var(--mono);font-size:11px;line-height:1;color:var(--on-night-3)}
+#es .es-axis{position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--night-line-2)}
+#es .es-plot{position:absolute;top:0;bottom:0;left:0;width:calc(100% + var(--gap));container-type:inline-size;--p:1}
+#es .es-plot svg{position:absolute;top:0;left:0;height:100%;width:100%;overflow:visible}
+#es .es-plot path{vector-effect:non-scaling-stroke}
+#es .es-p-line{fill:none;stroke:url(#es-lf);stroke-width:1.25;stroke-linejoin:round}
+#es .es-p-hl{fill:none;stroke:var(--glow);stroke-width:1.75;stroke-linejoin:round}
+#es .es-hl{position:absolute;inset:0 auto 0 0;width:calc(var(--p) * 100% + 1px);overflow:hidden;transition:width .8s var(--ease)}
+#es .es-hl svg{width:100cqw;max-width:none}
+#es .es-st{position:absolute;left:calc(var(--x) * 100%);top:var(--y);bottom:0;width:0}
+#es .es-st::before{content:"";position:absolute;left:-.5px;top:0;bottom:0;border-left:1px dashed rgba(255,255,255,.24)}
+#es .es-st i{position:absolute;left:-12px;top:-12px;width:24px;height:24px;border-radius:50%;background:var(--night);box-shadow:inset 0 0 0 1.25px rgba(255,255,255,.72);display:grid;place-items:center;font-style:normal;font-family:var(--mono);font-size:11px;color:#fff;transition:background-color .3s,color .3s,box-shadow .3s}
+#es .es-st.is-on i{background:var(--glow);color:var(--night);box-shadow:inset 0 0 0 1.25px var(--glow),0 0 0 5px rgba(242,167,102,.16)}
+#es .es-st em{position:absolute;right:20px;bottom:calc(100% + 8px);font-style:normal;font-family:var(--mono);font-size:11.5px;line-height:1.45;color:var(--on-night);white-space:nowrap;text-align:right}
+#es .es-st em span{display:block;color:var(--on-night-3)}
+#es .es-here{position:absolute;left:0;top:calc(52.38% + 7px);font-family:var(--mono);font-size:11.5px;line-height:16px;color:var(--on-night);white-space:nowrap}
+#es .es-here b{display:block;font-family:var(--sans);font-size:13.5px;line-height:18px;font-weight:500;color:#fff;margin-bottom:4px}
+#es .es-here span{display:block;color:var(--on-night-3)}
+#es .es-here-lead{position:absolute;left:-.5px;top:calc(52.38% + 67px);bottom:calc(8.667% + 12px);border-left:1px solid rgba(255,255,255,.45)}
+#es .es-stages{margin-top:0}
+#es .es-stages li{grid-column:span 3;position:relative;padding:30px 24px 0 0}
+#es .es-stages li::before{content:"";position:absolute;left:-.5px;top:0;width:1px;height:16px;background:var(--night-line-2);transition:background-color .3s}
+#es .es-stages li.is-on::before{background:var(--glow)}
+#es .es-stages h3{font-size:clamp(20px,1.7vw,24px);letter-spacing:-.02em;line-height:1.2;display:flex;align-items:center;gap:12px}
+#es .es-stages .es-sn{display:none;flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1.25px rgba(255,255,255,.6);place-items:center;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0}
+#es .es-stages p{margin-top:10px;font-size:15.5px;line-height:1.55;color:var(--on-night-2);max-width:21em}
+
+/* ---------- results ---------- */
+#es .es-rec-top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+#es .es-rec-h{grid-column:1/9;max-width:14em}
+#es .es-rec-stat{grid-column:10/13;border-top:1px solid var(--ink);padding-top:22px;margin-top:calc(clamp(34px,4.4vw,64px) * .2)}
+#es .es-rec-sv{display:block;font-size:clamp(40px,3.9vw,56px);line-height:1;letter-spacing:-.045em;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+#es .es-rec-sl{display:block;margin-top:14px;font-size:14.5px;line-height:1.45;color:var(--ink-2);max-width:21em;text-wrap:balance}
+#es .es-rec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);margin-top:clamp(64px,7vw,104px)}
+#es .es-rg,#es .es-led{display:contents}
+#es .es-rg-h{grid-row:1;padding-bottom:14px;font-size:15px;font-weight:500;line-height:1.3;color:var(--ink)}
+#es .es-rg-m .es-rg-h,#es .es-rg-m .es-proof,#es .es-rg-m .es-led>div{grid-column:1/7}
+#es .es-rg-s .es-rg-h,#es .es-rg-s .es-proof,#es .es-rg-s .es-led>div{grid-column:7/13}
+#es .es-proof{grid-row:2;display:grid;grid-template-columns:subgrid;border-top:1px solid var(--ink)}
+#es .es-proof li{grid-column:span 3;padding-top:22px}
+#es .es-pv{font-size:clamp(34px,3.35vw,48px);line-height:1;letter-spacing:-.042em;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+#es .es-pn{margin-top:14px;font-size:16px;font-weight:500;line-height:1.35;text-wrap:balance}
+#es .es-pd{margin-top:2px;font-size:14.5px;line-height:1.4;color:var(--ink-3);text-wrap:balance}
+#es .es-led>div{grid-row:var(--r);display:grid;grid-template-columns:subgrid;padding:5px 0;font-size:15px;line-height:1.5}
+#es .es-led dt{grid-column:span 3;color:var(--ink)}
+#es .es-led dd{grid-column:span 3;color:var(--ink-2);text-wrap:balance}
+#es .es-led .es-wide{display:block}
+#es .es-led .es-wide dd{margin-top:1px;text-wrap:pretty}
+#es .es-led .es-l1{margin-top:clamp(48px,4.6vw,64px)}
+#es .es-led .es-lg{margin-top:20px}
+#es .es-fn{grid-row:10;grid-column:7/13;margin-top:28px;font-size:13.5px;line-height:1.5;color:var(--ink-3);text-wrap:balance}
+
+/* ---------- paths ---------- */
+#es .es-table{margin-top:clamp(64px,7vw,104px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(4,auto);column-gap:var(--gap)}
+#es .es-rl{grid-column:1/4;grid-row:1/5;display:grid;grid-template-rows:subgrid}
+#es .es-rl span{border-top:1px solid var(--line-2);padding:22px 0;font-size:14.5px;font-weight:500;color:var(--ink-2)}
+#es .es-rl span:first-child,#es .es-rl span:last-child{border-top:0}
+#es .es-path{grid-row:1/5;display:grid;grid-template-rows:subgrid}
+#es .es-path:nth-of-type(1){grid-column:4/7}
+#es .es-path:nth-of-type(2){grid-column:7/10}
+#es .es-path:nth-of-type(3){grid-column:10/13}
+#es .es-c{border-top:1px solid var(--line-2);padding:20px 0 28px}
+#es .es-c-h{border-top:2px solid var(--ink);padding-top:22px}
+#es .es-c-h h3,#es .es-all-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+#es .es-c-h h3{font-size:clamp(23px,2vw,28px);letter-spacing:-.028em;line-height:1.1}
+#es .es-dur{font-size:14px;font-weight:400;letter-spacing:0;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+#es .es-c-h p{margin-top:10px;color:var(--ink-2);font-size:16px;line-height:1.5;max-width:19em}
+#es .es-k{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;font-size:14px;font-weight:500;color:var(--ink-3);margin-bottom:6px}
+#es .es-c-cov li{position:relative;padding:3px 0 3px 18px;font-size:15.5px;line-height:1.45}
+#es .es-c-cov li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--ink-3)}
+#es .es-c-for p:not(.es-k){font-size:15.5px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+#es .es-c-cta{border-top:0;padding:0}
+#es .es-c-cta .es-go{margin-top:-6px}
+#es .es-all{margin-top:40px;border-top:2px solid var(--ink);padding-top:26px;align-items:start}
+#es .es-all-h{grid-column:1/4;flex-direction:column;gap:4px}
+#es .es-all-h h3{font-size:clamp(23px,2vw,28px);letter-spacing:-.028em;line-height:1.1}
+#es .es-all-d{grid-column:4/10;font-size:16px;color:var(--ink-2);max-width:26em;padding-top:4px}
+#es .es-all-d b{color:var(--ink)}
+#es .es-inc,#es .es-next{margin-top:36px;border-top:1px solid var(--line-2);padding-top:22px}
+#es .es-inc-l{grid-column:4/10;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:18px;padding-top:4px}
+#es .es-inc-l b{display:block;font-size:16px;line-height:1.5;color:var(--ink)}
+#es .es-inc-l span{display:block;font-size:15px;line-height:1.45;color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* ---------- policies ---------- */
+#es .es-pol-sec{padding:clamp(104px,11vw,168px) 0}
+#es .es-state{font-size:clamp(52px,6.7vw,96px);line-height:.94;letter-spacing:-.052em;font-weight:500;color:#fff}
+#es .es-pol{margin-top:clamp(40px,4.6vw,68px);row-gap:24px}
+#es .es-pol p{font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:var(--on-night-2);max-width:25em;text-wrap:pretty}
+#es .es-pol p:nth-child(1){grid-column:1/6}
+#es .es-pol p:nth-child(2){grid-column:7/12}
+#es .es-pol b{color:#fff}
+
+/* ---------- faq ---------- */
+#es .es-faq-h{grid-column:1/4;align-self:start;position:sticky;top:108px;font-size:clamp(30px,2.9vw,42px);line-height:1.04;letter-spacing:-.038em;font-weight:500;text-wrap:balance;padding-top:6px}
+#es .es-faq-list{grid-column:4/13;border-top:1px solid var(--ink)}
+#es .es-faq-list details{border-bottom:1px solid var(--line-2)}
+#es .es-faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:66px;padding:17px 0;font-size:clamp(17px,1.45vw,20px);font-weight:500;letter-spacing:-.015em;line-height:1.3;transition:color .2s}
+#es .es-faq-list summary i{position:relative;flex:none;width:14px;height:14px;margin-right:4px}
+#es .es-faq-list summary i::before,#es .es-faq-list summary i::after{content:"";position:absolute;left:0;top:50%;width:14px;height:1.5px;margin-top:-.75px;background:currentColor;transition:transform .3s var(--ease)}
+#es .es-faq-list summary i::after{transform:rotate(90deg)}
+#es .es-faq-list details[open] summary i::after{transform:rotate(0)}
+#es .es-faq-list details p{padding:0 56px 24px 0;color:var(--ink-2);max-width:40em;margin-top:-4px}
+
+/* ---------- apply ---------- */
+#es .es-apply{position:relative;overflow:hidden;isolation:isolate;padding-top:clamp(290px,27vw,400px);padding-bottom:clamp(96px,9vw,136px)}
+#es .es-apply-media{position:absolute;left:0;right:0;top:0;height:clamp(440px,40vw,640px);z-index:-1}
+#es .es-apply-media img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+#es .es-apply-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0a0c10 0,rgba(10,12,16,0) 22%,rgba(10,12,16,0) 52%,rgba(10,12,16,.62) 76%,#0a0c10 100%)}
+#es .es-apply-copy{grid-column:1/7;align-self:start}
+#es .es-apply-copy .es-label{color:rgba(255,255,255,.7)}
+#es .es-apply-copy h2{font-size:clamp(34px,4.4vw,64px);line-height:1.02;letter-spacing:-.042em;margin-top:18px;text-wrap:balance;max-width:11em}
+#es .es-apply-sub{margin-top:22px;font-size:clamp(17px,1.35vw,19px);color:var(--on-night-2);max-width:30em;text-wrap:pretty}
+#es .es-form-card{grid-column:7/13;align-self:start;background:rgba(15,18,23,.92);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:40px}
+#es #es-apply-form{position:relative}
+#es .es-ts{margin-top:20px}#es .es-ts:empty{display:none}#es .es-ts iframe{max-width:100%}
+#es .es-form-err{margin-top:12px;font-size:14px;color:#f08a78;min-height:0}
+#es .es-field{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:12px}
+#es .es-field+.es-field{margin-top:22px}
+#es .es-field label{grid-row:1;grid-column:1;font-size:14px;line-height:20px;color:var(--on-night-2);margin-bottom:8px}
+#es .es-field input{grid-row:2;grid-column:1/-1}
+#es #es-apply-form input{display:block;width:100%;height:52px;padding:0 16px;border-radius:var(--r);background:var(--night);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:16px;outline:0;transition:border-color .2s,box-shadow .2s}
+#es #es-apply-form input:focus{border-color:rgba(255,255,255,.75);box-shadow:0 0 0 3px rgba(255,255,255,.09)}
+#es #es-apply-form input[aria-invalid="true"]{border-color:#f08a78}
+#es .es-err{grid-row:1;grid-column:2;justify-self:end;text-align:right;font-size:13px;line-height:20px;color:#f5a393}
+#es #es-apply-form button{margin-top:28px;width:100%;height:52px;border-radius:var(--r);background:#fff;color:var(--ink);font-size:15.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:10px;transition:background-color .2s}
+#es #es-apply-form button svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+#es .es-form-fine{margin-top:14px;font-size:13.5px;line-height:1.45;color:var(--on-night-3)}
+#es .es-fields{transition:opacity .35s}
+#es .es-done .es-fields{opacity:0;visibility:hidden}
+#es .es-ok{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s .1s}
+#es .es-done .es-ok{opacity:1;pointer-events:auto}
+#es .es-ok p:focus{outline:0}
+#es .es-ok i{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1.25px var(--glow);display:grid;place-items:center;color:var(--glow)}
+#es .es-ok i svg{width:18px;height:18px}
+#es .es-ok p{margin-top:22px;font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.25;max-width:14em}
+
+/* ---------- footer ---------- */
+#es .es-foot{background:var(--night);color:var(--on-night-2);padding:8px 0 40px}
+#es .es-foot-top{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-bottom:22px;border-bottom:1px solid var(--night-line)}
+#es .es-foot .es-mark{color:#fff}
+#es .es-foot nav{display:flex;flex-wrap:wrap;margin-right:-12px}
+#es .es-foot nav a{font-size:14.5px;padding:12px;white-space:nowrap;transition:color .2s}
+#es .es-legal{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;padding-top:22px;font-size:13px;line-height:1.6;color:var(--on-night-3)}
+#es .es-legal p:first-child{max-width:80em;text-wrap:balance}
+#es .es-legal p:last-child{display:flex;flex:none;margin:-12px -12px 0 0}
+#es .es-legal a{padding:12px;transition:color .2s}
+
+/* ---------- hover (pointer devices only) ---------- */
+@media (hover:hover){
+  #es .es-btn:hover svg,#es .es-go:hover svg{transform:translateX(3px)}
+  #es .es-btn-light:hover{background:#e6e8eb}
+  #es .es-btn-ghost:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.75);background:rgba(255,255,255,.06)}
+  #es .es-go:hover span{text-decoration-color:currentColor}
+  #es .es-links a:hover{opacity:1}
+  #es .es-idx a:hover{border-top-color:var(--glow)}
+  #es .es-idx a:hover .es-idx-c{opacity:1;transform:translateX(3px)}
+  #es .es-faq-list summary:hover{color:#3a3f48}
+  #es #es-apply-form input:hover:not(:focus){border-color:rgba(255,255,255,.32)}
+  #es #es-apply-form button:hover{background:#e6e8eb}
+  #es #es-apply-form button:hover svg{transform:translateX(3px)}
+  #es .es-foot nav a:hover,#es .es-legal a:hover{color:#fff}
+}
+
+/* ---------- responsive ---------- */
+@media (min-width:901px) and (max-height:820px){
+  #es .es-hero-body{padding-top:108px}
+  #es .es-hero h1{font-size:clamp(46px,6.1vw,92px)}
+  #es .es-status{margin-bottom:20px}
+  #es .es-lede{margin-top:20px}
+  #es .es-cta{margin-top:26px}
+  #es .es-idx{margin-top:40px;padding-bottom:26px}
+}
+@media (max-width:1279px){
+  #es .es-rec-stat{grid-column:9/13}
+}
+@media (max-width:1100px){
+  #es .es-links a{padding:10px 10px}
+}
+@media (max-width:900px){
+  #es{--gap:20px}
+  #es .es-menu-btn{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 12px;margin-left:auto;margin-right:4px;font-size:15px;font-weight:500}
+  #es .es-menu-btn i{position:relative;width:14px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transition:transform .25s var(--ease),height .25s var(--ease)}
+  #es .es-nav.is-open .es-menu-btn i{height:0;border-bottom-width:0}
+  #es .es-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;padding:4px var(--pad-x) 22px;background:var(--night);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+  #es .es-links a{display:flex;align-items:center;min-height:52px;padding:0;font-size:21px;letter-spacing:-.02em;opacity:1;border-bottom:1px solid var(--night-line)}
+  #es .es-links a:last-child{border-bottom:0}
+  #es .es-nav.is-open{background:var(--night);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.08);-webkit-backdrop-filter:none;backdrop-filter:none}
+  #es .es-nav.is-open .es-links{display:flex}
+  #es .es-nav.is-open .es-btn-light{background:#fff;color:var(--ink)}
+  #es .es-hero h1{font-size:clamp(44px,8.4vw,72px)}
+  #es .es-hero-scrim{background:linear-gradient(180deg,rgba(10,12,16,.55) 0,rgba(10,12,16,0) 15%),linear-gradient(90deg,rgba(10,12,16,.82) 0,rgba(10,12,16,.55) 45%,rgba(10,12,16,.1) 75%),linear-gradient(180deg,rgba(10,12,16,0) 45%,rgba(10,12,16,.75) 74%,#0a0c10 100%)}
+  #es .es-lede{max-width:26em}
+  #es .es-chart{height:280px}
+  #es .es-stages li{padding:28px 14px 0 0}
+  #es .es-label{grid-column:1/-1;margin-bottom:18px}
+  #es .es-head h2,#es .es-sub{grid-column:1/-1}
+  #es .es-rec-top{display:block}
+  #es .es-rec-stat{margin:36px 0 0;max-width:30em}
+  #es .es-rec{display:block}
+  #es .es-rg{display:block}
+  #es .es-rg-s{margin-top:64px}
+  #es .es-rg-h{padding-bottom:14px}
+  #es .es-proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}
+  #es .es-proof li{grid-column:auto}
+  #es .es-led{display:block;margin-top:28px}
+  #es .es-led>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}
+  #es .es-led dt,#es .es-led dd{grid-column:auto}
+  #es .es-led .es-l1{margin-top:0}
+  #es .es-fn{margin-top:36px}
+  #es .es-table{grid-template-columns:1fr;grid-template-rows:none;row-gap:56px}
+  #es .es-rl{display:none}
+  #es .es-path{grid-row:auto;grid-template-rows:none;display:flex;flex-direction:column}
+  #es .es-path:nth-of-type(n){grid-column:auto}
+  #es .es-c{border-top:0;padding:0;margin-top:20px}
+  #es .es-c-h{border-top:2px solid var(--ink);padding-top:18px;margin-top:0}
+  #es .es-c-h p{max-width:30em}
+  #es .es-k:not(.es-sr){position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;display:block}
+  #es .es-c-cta{margin-top:16px}
+  #es .es-c-cta .es-go{margin-top:0}
+  #es .es-all{grid-template-columns:1fr;row-gap:10px;margin-top:56px}
+  #es .es-all-h,#es .es-all-d{grid-column:1/-1}
+  #es .es-all-h{flex-direction:row;justify-content:space-between;align-items:baseline}
+  #es .es-inc,#es .es-next{margin-top:32px}
+  #es .es-inc-l{grid-column:1/-1;margin-top:6px}
+  #es .es-state{font-size:clamp(52px,7.6vw,68px)}
+  #es .es-pol p:nth-child(n){grid-column:1/-1}
+  #es .es-faq-h{grid-column:1/-1;position:static;margin-bottom:32px;padding:0}
+  #es .es-faq-list{grid-column:1/-1}
+  #es .es-apply-copy,#es .es-form-card{grid-column:1/-1}
+  #es .es-form-card{margin-top:44px}
+}
+@media (max-width:640px){
+  #es{font-size:16px}
+  #es .es-nav-in{height:60px}
+  #es .es-nav .es-btn{height:44px;padding:0 18px}
+  #es .es-mark{font-size:17px;padding-top:13px}
+  #es .es-hero{min-height:0;max-height:none;display:block}
+  #es .es-hero-media{bottom:auto;height:520px;--tx:52cqw;--ty:40cqh}
+  #es .es-hero-scrim{bottom:auto;height:520px;background:linear-gradient(180deg,rgba(10,12,16,.5) 0,rgba(10,12,16,0) 16%),linear-gradient(180deg,rgba(10,12,16,0) 42%,rgba(10,12,16,.78) 64%,#0a0c10 80%)}
+  #es .es-hero-body{padding-top:348px}
+  #es .es-pin-line{height:52px}
+  #es .es-pin-label{bottom:40px;font-size:11.5px}
+  #es .es-status{font-size:14px;margin-bottom:14px}
+  #es .es-hero h1{font-size:clamp(32px,10.6vw,52px);letter-spacing:-.045em}
+  #es .es-lede{margin-top:16px;font-size:16.5px}
+  #es .es-cta{margin-top:24px;gap:10px}
+  #es .es-cta .es-btn{flex:1 1 100%;height:52px;padding:0 12px}
+  #es .es-idx{margin-top:36px;padding-bottom:4px}
+  #es .es-idx ul{grid-template-columns:1fr;row-gap:0}
+  #es .es-idx a{grid-template-areas:"n c" "d c";row-gap:1px;min-height:62px;padding:11px 0}
+  #es .es-idx li:last-child a{border-bottom:1px solid rgba(255,255,255,.22)}
+  #es .es-idx-n{align-self:end}
+  #es .es-idx-d{align-self:start;margin-top:0;font-size:13.5px}
+  #es .es-idx-c{opacity:.55}
+  #es .es-sec{padding:64px 0}
+  #es .es-route{padding-top:60px}
+  #es .es-label{margin-bottom:12px}
+  #es .es-h2,#es .es-head h2{font-size:clamp(31px,8.6vw,40px);line-height:1.05;letter-spacing:-.038em}
+  #es .es-sub{margin-top:14px;font-size:16.5px}
+  #es .es-chart{height:260px;margin-top:72px}
+  #es .es-plot{width:100%}
+  #es .es-gl span{font-size:10.5px;top:5px}
+  #es .es-gl-8 span{display:none}
+  #es .es-st em{font-size:11px;line-height:1.4;right:auto;left:16px;bottom:auto;top:-2px;text-align:left}
+  #es .es-st.es-st-1 em{top:-10px}
+  #es .es-st.es-st-3 em{left:auto;right:18px;top:auto;bottom:calc(100% + 8px);text-align:right}
+  #es .es-here{top:calc(28.57% + 6px);font-size:11px;line-height:15px}
+  #es .es-here b{font-size:12.5px;line-height:17px;margin-bottom:3px}
+  #es .es-here-lead{top:calc(28.57% + 60px)}
+  #es .es-stages{grid-template-columns:1fr;margin-top:8px}
+  #es .es-stages li{grid-column:auto;border-bottom:1px solid var(--night-line);padding:14px 0}
+  #es .es-stages li::before{display:none}
+  #es .es-stages li:last-child{border-bottom:0;padding-bottom:0}
+  #es .es-stages h3{font-size:19px}
+  #es .es-stages .es-sn{display:grid}
+  #es .es-stages p{margin:3px 0 0 36px;font-size:15px;line-height:1.5}
+  #es .es-rec-stat{margin:28px 0 12px;padding-top:16px}
+  #es .es-rec-sv{font-size:40px}
+  #es .es-rec-sl{margin-top:10px;font-size:14.5px}
+  #es .es-rec{margin-top:36px}
+  #es .es-rg-s{margin-top:48px}
+  #es .es-rg-h{font-size:14px;padding-bottom:12px}
+  #es .es-proof li{padding-top:14px}
+  #es .es-pv{font-size:clamp(22px,7.1vw,30px);letter-spacing:-.035em}
+  #es .es-pn{margin-top:8px;font-size:15px}
+  #es .es-pd{font-size:13.5px}
+  #es .es-led{margin-top:24px}
+  #es .es-led>div{grid-template-columns:minmax(0,1fr) auto;font-size:15px;line-height:1.45;padding:4px 0;column-gap:16px}
+  #es .es-led dd{text-align:right}
+  #es .es-led .es-wide{display:block;padding:5px 0}
+  #es .es-led .es-wide dd{text-align:left;margin-top:1px}
+  #es .es-led .es-lg{margin-top:14px}
+  #es .es-fn{margin-top:28px;font-size:13px}
+  #es .es-table{margin-top:36px;row-gap:44px}
+  #es .es-c{margin-top:16px}
+  #es .es-c-h{padding-top:14px}
+  #es .es-c-h h3{font-size:23px}
+  #es .es-c-h p{margin-top:4px;font-size:15.5px;max-width:none}
+  #es .es-k{font-size:14px;margin-bottom:4px}
+  #es .es-c-cov li{padding:2px 0 2px 18px;font-size:15px;line-height:1.45}
+  #es .es-c-cov li::before{top:13px}
+  #es .es-c-for p:not(.es-k){font-size:15px}
+  #es .es-c-cta{margin-top:10px}
+  #es .es-all{padding-top:16px;margin-top:44px}
+  #es .es-all-h h3{font-size:23px}
+  #es .es-all-d{font-size:15px}
+  #es .es-inc,#es .es-next{margin-top:32px;padding-top:16px}
+  #es .es-inc-l{display:block;margin-top:2px;padding-top:0}
+  #es .es-inc-l li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+  #es .es-inc-l li:last-child{border-bottom:0;padding-bottom:0}
+  #es .es-inc-l b{font-size:15.5px}
+  #es .es-inc-l span{font-size:15px;text-align:right}
+  #es .es-pol-sec{padding:72px 0}
+  #es .es-state{font-size:clamp(46px,13.4vw,60px);line-height:.98}
+  #es .es-pol{margin-top:28px;row-gap:16px}
+  #es .es-pol p{font-size:16.5px}
+  #es .es-faq-h{font-size:clamp(31px,8.6vw,40px);margin-bottom:24px}
+  #es .es-faq-list summary{min-height:54px;padding:12px 0;font-size:17px;gap:16px}
+  #es .es-faq-list details p{padding:0 0 18px;font-size:15.5px}
+  #es .es-apply{padding-top:292px;padding-bottom:56px}
+  #es .es-apply-media{height:420px}
+  #es .es-apply-media img{object-position:46% 50%}
+  #es .es-apply-media::after{background:linear-gradient(180deg,#0a0c10 0,rgba(10,12,16,0) 16%,rgba(10,12,16,0) 56%,rgba(10,12,16,.7) 74%,#0a0c10 90%)}
+  #es .es-apply-copy h2{font-size:clamp(31px,8.6vw,40px);line-height:1.05;margin-top:12px}
+  #es .es-apply-sub{margin-top:14px;font-size:16.5px}
+  #es .es-form-card{padding:22px 20px 18px;margin-top:28px}
+  #es .es-field+.es-field{margin-top:20px}
+  #es #es-apply-form button{margin-top:24px}
+  #es .es-form-fine{margin-top:12px}
+  #es .es-foot{padding:0 0 24px}
+  #es .es-foot-top{flex-direction:column;align-items:flex-start;gap:4px;padding-bottom:10px}
+  #es .es-foot nav{margin:0 0 0 -10px}
+  #es .es-foot nav a{padding:12px 10px;font-size:14px}
+  #es .es-legal{flex-direction:column;gap:4px;padding-top:16px}
+  #es .es-legal p:last-child{margin:0 0 0 -12px}
+}
+@media (max-width:360px){
+  #es .es-menu-btn{width:44px;padding:0;justify-content:center;margin-right:2px}
+  #es .es-menu-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #es .es-led>div{font-size:14px;column-gap:12px}
+  #es .es-err{grid-row:3;grid-column:1/-1;justify-self:start;text-align:left;min-height:26px;padding-top:6px;line-height:18px}
+  #es .es-field+.es-field{margin-top:8px}
+  #es #es-apply-form button{margin-top:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  #es *,#es *::before,#es *::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<div id="es">
+
+<header class="es-nav">
+  <div class="es-wrap es-nav-in">
+    <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top">Everest<span>Scholars</span></a>
+    <nav class="es-links" id="es-menu" aria-label="Sections">
+      <a href="#es-route">How it works</a>
+      <a href="#es-results">Results</a>
+      <a href="#es-paths">Paths</a>
+      <a href="#es-faq">FAQ</a>
+    </nav>
+    <button class="es-menu-btn" type="button" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+    <a class="es-btn es-btn-light" href="#es-apply">Book a call</a>
+  </div>
+</header>
+
+<main>
+<section class="es-hero" id="es-top" data-tone="dark">
+  <div class="es-hero-media" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1778003586047-69c68f764af5?auto=format&amp;fit=crop&amp;w=2400&amp;q=80"
+         srcset="https://images.unsplash.com/photo-1778003586047-69c68f764af5?auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w,
+                 https://images.unsplash.com/photo-1778003586047-69c68f764af5?auto=format&amp;fit=crop&amp;w=2400&amp;q=80 2400w,
+                 https://images.unsplash.com/photo-1778003586047-69c68f764af5?auto=format&amp;fit=crop&amp;w=3600&amp;q=80 3600w"
+         sizes="(max-width:640px) 240vw, 150vw" width="2400" height="1600" alt="" fetchpriority="high">
+    <div class="es-pin"><span class="es-pin-line"></span><span class="es-pin-dot"></span><span class="es-pin-label">8,849 m<span>27°59′N 86°55′E</span></span></div>
+  </div>
+  <div class="es-hero-scrim"></div>
+
+  <div class="es-wrap es-hero-body">
+    <p class="es-status">Now enrolling for the January 2027 cohort</p>
+    <h1><span class="es-l"><span>Real research,</span></span><span class="es-l"><span>guided <span class="es-nw">one-on-one.</span></span></span></h1>
+    <p class="es-lede">For grades 9–12, fully online. Our mentors include an ISEF Grand Award winner, a National JSHS first&#8209;place finisher and a&nbsp;Regeneron STS Top&nbsp;300&nbsp;Scholar.</p>
+    <div class="es-cta">
+      <a class="es-btn es-btn-light" href="#es-apply">Book a free call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a class="es-btn es-btn-ghost" href="#es-route">How it works</a>
+    </div>
+  </div>
+
+  <nav class="es-wrap es-idx" aria-label="Paths">
+    <ul>
+      <li><a href="#es-p-competitions"><span class="es-idx-n">Competitions</span><span class="es-idx-d">ISEF, JSHS, Regeneron STS</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
+      <li><a href="#es-p-publication"><span class="es-idx-n">Publication</span><span class="es-idx-d">Preprint to journal or conference</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
+      <li><a href="#es-p-programs"><span class="es-idx-n">Programs</span><span class="es-idx-d">RSI, SSP, MITES and more</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
+    </ul>
+  </nav>
+</section>
+
+<section class="es-sec es-dark es-route" id="es-route" data-tone="dark">
+  <div class="es-wrap">
+    <div class="es-grid es-head">
+      <p class="es-label">How it works</p>
+      <h2>From a first question to work you can show.</h2>
+      <p class="es-sub">Four stages. Plan on 3–5 hours a week, all&nbsp;of&nbsp;it&nbsp;online.</p>
+    </div>
+
+    <div class="es-chart" aria-hidden="true">
+      <div class="es-gl es-gl-8" style="top:28.571%"><span>8,000 m</span></div>
+      <div class="es-gl" style="top:52.381%"><span>7,000 m</span></div>
+      <div class="es-gl" style="top:76.190%"><span>6,000 m</span></div>
+      <div class="es-axis"></div>
+      <p class="es-here"><b>You are here</b>5,364 m<span>Base Camp</span></p>
+      <span class="es-here-lead"></span>
+      <div class="es-plot">
+        <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+          <defs><linearGradient id="es-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="es-fade" gradientUnits="userSpaceOnUse" x1="890" y1="0" x2="945" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="es-fm" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="300"><rect width="1200" height="300" fill="url(#es-fade)"/></mask><linearGradient id="es-lf" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="945" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 274L4.5 273.4L9 272.2L13.5 272.4L18 270.8L22.5 270.3L27 270.1L31.5 268.1L36 267.9L40.5 265.7L45 264.6L49.5 262.2L54 258.9L58.5 255.3L63 253.8L67.5 250.7L72 247L76.5 243.1L81 240.4L85.5 237.2L90 232.9L94.5 232.1L99 228.6L103.5 228.4L108 227.5L112.5 226.5L117 225.3L121.5 223.4L126 223.8L130.5 222.2L135 221.3L139.5 221.1L144 220.1L148.5 220.3L153 219.7L157.5 218.8L162 217.2L166.5 217L171 216.6L175.5 215.5L180 215.1L184.5 214.8L189 213.1L193.5 212.7L198 213L202.5 211.7L207 211.2L211.5 209.9L216 209.6L220.5 209.9L225 207.9L229.5 209L234 207.9L238.5 206.6L243 207.3L247.5 206L252 206.4L256.5 204.6L261 203.9L265.5 203.9L270 202.8L274.5 203.4L279 202.2L283.5 201.9L288 201.5L292.5 201.1L297 200.3L300 200L306 199.1L310.5 198L315 198.3L319.5 196.1L324 195.2L328.5 193.5L333 192.7L337.5 192.6L342 191L346.5 188.9L351 188.6L355.5 185.9L360 184.6L364.5 182.8L369 180.9L373.5 177.5L378 176.7L382.5 174.5L387 172.2L391.5 169.3L396 169L400.5 166.4L405 164.3L409.5 161.8L414 160.1L418.5 158.1L423 157.4L427.5 155.2L432 153.4L436.5 150.5L441 148.5L445.5 148.3L450 146.4L454.5 144.4L459 142.6L463.5 140.3L468 138.3L472.5 137.1L477 135.8L481.5 133.2L486 131.5L490.5 129.3L495 126.7L499.5 125.4L504 123.9L508.5 121.9L513 119.9L517.5 119.2L522 115.5L526.5 113.8L531 111.7L535.5 109.9L540 108.8L544.5 107L549 105.8L553.5 103.1L558 102.7L562.5 101.2L567 99.5L571.5 98.2L576 96.5L580.5 95.8L585 94.6L589.5 92.8L594 91.4L600 89.29L603 88.6L607.5 86.7L612 85.6L616.5 85.3L621 83.8L625.5 82.4L630 81.1L634.5 80.3L639 77.6L643.5 76L648 75.7L652.5 74.4L657 73.8L661.5 72.3L666 70.3L670.5 68.9L675 66.2L679.5 65.9L684 64.6L688.5 61.2L693 60.6L697.5 59.9L702 57.9L706.5 57.7L711 55.6L715.5 53.7L720 53L724.5 52.4L729 52.4L733.5 51.3L738 50.8L742.5 48.8L747 48.4L751.5 47L756 46.9L760.5 46.2L765 43.8L769.5 42.2L774 41.1L778.5 39.7L783 38.2L787.5 36.9L792 36.6L796.5 34.8L801 34.1L805.5 33.9L810 33.4L814.5 32.7L819 32.9L823.5 32.6L828 32.8L832.5 34.4L837 33.8L841.5 33.4L846 32.6L850.5 32.5L855 31.5L859.5 30.3L864 29.6L868.5 29L873 27.6L877.5 26.5L882 26.2L886.5 26.5L891 25.8L895.5 25.4L900 25.07L904.5 26.3L909 27.4L913.5 29.5L918 30.1L922.5 32.1L927 33.2L931.5 34.1L936 36.1L940.5 36.7L945 38.6L945 300L0 300Z" fill="url(#es-fill)" mask="url(#es-fm)"/>
+          <path class="es-p-line" d="M0 274L4.5 273.4L9 272.2L13.5 272.4L18 270.8L22.5 270.3L27 270.1L31.5 268.1L36 267.9L40.5 265.7L45 264.6L49.5 262.2L54 258.9L58.5 255.3L63 253.8L67.5 250.7L72 247L76.5 243.1L81 240.4L85.5 237.2L90 232.9L94.5 232.1L99 228.6L103.5 228.4L108 227.5L112.5 226.5L117 225.3L121.5 223.4L126 223.8L130.5 222.2L135 221.3L139.5 221.1L144 220.1L148.5 220.3L153 219.7L157.5 218.8L162 217.2L166.5 217L171 216.6L175.5 215.5L180 215.1L184.5 214.8L189 213.1L193.5 212.7L198 213L202.5 211.7L207 211.2L211.5 209.9L216 209.6L220.5 209.9L225 207.9L229.5 209L234 207.9L238.5 206.6L243 207.3L247.5 206L252 206.4L256.5 204.6L261 203.9L265.5 203.9L270 202.8L274.5 203.4L279 202.2L283.5 201.9L288 201.5L292.5 201.1L297 200.3L300 200L306 199.1L310.5 198L315 198.3L319.5 196.1L324 195.2L328.5 193.5L333 192.7L337.5 192.6L342 191L346.5 188.9L351 188.6L355.5 185.9L360 184.6L364.5 182.8L369 180.9L373.5 177.5L378 176.7L382.5 174.5L387 172.2L391.5 169.3L396 169L400.5 166.4L405 164.3L409.5 161.8L414 160.1L418.5 158.1L423 157.4L427.5 155.2L432 153.4L436.5 150.5L441 148.5L445.5 148.3L450 146.4L454.5 144.4L459 142.6L463.5 140.3L468 138.3L472.5 137.1L477 135.8L481.5 133.2L486 131.5L490.5 129.3L495 126.7L499.5 125.4L504 123.9L508.5 121.9L513 119.9L517.5 119.2L522 115.5L526.5 113.8L531 111.7L535.5 109.9L540 108.8L544.5 107L549 105.8L553.5 103.1L558 102.7L562.5 101.2L567 99.5L571.5 98.2L576 96.5L580.5 95.8L585 94.6L589.5 92.8L594 91.4L600 89.29L603 88.6L607.5 86.7L612 85.6L616.5 85.3L621 83.8L625.5 82.4L630 81.1L634.5 80.3L639 77.6L643.5 76L648 75.7L652.5 74.4L657 73.8L661.5 72.3L666 70.3L670.5 68.9L675 66.2L679.5 65.9L684 64.6L688.5 61.2L693 60.6L697.5 59.9L702 57.9L706.5 57.7L711 55.6L715.5 53.7L720 53L724.5 52.4L729 52.4L733.5 51.3L738 50.8L742.5 48.8L747 48.4L751.5 47L756 46.9L760.5 46.2L765 43.8L769.5 42.2L774 41.1L778.5 39.7L783 38.2L787.5 36.9L792 36.6L796.5 34.8L801 34.1L805.5 33.9L810 33.4L814.5 32.7L819 32.9L823.5 32.6L828 32.8L832.5 34.4L837 33.8L841.5 33.4L846 32.6L850.5 32.5L855 31.5L859.5 30.3L864 29.6L868.5 29L873 27.6L877.5 26.5L882 26.2L886.5 26.5L891 25.8L895.5 25.4L900 25.07L904.5 26.3L909 27.4L913.5 29.5L918 30.1L922.5 32.1L927 33.2L931.5 34.1L936 36.1L940.5 36.7L945 38.6"/>
+        </svg>
+        <div class="es-hl"><svg viewBox="0 0 1200 300" preserveAspectRatio="none"><path class="es-p-hl" d="M0 274L4.5 273.4L9 272.2L13.5 272.4L18 270.8L22.5 270.3L27 270.1L31.5 268.1L36 267.9L40.5 265.7L45 264.6L49.5 262.2L54 258.9L58.5 255.3L63 253.8L67.5 250.7L72 247L76.5 243.1L81 240.4L85.5 237.2L90 232.9L94.5 232.1L99 228.6L103.5 228.4L108 227.5L112.5 226.5L117 225.3L121.5 223.4L126 223.8L130.5 222.2L135 221.3L139.5 221.1L144 220.1L148.5 220.3L153 219.7L157.5 218.8L162 217.2L166.5 217L171 216.6L175.5 215.5L180 215.1L184.5 214.8L189 213.1L193.5 212.7L198 213L202.5 211.7L207 211.2L211.5 209.9L216 209.6L220.5 209.9L225 207.9L229.5 209L234 207.9L238.5 206.6L243 207.3L247.5 206L252 206.4L256.5 204.6L261 203.9L265.5 203.9L270 202.8L274.5 203.4L279 202.2L283.5 201.9L288 201.5L292.5 201.1L297 200.3L300 200L306 199.1L310.5 198L315 198.3L319.5 196.1L324 195.2L328.5 193.5L333 192.7L337.5 192.6L342 191L346.5 188.9L351 188.6L355.5 185.9L360 184.6L364.5 182.8L369 180.9L373.5 177.5L378 176.7L382.5 174.5L387 172.2L391.5 169.3L396 169L400.5 166.4L405 164.3L409.5 161.8L414 160.1L418.5 158.1L423 157.4L427.5 155.2L432 153.4L436.5 150.5L441 148.5L445.5 148.3L450 146.4L454.5 144.4L459 142.6L463.5 140.3L468 138.3L472.5 137.1L477 135.8L481.5 133.2L486 131.5L490.5 129.3L495 126.7L499.5 125.4L504 123.9L508.5 121.9L513 119.9L517.5 119.2L522 115.5L526.5 113.8L531 111.7L535.5 109.9L540 108.8L544.5 107L549 105.8L553.5 103.1L558 102.7L562.5 101.2L567 99.5L571.5 98.2L576 96.5L580.5 95.8L585 94.6L589.5 92.8L594 91.4L600 89.29L603 88.6L607.5 86.7L612 85.6L616.5 85.3L621 83.8L625.5 82.4L630 81.1L634.5 80.3L639 77.6L643.5 76L648 75.7L652.5 74.4L657 73.8L661.5 72.3L666 70.3L670.5 68.9L675 66.2L679.5 65.9L684 64.6L688.5 61.2L693 60.6L697.5 59.9L702 57.9L706.5 57.7L711 55.6L715.5 53.7L720 53L724.5 52.4L729 52.4L733.5 51.3L738 50.8L742.5 48.8L747 48.4L751.5 47L756 46.9L760.5 46.2L765 43.8L769.5 42.2L774 41.1L778.5 39.7L783 38.2L787.5 36.9L792 36.6L796.5 34.8L801 34.1L805.5 33.9L810 33.4L814.5 32.7L819 32.9L823.5 32.6L828 32.8L832.5 34.4L837 33.8L841.5 33.4L846 32.6L850.5 32.5L855 31.5L859.5 30.3L864 29.6L868.5 29L873 27.6L877.5 26.5L882 26.2L886.5 26.5L891 25.8L895.5 25.4L900 25.07"/></svg></div>
+        <div class="es-st es-st-0" style="--x:0;--y:91.333%"><i>1</i></div>
+        <div class="es-st es-st-1" style="--x:.25;--y:66.667%"><i>2</i><em>6,400 m<span>Camp 2</span></em></div>
+        <div class="es-st es-st-2" style="--x:.5;--y:29.762%"><i>3</i><em>7,950 m<span>Camp 4</span></em></div>
+        <div class="es-st es-st-3 is-on" style="--x:.75;--y:8.357%"><i>4</i><em>8,849 m<span>Summit</span></em></div>
+      </div>
+    </div>
+
+    <ol class="es-grid es-stages">
+      <li><h3><span class="es-sn" aria-hidden="true">1</span>Consultation</h3><p>A free call with our team about your interests and which path&nbsp;fits.</p></li>
+      <li><h3><span class="es-sn" aria-hidden="true">2</span>Foundations</h3><p>A self-paced course: choosing a question, reading papers, designing a study, analysis and writing.</p></li>
+      <li><h3><span class="es-sn" aria-hidden="true">3</span>Your path</h3><p>Weekly one-on-one sessions with a mentor, plus a monthly review by a founder.</p></li>
+      <li><h3><span class="es-sn" aria-hidden="true">4</span>Showcase</h3><p>How to present the research on college applications, a resume and LinkedIn.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="es-sec es-mist" id="es-results" data-tone="light">
+  <div class="es-wrap">
+    <div class="es-rec-top">
+      <h2 class="es-h2 es-rec-h">Mentors who have competed, published and won.</h2>
+      <p class="es-rec-stat" data-es-scholarships hidden><b class="es-rec-sv" data-es-scholarships-value></b><span class="es-rec-sl">in scholarships won by our mentors and the students they have worked&nbsp;with</span></p>
+    </div>
+
+    <div class="es-rec">
+      <div class="es-rg es-rg-m">
+        <h3 class="es-rg-h">Our founding mentors</h3>
+        <ul class="es-proof">
+          <li><p class="es-pv">Grand Award</p><p class="es-pn">ISEF</p><p class="es-pd">Robotics and Intelligent Machines</p></li>
+          <li><p class="es-pv">1st place</p><p class="es-pn">National JSHS</p><p class="es-pd">Medicine and Health</p></li>
+        </ul>
+        <dl class="es-led">
+          <div class="es-l1" style="--r:3"><dt>Regeneron STS</dt><dd>Top 300 Scholar</dd></div>
+          <div style="--r:4"><dt>Stockholm Junior Water Prize</dt><dd>2nd place</dd></div>
+          <div style="--r:5"><dt>Broadcom MASTERS</dt><dd>Finalist</dd></div>
+          <div style="--r:6"><dt>3M Young Scientist Challenge</dt><dd>Top 10</dd></div>
+          <div class="es-lg es-wide" style="--r:7"><dt>Publication</dt><dd>First-author papers in peer-reviewed journals, with coauthors at Johns&nbsp;Hopkins and Carnegie&nbsp;Mellon</dd></div>
+          <div class="es-wide" style="--r:8"><dt>Between them, admitted to</dt><dd>Harvard, MIT, Stanford, Princeton, Yale, Columbia, Cornell, Johns&nbsp;Hopkins, Carnegie&nbsp;Mellon and UC&nbsp;Berkeley</dd></div>
+          <div class="es-wide" style="--r:9"><dt>Scholarship</dt><dd>A full ride from the Masason Foundation</dd></div>
+        </dl>
+      </div>
+
+      <div class="es-rg es-rg-s">
+        <h3 class="es-rg-h">Students our mentors have worked with<sup>*</sup></h3>
+        <ul class="es-proof">
+          <li><p class="es-pv">Top 40</p><p class="es-pn">Regeneron STS</p></li>
+          <li><p class="es-pv">$50,000</p><p class="es-pn">Davidson Fellows</p></li>
+        </ul>
+        <dl class="es-led">
+          <div class="es-l1" style="--r:3"><dt>ISEF</dt><dd>Two first-place awards</dd></div>
+          <div style="--r:4"><dt>National JSHS</dt><dd>1st place</dd></div>
+          <div class="es-lg es-wide" style="--r:7"><dt>Publication</dt><dd>Papers in Nature&#8209;family journals</dd></div>
+          <div class="es-wide" style="--r:8"><dt>Admitted to</dt><dd>Harvard, Yale, Princeton, Stanford and&nbsp;MIT</dd></div>
+        </dl>
+      </div>
+
+      <p class="es-fn"><sup>*</sup> Results of students our mentors worked with individually before Everest Scholars.</p>
+    </div>
+  </div>
+</section>
+
+<section class="es-sec es-light" id="es-paths" data-tone="light">
+  <div class="es-wrap">
+    <div class="es-grid es-head">
+      <p class="es-label">Paths</p>
+      <h2>Three paths. Pick one or combine&nbsp;them.</h2>
+      <p class="es-sub es-sub-w">You get exact pricing on the free call, before you commit. <span class="es-nw">Installments cost nothing extra.</span> <span class="es-nw">Full refund before the second session.</span></p>
+    </div>
+
+    <div class="es-table">
+      <div class="es-rl" aria-hidden="true"><span></span><span>What we cover</span><span>Aimed at</span><span></span></div>
+      <article class="es-path" id="es-p-competitions">
+        <header class="es-c es-c-h"><h3>Competitions</h3><p>Take a project from a regional fair to national and international competitions.</p></header>
+        <div class="es-c es-c-cov"><p class="es-k">What we cover</p><ul><li>Research plan and required forms</li><li>Abstract and board or poster</li><li>Three mock judge interviews</li></ul></div>
+        <div class="es-c es-c-for"><p class="es-k">Aimed at</p><p>ISEF and affiliated fairs, JSHS, Regeneron STS, Stockholm Junior Water Prize, Brain&nbsp;Bee</p></div>
+        <div class="es-c es-c-cta"><a class="es-go" href="#es-apply" aria-label="Book a free call about Competitions"><span>Book a free call</span><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
+      </article>
+      <article class="es-path" id="es-p-publication">
+        <header class="es-c es-c-h"><h3>Publication</h3><p>Work with a professor and publish.</p></header>
+        <div class="es-c es-c-cov"><p class="es-k">What we cover</p><ul><li>Finding the right lab</li><li>The cold email</li><li>The manuscript</li></ul></div>
+        <div class="es-c es-c-for"><p class="es-k">Aimed at</p><p>A journal or conference submission, after a preprint on arXiv, bioRxiv or&nbsp;PsyArXiv</p></div>
+        <div class="es-c es-c-cta"><a class="es-go" href="#es-apply" aria-label="Book a free call about Publication"><span>Book a free call</span><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
+      </article>
+      <article class="es-path" id="es-p-programs">
+        <header class="es-c es-c-h"><h3>Programs</h3><p>Get into selective summer research programs.</p></header>
+        <div class="es-c es-c-cov"><p class="es-k">What we cover</p><ul><li>A list of up to six programs</li><li>Research statements and essays</li><li>Recommendation letters</li></ul></div>
+        <div class="es-c es-c-for"><p class="es-k">Aimed at</p><p>RSI, SSP, MITES, Simons Summer Research Program, Garcia, Clark Scholars, COSMOS, PROMYS, Ross</p></div>
+        <div class="es-c es-c-cta"><a class="es-go" href="#es-apply" aria-label="Book a free call about Programs"><span>Book a free call</span><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
+      </article>
+    </div>
+
+    <div class="es-grid es-all" id="es-p-all">
+      <div class="es-all-h"><h3>Combining paths</h3><span class="es-dur">All three in 12 months</span></div>
+      <p class="es-all-d">Take one path, two, or all three. We suggest the mix on the&nbsp;call.</p>
+    </div>
+
+    <div class="es-grid es-all es-inc">
+      <div class="es-all-h"><h3>Included</h3><span class="es-dur">With every path</span></div>
+      <ul class="es-inc-l">
+        <li><b>Research handbook</b><span>300 pages</span></li>
+        <li><b>Community</b><span>600+ student researchers</span></li>
+        <li><b>Progress note</b><span>Monthly, to parents</span></li>
+        <li><b>Project-idea tool</b><span>For finding a question</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="es-sec es-dark es-pol-sec" id="es-policies" data-tone="dark">
+  <div class="es-wrap">
+    <h2 class="es-state">You do the work.</h2>
+    <div class="es-grid es-pol">
+      <p><b>We never write a student’s paper, code, essay or poster.</b> ISEF, the STS and journals require the student’s own work.</p>
+      <p><b>No guarantees.</b> No honest program can promise awards, publication or admission.</p>
+    </div>
+  </div>
+</section>
+
+<section class="es-sec es-light" id="es-faq" data-tone="light">
+  <div class="es-wrap es-grid">
+    <h2 class="es-faq-h">Questions families&nbsp;ask.</h2>
+    <div class="es-faq-list">
+      <details open><summary>Who is it for?<i aria-hidden="true"></i></summary><p>High school students in grades 9–12 who want to do real research. Foundations starts at the beginning, with choosing a question.</p></details>
+      <details><summary>How much does it cost?<i aria-hidden="true"></i></summary><p>It depends on the path, or the mix of paths. You get exact pricing on the free call, before you commit to anything. Monthly installments cost nothing extra. Full refund before the second session, and the unused portion refunded after that.</p></details>
+      <details><summary>How many hours a week?<i aria-hidden="true"></i></summary><p>3–5 hours a week.</p></details>
+      <details><summary>Is it online?<i aria-hidden="true"></i></summary><p>Yes, fully online, from the Foundations course to the weekly sessions.</p></details>
+      <details><summary>Do you guarantee awards, publication or admission?<i aria-hidden="true"></i></summary><p>No. Judges, editors and admissions offices make those decisions, not us.</p></details>
+      <details><summary>Will you write any of it?<i aria-hidden="true"></i></summary><p>Never. Mentors ask questions and give feedback. Every word and every line of code is the student’s.</p></details>
+      <details><summary>Do you help with college applications?<i aria-hidden="true"></i></summary><p>Only with presenting the research: the activities list, a resume and LinkedIn.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="es-sec es-dark es-apply" id="es-apply" data-tone="dark">
+  <div class="es-apply-media" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1767286669935-e466c9ebb881?auto=format&amp;fit=crop&amp;w=2400&amp;q=80"
+         srcset="https://images.unsplash.com/photo-1767286669935-e466c9ebb881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w,
+                 https://images.unsplash.com/photo-1767286669935-e466c9ebb881?auto=format&amp;fit=crop&amp;w=2400&amp;q=80 2400w"
+         sizes="100vw" width="2400" height="1350" loading="lazy" alt="">
+  </div>
+  <div class="es-wrap es-grid">
+    <div class="es-apply-copy">
+      <p class="es-label">Book a call</p>
+      <h2>Start with a free consultation.</h2>
+      <p class="es-apply-sub">We walk you through the paths and the cost, and answer your questions. The next cohort starts in January&nbsp;2027.</p>
+    </div>
+    <div class="es-form-card">
+      <form id="es-apply-form" action="/email_lists/1278745/subscriptions" method="post" novalidate>
+        <div class="es-fields">
+          <div class="es-field">
+            <label for="es-name">Student’s name</label>
+            <input id="es-name" name="name" type="text" autocomplete="name" required aria-describedby="es-name-err">
+            <p class="es-err" id="es-name-err" aria-live="polite"></p>
+          </div>
+          <div class="es-field">
+            <label for="es-email">Parent or student email</label>
+            <input id="es-email" name="email" type="email" autocomplete="email" required aria-describedby="es-email-err">
+            <p class="es-err" id="es-email-err" aria-live="polite"></p>
+          </div>
+          <div class="es-ts"></div>
+          <button type="submit">Request a call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <p class="es-form-fine">Free. We will email you to pick a time.</p>
+          <p class="es-form-err" id="es-form-err" aria-live="polite"></p>
+        </div>
+        <div class="es-ok" role="status" aria-live="polite">
+          <i><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6"/></svg></i>
+          <p tabindex="-1"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="es-foot" data-tone="dark">
+  <div class="es-wrap">
+    <div class="es-foot-top">
+      <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top">Everest<span>Scholars</span></a>
+      <nav aria-label="Footer">
+        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Paths</a><a href="#es-faq">FAQ</a><a href="#es-apply">Book a call</a>
+      </nav>
+    </div>
+    <div class="es-legal">
+      <p>© 2026 Everest Scholars. Not affiliated with any university, competition or program named on this site. Past results do not guarantee future outcomes.</p>
+      <p><a href="/terms">Terms</a><a href="/privacy">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var ES_SCHOLARSHIPS = '$800K'; // the exact confirmed total, in the form '$XXX,XXX'. Leave '' until confirmed.
+  var root = document.getElementById('es');
+  if (!root) return;
+
+  /* scholarships stat: every [data-es-scholarships] block stays hidden until a confirmed figure is set above */
+  var scholarships = String(ES_SCHOLARSHIPS).trim();
+  if (scholarships) {
+    Array.prototype.forEach.call(root.querySelectorAll('[data-es-scholarships]'), function (el) {
+      var v = el.querySelector('[data-es-scholarships-value]');
+      if (v) v.textContent = scholarships;
+      el.removeAttribute('hidden');
+    });
+  }
+
+  /* nav: solid once scrolled; light over light sections */
+  var nav = root.querySelector('.es-nav');
+  var zones = Array.prototype.slice.call(root.querySelectorAll('section[data-tone], footer[data-tone]'));
+  var queued = false;
+  function paintNav() {
+    queued = false;
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    var probe = nav.offsetHeight / 2, tone = 'dark';
+    for (var i = 0; i < zones.length; i++) {
+      var r = zones[i].getBoundingClientRect();
+      if (r.top <= probe && r.bottom > probe) { tone = zones[i].getAttribute('data-tone'); break; }
+    }
+    nav.classList.toggle('is-light', tone === 'light' && !nav.classList.contains('is-open'));
+  }
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(paintNav); } }
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  paintNav();
+
+  /* small-screen section menu */
+  var menuBtn = root.querySelector('.es-menu-btn');
+  var menuLabel = menuBtn ? menuBtn.querySelector('span') : null;
+  function setMenu(open) {
+    if (!menuBtn) return;
+    nav.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (menuLabel) menuLabel.textContent = open ? 'Close' : 'Menu';
+    paintNav();
+  }
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+    Array.prototype.forEach.call(root.querySelectorAll('.es-links a'), function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
+  }
+
+  /* route: hovering a stage traces the climb up to its station */
+  var plot = root.querySelector('.es-plot');
+  var stations = root.querySelectorAll('.es-st');
+  var stages = root.querySelectorAll('.es-stages li');
+  var reach = [0.012, 0.25, 0.5, 1];
+  function mark(n, lit) {
+    plot.style.setProperty('--p', reach[n]);
+    for (var i = 0; i < stations.length; i++) {
+      stations[i].classList.toggle('is-on', i === n);
+      stages[i].classList.toggle('is-on', lit && i === n);
+    }
+  }
+  if (plot) {
+    Array.prototype.forEach.call(stages, function (li, i) {
+      li.addEventListener('mouseenter', function () { mark(i, true); });
+      li.addEventListener('mouseleave', function () { mark(3, false); });
+    });
+  }
+
+  /* application form */
+  var form = document.getElementById('es-apply-form');
+  if (!form) return;
+  var nameEl = form.querySelector('input[name="name"]');
+  var emailEl = form.querySelector('input[name="email"]');
+  /* Podia protects email signups with Cloudflare Turnstile; render the same invisible check */
+  var tsBox = form.querySelector('.es-ts'), tsId = null, tsToken = null;
+  var tsMeta = document.querySelector('meta[name="turnstile-site-key"]');
+  var tsKey = tsMeta ? tsMeta.getAttribute('content') : null;
+  function renderTs() {
+    if (!tsKey || !tsBox || tsId !== null) return;
+    if (!window.turnstile || !window.turnstile.render) { setTimeout(renderTs, 300); return; }
+    try {
+      tsId = window.turnstile.render(tsBox, { sitekey: tsKey, appearance: 'interaction-only', theme: 'dark',
+        callback: function (t) { tsToken = t; }, 'expired-callback': function () { tsToken = null; }, 'error-callback': function () { tsToken = null; } });
+    } catch (_) {}
+  }
+  var ON_PODIA = !!document.querySelector('meta[name="turnstile-site-key"], meta[name="csrf-token"]') || /podia\.com$/.test(location.hostname);
+  if (ON_PODIA) {
+    if (!window.turnstile && !document.querySelector('script[src*="turnstile/v0/api.js"]')) {
+      var tsScript = document.createElement('script'); tsScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'; tsScript.async = true; tsScript.defer = true; document.head.appendChild(tsScript);
+    }
+    renderTs();
+  }
+  function waitForToken(ms) {
+    return new Promise(function (resolve) {
+      var t0 = Date.now();
+      (function check() {
+        var t = tsToken || (window.turnstile && tsId !== null && window.turnstile.getResponse ? window.turnstile.getResponse(tsId) : null);
+        if (t || Date.now() - t0 > ms) return resolve(t || null);
+        setTimeout(check, 250);
+      })();
+    });
+  }
+  function setErr(input, msg) {
+    var box = document.getElementById(input.getAttribute('aria-describedby'));
+    if (box) box.textContent = msg || '';
+    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  }
+  [nameEl, emailEl].forEach(function (el) { el.addEventListener('input', function () { setErr(el, ''); }); });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    var name = nameEl.value.trim();
+    var email = emailEl.value.trim();
+    var ok = true;
+    if (!name) { setErr(nameEl, 'Enter the student’s name'); ok = false; } else setErr(nameEl, '');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setErr(emailEl, 'Enter a valid email'); ok = false; } else setErr(emailEl, '');
+    if (!ok) { (name ? emailEl : nameEl).focus(); return; }
+    var btn = form.querySelector('button[type="submit"]');
+    var formErr = document.getElementById('es-form-err');
+    if (formErr) formErr.textContent = '';
+    btn.disabled = true;
+    const onPodia = ON_PODIA;
+    if (onPodia) {
+      var sent = false;
+      try {
+        var token = await waitForToken(12000);
+        var fd = new FormData(form);
+        if (token) fd.set('cf-turnstile-response', token);
+        var res = await fetch(form.action, { method: 'POST', body: fd, credentials: 'same-origin', headers: { 'Accept': 'text/javascript, text/html, */*' } });
+        var body = await res.text();
+        sent = res.ok && !/invalid|error|already/i.test(body);
+        if (!sent && /already/i.test(body)) sent = true;
+      } catch (_) { sent = false; }
+      if (!sent) {
+        btn.disabled = false;
+        if (formErr) formErr.textContent = 'That did not go through. Please try again in a moment.';
+        if (window.turnstile && tsId !== null) { try { window.turnstile.reset(tsId); } catch (_) {} }
+        return;
+      }
+    }
+    form.classList.add('es-done');
+    var okMsg = form.querySelector('.es-ok p');
+    okMsg.textContent = 'Thank you. We will email you shortly to schedule your call.';
+    okMsg.focus({ preventScroll: true });
+  });
+})();
+</script>
+</body>
+</html>
