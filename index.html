@@ -52,6 +52,7 @@ html{scroll-behavior:smooth}
 #es .es-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 #es .es-nw{white-space:nowrap}
 #es [hidden]{display:none!important}
+#es::selection,#es ::selection{background:var(--glow);color:var(--night)}
 
 #es .es-wrap{max-width:calc(var(--max) + 2*var(--pad-x));margin:0 auto;padding:0 var(--pad-x)}
 #es .es-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
@@ -170,12 +171,19 @@ html{scroll-behavior:smooth}
 #es .es-rec-col{min-width:0;border-top:1px solid var(--ink);padding-top:20px}
 #es .es-rec-col h3{font-size:clamp(23px,2.1vw,30px);line-height:1.12;letter-spacing:-.025em}
 #es .es-rec-intro{margin-top:10px;min-height:3.2em;max-width:24em;font-size:14.5px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
-#es .es-college-featured{margin-top:26px;border-top:1px solid var(--line-2)}
-#es .es-college-featured li{display:flex;align-items:center;min-width:0;height:69px;border-bottom:1px solid var(--line-2)}
-#es .es-college-featured img{display:block;width:auto;height:auto;max-width:88%;max-height:48px;object-fit:contain;object-position:left center}
-#es .es-college-featured .es-logo-mit{max-height:46px}
-#es .es-college-featured .es-logo-stanford{max-height:42px}
-#es .es-college-featured .es-logo-yale{max-height:48px}
+#es .es-college-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,94px);column-gap:18px;align-items:center;margin-top:26px;padding:16px 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+#es .es-college-featured li{display:flex;align-items:center;justify-content:center;gap:14px;min-width:0;min-height:0}
+#es .es-college-featured li:first-child{gap:10px}
+#es .es-college-featured li:nth-child(3){grid-column:1/-1}
+#es .es-college-featured li:nth-child(4){gap:10px}
+#es .es-college-featured img{display:block;width:auto;height:auto;max-width:100%;max-height:54px;object-fit:contain}
+#es .es-college-featured .es-logo-mit{max-height:52px}
+#es .es-college-featured .es-logo-stanford-mark{max-width:25%;max-height:48px;flex:none}
+#es .es-college-featured .es-logo-stanford-wordmark{max-width:65%;max-height:36px}
+#es .es-college-featured .es-logo-harvard{max-width:78%;max-height:74px}
+#es .es-college-featured .es-logo-princeton-shield{max-width:25%;max-height:55px;flex:none}
+#es .es-college-featured .es-logo-princeton{max-width:65%;max-height:36px}
+#es .es-college-featured .es-logo-yale{max-height:54px}
 #es .es-college-more-label{margin-top:22px;font-size:11px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 #es .es-college-marquee{overflow:hidden;margin-top:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 #es .es-college-track{display:flex;width:max-content;animation:es-college-drift 65s linear infinite}
@@ -188,14 +196,16 @@ html{scroll-behavior:smooth}
 #es .es-scholarship-total{margin-top:28px;padding-bottom:28px;border-bottom:1px solid var(--line-2)}
 #es .es-scholarship-total b{display:block;font-size:clamp(43px,3.8vw,58px);line-height:1;letter-spacing:-.04em;font-weight:500;font-variant-numeric:tabular-nums}
 #es .es-scholarship-total span{display:block;margin-top:10px;max-width:22em;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+#es .es-scholarship-pull{margin-top:27px;max-width:18em;font-size:clamp(22px,1.9vw,27px);line-height:1.2;letter-spacing:-.025em;font-weight:500;text-wrap:balance}
+#es .es-scholarship-proof{margin-top:14px;max-width:28em;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
 #es .es-competition-hook{margin-top:26px;padding-bottom:27px;border-bottom:1px solid var(--line-2)}
 #es .es-competition-hook b{display:block;font-size:clamp(45px,4vw,60px);line-height:1;letter-spacing:-.04em;font-weight:500;font-variant-numeric:tabular-nums}
 #es .es-competition-hook span{display:block;margin-top:12px;max-width:17em;font-size:17px;line-height:1.3;color:var(--ink-2);text-wrap:pretty}
 #es .es-competition-summary{margin-top:24px;max-width:23em;font-size:19px;line-height:1.42;letter-spacing:-.015em;text-wrap:pretty}
 #es .es-competition-summary strong{font-weight:500}
-#es .es-competition-names{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:22px;max-width:25em}
-#es .es-competition-names li{font-size:14px;line-height:1.4;color:var(--ink-2);white-space:nowrap}
-#es .es-competition-names li:not(:last-child)::after{content:"·";display:inline-block;padding:0 10px;color:var(--ink-3)}
+#es .es-competition-names{display:flex;flex-wrap:wrap;gap:9px 0;margin-top:25px;max-width:27em}
+#es .es-competition-names li{min-width:0;max-width:100%;font-size:clamp(16px,1.35vw,19px);line-height:1.35;font-weight:500;color:var(--ink)}
+#es .es-competition-names li:not(:last-child)::after{content:"·";display:inline-block;padding:0 11px;color:var(--ink-3);font-weight:400}
 #es .es-competition-turn{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:27px;padding-top:19px;border-top:1px solid var(--line-2);font-size:clamp(22px,2vw,28px);font-weight:500;line-height:1.2;letter-spacing:-.025em;color:var(--ink)}
 #es .es-competition-turn svg{width:21px;height:21px;flex:none;transition:transform .25s var(--ease)}
 #es .es-rec-foot{margin-top:36px;padding-top:17px;border-top:1px solid var(--line-2);font-size:13.5px;line-height:1.5;color:var(--ink-3)}
@@ -554,11 +564,11 @@ html{scroll-behavior:smooth}
       <div class="es-rec-col">
         <h3>Colleges</h3>
         <p class="es-rec-intro">Where our founding mentors and students they previously worked with have been admitted.</p>
-        <ul class="es-college-featured" aria-label="Harvard, MIT, Stanford, Princeton and Yale">
-          <li><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/harvard.svg" data-local-src="assets/colleges/harvard.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Harvard_University_logo.svg" alt="Harvard University" loading="lazy" decoding="async"></li>
+        <ul class="es-college-featured" aria-label="Stanford, MIT, Harvard, Princeton and Yale">
+          <li><img class="es-logo-stanford-mark" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/stanford-block-s.png" data-local-src="assets/colleges/stanford-block-s.png" data-fallback-src="https://identity.stanford.edu/wp-content/uploads/sites/3/2020/07/block-s-right.png" alt="" loading="lazy" decoding="async"><img class="es-logo-stanford-wordmark" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/stanford-wordmark.svg" data-local-src="assets/colleges/stanford-wordmark.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Stanford_wordmark_(2012).svg" alt="Stanford University" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-mit" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/mit.svg" data-local-src="assets/colleges/mit.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/MIT_2023_red_logo.svg" alt="MIT" loading="lazy" decoding="async"></li>
-          <li><img class="es-logo-stanford" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/stanford.png" data-local-src="assets/colleges/stanford.png" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Stanford-university.png" alt="Stanford University" loading="lazy" decoding="async"></li>
-          <li><img class="es-logo-princeton" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/princeton.svg" data-local-src="assets/colleges/princeton.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Princeton_text_logo.svg" alt="Princeton University" loading="lazy" decoding="async"></li>
+          <li><img class="es-logo-harvard" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/harvard.svg" data-local-src="assets/colleges/harvard.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Harvard_University_logo.svg" alt="Harvard University" loading="lazy" decoding="async"></li>
+          <li><img class="es-logo-princeton-shield" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/princeton-shield.svg" data-local-src="assets/colleges/princeton-shield.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Princeton_seal.svg" alt="" loading="lazy" decoding="async"><img class="es-logo-princeton" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/princeton.svg" data-local-src="assets/colleges/princeton.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Princeton_text_logo.svg" alt="Princeton University" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-yale" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/yale.svg" data-local-src="assets/colleges/yale.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Yale_University_logo.svg" alt="Yale University" loading="lazy" decoding="async"></li>
         </ul>
         <p class="es-college-more-label">Also admitted to</p>
@@ -585,17 +595,19 @@ html{scroll-behavior:smooth}
         <h3>Scholarships</h3>
         <p class="es-rec-intro">Awards earned by our mentors and students they previously worked with.</p>
         <p class="es-scholarship-total" data-es-scholarships hidden><b data-es-scholarships-value></b><span>in scholarships won, combined</span></p>
+        <p class="es-scholarship-pull">Research can be worth more than a line on a résumé.</p>
+        <p class="es-scholarship-proof">That total includes a Masason Foundation full ride and a $20,000 STEM Stars scholarship earned by founding mentors, plus a $50,000 Davidson Fellows award earned by a former student. We bring that experience to the research we guide.</p>
       </div>
       <div class="es-rec-col">
         <h3>Competitions</h3>
         <p class="es-rec-intro">The best track record you can imagine.</p>
         <div class="es-competition-hook">
-          <b>Top 0.01%</b>
+          <b>Top 0.001%</b>
           <span>of high school researchers worldwide.</span>
         </div>
-        <p class="es-competition-summary">Our mentors and students they have worked with have won <strong>first place</strong> and earned top honors at some of the toughest research competitions.</p>
-        <ul class="es-competition-names" aria-label="Research competitions where our mentors and students have earned awards or placements">
-          <li>ISEF</li><li>National JSHS</li><li>Regeneron STS</li><li>Broadcom MASTERS</li><li>Stockholm Junior Water Prize</li>
+        <p class="es-competition-summary">Our mentors and students they have worked with have won <strong>first place</strong> and earned top honors across major research competitions and awards.</p>
+        <ul class="es-competition-names" aria-label="Research competitions and awards where our mentors and students have earned honors">
+          <li>ISEF</li><li>National JSHS</li><li>Regeneron STS</li><li>Broadcom MASTERS</li><li>National STEM Challenge</li><li>3M Young Scientist Challenge</li><li>Stockholm Junior Water Prize</li><li>Davidson Fellows</li>
         </ul>
         <a class="es-competition-turn" href="#es-apply" aria-label="Now it’s your turn. Book a free call"><span>Now it’s your turn.</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>

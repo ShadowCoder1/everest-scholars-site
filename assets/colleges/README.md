@@ -4,8 +4,10 @@ These marks identify schools named in the results section. Their appearance does
 
 - `harvard.svg`: [Harvard University logo](https://commons.wikimedia.org/wiki/File:Harvard_University_logo.svg)
 - `mit.svg`: [MIT 2023 red logo](https://commons.wikimedia.org/wiki/File:MIT_2023_red_logo.svg)
-- `stanford.png`: [Stanford signature](https://commons.wikimedia.org/wiki/File:Stanford-university.png)
+- `stanford-block-s.png`: [Stanford Block S with tree](https://identity.stanford.edu/visual-identity/stanford-logos/block-s/)
+- `stanford-wordmark.svg`: [Stanford wordmark](https://commons.wikimedia.org/wiki/File:Stanford_wordmark_(2012).svg)
 - `princeton.svg`: [Princeton text logo](https://commons.wikimedia.org/wiki/File:Princeton_text_logo.svg)
+- `princeton-shield.svg`: [Princeton shield](https://commons.wikimedia.org/wiki/File:Princeton_seal.svg)
 - `yale.svg`: [Yale University logo](https://commons.wikimedia.org/wiki/File:Yale_University_logo.svg)
 - `columbia.svg`: [Columbia University logo](https://commons.wikimedia.org/wiki/File:Columbia_University_1754.svg)
 - `cornell.svg`: [Cornell University logo](https://commons.wikimedia.org/wiki/File:Cornell_University_logo.svg)
