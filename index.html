@@ -104,21 +104,23 @@ html{scroll-behavior:smooth}
 @keyframes es-line{from{transform:translateY(104%)}to{transform:none}}
 
 #es .es-hero-body{margin-top:auto;padding-top:132px;width:100%}
-/* floating record in the hero sky (decorative; the same facts are listed in the Results section) */
-#es .es-float{position:relative;z-index:0;padding-top:clamp(104px,13vh,150px);pointer-events:none;user-select:none}
-#es .es-float-k{font-size:13px;letter-spacing:.01em;color:rgba(255,255,255,.62);margin-bottom:14px;animation:es-fade 1s .6s both}
-#es .es-float-rows{display:grid;gap:10px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 46%,transparent 64%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 46%,transparent 64%);animation:es-fade 1.6s .8s both}
-#es .es-fr{overflow:hidden;white-space:nowrap}
-#es .es-ft{display:flex;width:max-content;animation:es-drift var(--d,160s) linear infinite}
-#es .es-ft span{display:inline-flex;align-items:center;font-size:16px;line-height:1.5;letter-spacing:-.01em;color:#fff;padding-right:28px}
-#es .es-ft span::after{content:"";width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.6;margin-left:28px}
-#es .es-fr1 .es-ft{--d:150s;opacity:.62}
-#es .es-fr2 .es-ft{--d:185s;opacity:.42;animation-direction:reverse}
-#es .es-fr3 .es-ft{--d:165s;opacity:.3}
-#es .es-fr4 .es-ft{--d:210s;opacity:.2;animation-direction:reverse}
-#es .es-float+.es-hero-body{padding-top:40px}
-#es .es-float-m{display:none}
-@keyframes es-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* awards that surface one at a time in the empty sky, like survey markers (decorative; the Results section lists them properly) */
+#es .es-sky{position:relative;width:100%;margin-top:auto;padding-top:96px;pointer-events:none;user-select:none}
+#es .es-sky-k{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);animation:es-fade 1.2s .9s both}
+#es .es-sky-k::before{content:"";width:22px;height:1px;background:rgba(255,255,255,.35)}
+#es .es-sky-f{position:relative;height:clamp(150px,19vh,210px);margin-top:20px}
+#es .es-sk{position:absolute;left:var(--x);top:calc((100% - 26px) * var(--r) / 3);display:flex;align-items:center;gap:11px;white-space:nowrap;color:#fff;font-size:15.5px;letter-spacing:-.012em;line-height:26px;
+  opacity:0;transform:translateY(10px);filter:blur(6px);transition:opacity 1.3s var(--ease),transform 1.6s var(--ease),filter 1.3s var(--ease)}
+#es .es-sk::before{content:"";flex:none;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
+#es .es-sk.is-in{opacity:var(--o);transform:none;filter:none}
+#es .es-sk.is-out{opacity:0;transform:translateY(-8px);filter:blur(4px)}
+#es .es-sk-n{--o:.82}
+#es .es-sk-m{--o:.52;font-size:14.5px}
+#es .es-sk-f{--o:.32;font-size:13.5px}
+#es .es-sk-f::before{box-shadow:none}
+#es .es-sky+.es-hero-body{margin-top:0;padding-top:clamp(36px,5vh,56px)}
+#es .es-sky-m{display:none}
+
 
 #es .es-status{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:24px;text-wrap:balance;animation:es-up .8s .15s var(--ease) both}
 #es .es-hero h1{font-size:clamp(46px,6.9vw,104px);line-height:.96;letter-spacing:-.046em;font-weight:500}
@@ -332,9 +334,11 @@ html{scroll-behavior:smooth}
 
 /* ---------- responsive ---------- */
 @media (min-width:901px) and (max-height:820px){
-  #es .es-float{padding-top:96px}
-  #es .es-fr4{display:none}
-  #es .es-float+.es-hero-body{padding-top:28px}
+  #es .es-sky{padding-top:84px}
+  #es .es-sky-f{height:112px;margin-top:14px}
+  #es .es-sk{top:calc((100% - 26px) * var(--r) / 2)}
+  #es .es-sk[style*="--r:3"]{display:none}
+  #es .es-sky+.es-hero-body{padding-top:28px}
   #es .es-hero-body{padding-top:108px}
   #es .es-hero h1{font-size:clamp(46px,6.1vw,92px)}
   #es .es-status{margin-bottom:20px}
@@ -346,6 +350,9 @@ html{scroll-behavior:smooth}
   #es .es-links a{padding:10px 10px}
 }
 @media (max-width:900px){
+  #es .es-sk[style*="--x:53%"],#es .es-sk[style*="--x:41%"]{display:none}
+  #es .es-sky{margin-top:0}
+  #es .es-sky+.es-hero-body{margin-top:auto}
   #es{--gap:20px}
   #es .es-menu-btn{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 12px;margin-left:auto;margin-right:4px;font-size:15px;font-weight:500}
   #es .es-menu-btn i{position:relative;width:14px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transition:transform .25s var(--ease),height .25s var(--ease)}
@@ -387,13 +394,11 @@ html{scroll-behavior:smooth}
   #es .es-form-card{margin-top:44px}
 }
 @media (max-width:640px){
-  #es .es-hero>.es-float{display:none}
-  #es .es-float+.es-hero-body{padding-top:348px}
-  #es .es-float-m{display:block;padding-top:34px;margin-right:calc(var(--pad-x) * -1);margin-left:calc(var(--pad-x) * -1)}
-  #es .es-float-m .es-float-k{padding:0 var(--pad-x);margin-bottom:12px}
-  #es .es-float-m .es-float-rows{gap:8px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
-  #es .es-float-m .es-ft span{font-size:14px;padding-right:20px}
-  #es .es-float-m .es-ft span::after{margin-left:20px}
+  #es .es-hero>.es-sky{display:none}
+  #es .es-sky+.es-hero-body{padding-top:348px}
+  #es .es-sky-m{display:block;margin-top:34px;pointer-events:none}
+  #es .es-sky-m .es-sky-f{height:auto}
+  #es .es-sk-solo{position:relative;left:auto;top:auto;margin-top:12px;font-size:15px}
   #es{font-size:16px}
   #es .es-nav-in{height:60px}
   #es .es-nav .es-btn{height:44px;padding:0 18px}
@@ -526,9 +531,9 @@ html{scroll-behavior:smooth}
   </div>
   <div class="es-hero-scrim"></div>
 
-  <div class="es-float" aria-hidden="true">
-    <p class="es-wrap es-float-k">Won by our mentors and mentees</p>
-    <div class="es-float-rows"><div class="es-fr es-fr1"><div class="es-ft"><span>ISEF Grand Award</span><span>2× ISEF First Place</span><span>Regeneron STS Top 40</span><span>National JSHS First Place</span><span>Davidson Fellow, $50,000</span><span>Regeneron STS Top 300 Scholar</span><span>Published in Nature-family journals</span><span>ISEF Top Award</span><span>Masason Foundation Scholar</span><span>ISEF Grand Award</span><span>2× ISEF First Place</span><span>Regeneron STS Top 40</span><span>National JSHS First Place</span><span>Davidson Fellow, $50,000</span><span>Regeneron STS Top 300 Scholar</span><span>Published in Nature-family journals</span><span>ISEF Top Award</span><span>Masason Foundation Scholar</span></div></div><div class="es-fr es-fr2"><div class="es-ft"><span>Stockholm Junior Water Prize, 2nd Place</span><span>Broadcom MASTERS Finalist</span><span>3M Young Scientist Challenge Top 10</span><span>Pennsylvania JSHS First Place</span><span>Actuarial Foundation STEM Stars</span><span>First-author research papers</span><span>IEEE MIT URTC Presenter</span><span>Brain Bee First Place Team</span><span>Provisional patent</span><span>Stockholm Junior Water Prize, 2nd Place</span><span>Broadcom MASTERS Finalist</span><span>3M Young Scientist Challenge Top 10</span><span>Pennsylvania JSHS First Place</span><span>Actuarial Foundation STEM Stars</span><span>First-author research papers</span><span>IEEE MIT URTC Presenter</span><span>Brain Bee First Place Team</span><span>Provisional patent</span></div></div><div class="es-fr es-fr3"><div class="es-ft"><span>Blue Ocean Pitch, Top 10 of 23,000</span><span>Public Forum Debate, US #5</span><span>Harvard Crimson Business Competition Finalist</span><span>International Public Policy Forum Top 32</span><span>NSDA Academic All American</span><span>National STEM Challenge Champion</span><span>Broadcom Coding with Commitment Award</span><span>SXSW EDU Panelist</span><span>Blue Ocean Pitch, Top 10 of 23,000</span><span>Public Forum Debate, US #5</span><span>Harvard Crimson Business Competition Finalist</span><span>International Public Policy Forum Top 32</span><span>NSDA Academic All American</span><span>National STEM Challenge Champion</span><span>Broadcom Coding with Commitment Award</span><span>SXSW EDU Panelist</span></div></div><div class="es-fr es-fr4"><div class="es-ft"><span>FIRST Tech Challenge Texas State Champion</span><span>FIRST Robotics Worlds Qualifier</span><span>Junior Achievement 18 Under 18</span><span>John Locke Essay Prize, Very High Commendation</span><span>Outstanding Young Citizen Award</span><span>Texas Boys State</span><span>Broadcom MASTERS First Place STEM Award</span><span>FIRST Tech Challenge Texas State Champion</span><span>FIRST Robotics Worlds Qualifier</span><span>Junior Achievement 18 Under 18</span><span>John Locke Essay Prize, Very High Commendation</span><span>Outstanding Young Citizen Award</span><span>Texas Boys State</span><span>Broadcom MASTERS First Place STEM Award</span></div></div></div>
+  <div class="es-wrap es-sky" aria-hidden="true">
+    <p class="es-sky-k">Won by our mentors and mentees</p>
+    <div class="es-sky-f"><p class="es-sk es-sk-n" style="--x:0%;--r:0"><span></span></p><p class="es-sk es-sk-f" style="--x:41%;--r:0"><span></span></p><p class="es-sk es-sk-m" style="--x:17%;--r:1"><span></span></p><p class="es-sk es-sk-f" style="--x:53%;--r:1"><span></span></p><p class="es-sk es-sk-f" style="--x:3%;--r:2"><span></span></p><p class="es-sk es-sk-n" style="--x:35%;--r:2"><span></span></p><p class="es-sk es-sk-m" style="--x:21%;--r:3"><span></span></p></div>
   </div>
   <div class="es-wrap es-hero-body">
     <p class="es-status">Now enrolling for the January 2027 cohort</p>
@@ -538,10 +543,7 @@ html{scroll-behavior:smooth}
       <a class="es-btn es-btn-light" href="#es-apply">Book a free call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
       <a class="es-btn es-btn-ghost" href="#es-route">How it works</a>
     </div>
-    <div class="es-float es-float-m" aria-hidden="true">
-        <p class="es-float-k">Won by our mentors and mentees</p>
-        <div class="es-float-rows"><div class="es-fr es-fr1"><div class="es-ft"><span>ISEF Grand Award</span><span>2× ISEF First Place</span><span>Regeneron STS Top 40</span><span>National JSHS First Place</span><span>Davidson Fellow, $50,000</span><span>Regeneron STS Top 300 Scholar</span><span>Published in Nature-family journals</span><span>ISEF Top Award</span><span>Masason Foundation Scholar</span><span>ISEF Grand Award</span><span>2× ISEF First Place</span><span>Regeneron STS Top 40</span><span>National JSHS First Place</span><span>Davidson Fellow, $50,000</span><span>Regeneron STS Top 300 Scholar</span><span>Published in Nature-family journals</span><span>ISEF Top Award</span><span>Masason Foundation Scholar</span></div></div><div class="es-fr es-fr2"><div class="es-ft"><span>Stockholm Junior Water Prize, 2nd Place</span><span>Broadcom MASTERS Finalist</span><span>3M Young Scientist Challenge Top 10</span><span>Pennsylvania JSHS First Place</span><span>Actuarial Foundation STEM Stars</span><span>First-author research papers</span><span>IEEE MIT URTC Presenter</span><span>Brain Bee First Place Team</span><span>Provisional patent</span><span>FIRST Tech Challenge Texas State Champion</span><span>FIRST Robotics Worlds Qualifier</span><span>Junior Achievement 18 Under 18</span><span>Stockholm Junior Water Prize, 2nd Place</span><span>Broadcom MASTERS Finalist</span><span>3M Young Scientist Challenge Top 10</span><span>Pennsylvania JSHS First Place</span><span>Actuarial Foundation STEM Stars</span><span>First-author research papers</span><span>IEEE MIT URTC Presenter</span><span>Brain Bee First Place Team</span><span>Provisional patent</span><span>FIRST Tech Challenge Texas State Champion</span><span>FIRST Robotics Worlds Qualifier</span><span>Junior Achievement 18 Under 18</span></div></div><div class="es-fr es-fr3"><div class="es-ft"><span>Blue Ocean Pitch, Top 10 of 23,000</span><span>Public Forum Debate, US #5</span><span>Harvard Crimson Business Competition Finalist</span><span>International Public Policy Forum Top 32</span><span>NSDA Academic All American</span><span>National STEM Challenge Champion</span><span>Broadcom Coding with Commitment Award</span><span>SXSW EDU Panelist</span><span>John Locke Essay Prize, Very High Commendation</span><span>Outstanding Young Citizen Award</span><span>Texas Boys State</span><span>Broadcom MASTERS First Place STEM Award</span><span>Blue Ocean Pitch, Top 10 of 23,000</span><span>Public Forum Debate, US #5</span><span>Harvard Crimson Business Competition Finalist</span><span>International Public Policy Forum Top 32</span><span>NSDA Academic All American</span><span>National STEM Challenge Champion</span><span>Broadcom Coding with Commitment Award</span><span>SXSW EDU Panelist</span><span>John Locke Essay Prize, Very High Commendation</span><span>Outstanding Young Citizen Award</span><span>Texas Boys State</span><span>Broadcom MASTERS First Place STEM Award</span></div></div></div>
-      </div>
+    <div class="es-sky-m" aria-hidden="true"><p class="es-sky-k">Won by our mentors and mentees</p><p class="es-sk es-sk-n es-sk-solo"><span></span></p></div>
   </div>
 
   <nav class="es-wrap es-idx" aria-label="Paths">
@@ -778,6 +780,44 @@ html{scroll-behavior:smooth}
   var ES_SCHOLARSHIPS = '$800,000'; // the exact confirmed total, in the form '$XXX,XXX'. Leave '' until confirmed.
   var root = document.getElementById('es');
   if (!root) return;
+
+  /* sky awards: each slot surfaces one award, holds it, lets it drift away, then takes the next */
+  (function () {
+    var AWARDS = ['ISEF Grand Award','2× ISEF First Place','Regeneron STS Top 40','National JSHS First Place','Davidson Fellow, $50,000',
+      'Regeneron STS Top 300 Scholar','Published in Nature-family journals','Masason Foundation Scholar','Stockholm Junior Water Prize','Broadcom MASTERS Finalist',
+      '3M Young Scientist Top 10','Pennsylvania JSHS First Place','Actuarial Foundation STEM Stars','First-author research papers','IEEE MIT URTC Presenter',
+      'Brain Bee First Place Team','Blue Ocean Top 10 of 23,000','Public Forum Debate, US #5','Harvard Crimson Business Finalist','International Public Policy Forum',
+      'NSDA Academic All American','National STEM Challenge Champion','SXSW EDU Panelist','FIRST Tech Challenge State Champion','FIRST Robotics Worlds Qualifier',
+      'Junior Achievement 18 Under 18','John Locke Essay Prize Commendation','Provisional patent'];
+    var slots = Array.prototype.filter.call(root.querySelectorAll('.es-sk'), function (el) { return el.offsetParent !== null; });
+    if (!slots.length) return;
+    var cursor = 0, shown = {};
+    function next() {
+      for (var tries = 0; tries < AWARDS.length; tries++) {
+        var a = AWARDS[cursor % AWARDS.length]; cursor++;
+        if (!shown[a]) return a;
+      }
+      return AWARDS[cursor++ % AWARDS.length];
+    }
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    slots.forEach(function (el, i) {
+      var label = el.querySelector('span'), current = null;
+      function show() {
+        if (current) delete shown[current];
+        current = next(); shown[current] = 1;
+        label.textContent = current;
+        el.classList.remove('is-out');
+        void el.offsetWidth;
+        el.classList.add('is-in');
+        if (still) return;
+        setTimeout(function () {
+          el.classList.remove('is-in'); el.classList.add('is-out');
+          setTimeout(show, 1500 + (i % 3) * 400);
+        }, 5200 + (i % 4) * 900);
+      }
+      setTimeout(show, 700 + i * (still ? 0 : 650));
+    });
+  })();
 
   /* self-hosted logos on the site; local assets in file previews; source fallback if hosting is delayed */
   Array.prototype.forEach.call(root.querySelectorAll('img[data-local-src]'), function (img) {
