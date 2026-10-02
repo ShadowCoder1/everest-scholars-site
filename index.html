@@ -685,6 +685,34 @@ html{scroll-behavior:smooth}
   #es .es-proof-l li:nth-child(2n+1){padding-left:0}
   #es .es-proof-l li:nth-child(2n){padding-right:0}
 }
+
+/* proof band: full-bleed dark strip with drifting contours */
+#es .es-proof{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:clamp(56px,6vw,84px);border-radius:0;box-shadow:none;
+  padding:clamp(52px,5.5vw,76px) max(var(--pad-x),calc((100vw - var(--max)) / 2));
+  background:linear-gradient(180deg,#0a0d16 0,var(--twilight) 38%,var(--twilight) 62%,#0a0d16 100%)}
+#es .es-proof::before{display:none}
+#es .es-proof::after{content:"";position:absolute;inset:-60px;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,var(--glacier) 0,var(--ice) 32%,var(--rose) 68%,var(--glow) 100%);opacity:.26;
+  -webkit-mask-image:var(--topo),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);-webkit-mask-size:1700px 1133px,100% 100%;-webkit-mask-position:62% 46%,0 0;-webkit-mask-repeat:no-repeat;-webkit-mask-composite:source-in;
+          mask-image:var(--topo),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-size:1700px 1133px,100% 100%;mask-position:62% 46%,0 0;mask-repeat:no-repeat;mask-composite:intersect;
+  animation:es-drift 80s ease-in-out infinite alternate}
+#es .es-proof-h{padding:0 0 20px}
+#es .es-proof-l li,#es .es-proof-l li:nth-child(n){padding:30px clamp(18px,2.2vw,32px) 30px}
+#es .es-proof-l li:nth-child(4n+1){padding-left:0}
+#es .es-proof-l li:nth-child(4n){padding-right:0}
+#es .es-proof-l b{font-size:clamp(28px,3vw,48px)}
+@media (max-width:900px){
+  #es .es-proof-l li:nth-child(n){padding:26px 22px}
+  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
+  #es .es-proof-l li:nth-child(2n){padding-right:0}
+}
+@media (max-width:640px){
+  #es .es-proof{padding:36px var(--pad-x) 38px}
+  #es .es-proof::after{-webkit-mask-size:1200px 800px,100% 100%;mask-size:1200px 800px,100% 100%;-webkit-mask-position:40% 40%,0 0;mask-position:40% 40%,0 0}
+  #es .es-proof-l li:nth-child(n){padding:22px 14px 24px}
+  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
+  #es .es-proof-l li:nth-child(2n){padding-right:0}
+}
 </style>
 
 <div id="es">
