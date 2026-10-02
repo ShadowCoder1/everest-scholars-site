@@ -311,17 +311,8 @@ html{scroll-behavior:smooth}
 #es .es-inf b{font-size:18px;font-weight:500;letter-spacing:-.018em;line-height:1.25;color:var(--ink)}
 #es .es-inf span{font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-fd-head{margin-top:clamp(40px,4vw,56px)}
-#es .es-fd-head h3{grid-column:4/13;font-size:clamp(21px,1.8vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
-#es .es-fds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);row-gap:40px;margin-top:24px}
-#es .es-fd{display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:22px}
-#es .es-fd-k{font-size:13.5px;color:var(--ink-3)}
-#es .es-fd h4{margin-top:6px;font-size:clamp(22px,1.9vw,27px);font-weight:500;letter-spacing:-.028em;line-height:1.15}
-#es .es-fd ul{margin-top:16px}
-#es .es-fd ul li{padding:7px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.4}
-#es .es-fd-a{margin-top:auto;padding-top:16px;font-size:14px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-case-head{margin-top:clamp(72px,7vw,104px)}
+#es .es-case-head{margin-top:0}
 #es .es-cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);row-gap:32px;margin-top:clamp(32px,3vw,44px)}
 #es .es-cases li{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--ink);padding-top:20px}
 #es .es-case-k{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-3)}
@@ -435,9 +426,7 @@ html{scroll-behavior:smooth}
   #es .es-pth-n span{margin-top:0;font-size:17px}
   #es .es-pth-hd{grid-column:1/-1;grid-row:auto;margin-top:0}
   #es .es-pth-c{grid-column:1/-1;grid-row:auto;padding-top:6px}
-  #es .es-cmp-copy,#es .es-fd-head h3{grid-column:1/-1}
   #es .es-inf{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #es .es-fds{grid-template-columns:1fr;max-width:36em}
   #es .es-cases{grid-template-columns:repeat(2,minmax(0,1fr))}
   #es .es-final{grid-template-columns:1fr}
   #es .es-final-a{justify-self:start}
@@ -592,7 +581,7 @@ html{scroll-behavior:smooth}
       <a href="#es-route">How it works</a>
       <a href="#es-results">Results</a>
       <a href="#es-paths">Fellowship</a>
-      <a href="#es-team">Mentors</a>
+      <a href="#es-team">Outcomes</a>
       <a href="#es-faq">FAQ</a>
     </nav>
     <button class="es-menu-btn" type="button" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
@@ -820,14 +809,6 @@ html{scroll-behavior:smooth}
 
 <section class="es-sec es-light es-team" id="es-team" data-tone="light">
   <div class="es-wrap">
-    <div class="es-grid es-head">
-      <p class="es-label">Mentors</p>
-      <h2>Learn from people who have already done&nbsp;it.</h2>
-      <p class="es-sub es-sub-w">Our mentor network includes accomplished student researchers, competition winners, founders, engineers and researchers across multiple&nbsp;disciplines.</p>
-    </div>
-    <div class="es-grid es-fd-head"><h3>Built by students who have navigated the same&nbsp;system.</h3></div>
-    <ul class="es-fds"><li class="es-fd"><p class="es-fd-k">Founder</p><h4>Research &amp; competitions</h4><ul><li>ISEF Grand Award</li><li>National JSHS, 1st Place</li><li>Regeneron STS Top 300 Scholar</li><li>Multiple first-author publications</li></ul><p class="es-fd-a">Admitted to MIT, Stanford, Yale, Princeton, Columbia, Johns Hopkins and Carnegie Mellon</p></li><li class="es-fd"><p class="es-fd-k">Founder</p><h4>Startups &amp; research</h4><ul><li>Built and exited an education startup</li><li>Raised angel funding for a health startup</li><li>Stockholm Junior Water Prize, 2nd Place</li><li>Robotics team, international championship qualifier</li></ul><p class="es-fd-a">Admitted to Harvard and other highly selective universities</p></li><li class="es-fd"><p class="es-fd-k">Founder</p><h4>Strategy &amp; communication</h4><ul><li>Blue Ocean Entrepreneurship, Top 10 of 23,000</li><li>Public Forum Debate, ranked #5 nationally</li><li>Chief of Staff at a Y Combinator startup</li><li>FIRST Tech Challenge Texas State Champion</li></ul><p class="es-fd-a">Admitted to Berkeley, Cornell and other highly selective universities</p></li></ul>
-
     <div class="es-grid es-head es-case-head">
       <p class="es-label">Outcomes</p>
       <h2>What previous mentees have gone on to&nbsp;accomplish.</h2>
@@ -910,7 +891,7 @@ html{scroll-behavior:smooth}
     <div class="es-foot-top">
       <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top">Everest<span>Scholars</span></a>
       <nav aria-label="Footer">
-        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Mentors</a><a href="#es-faq">FAQ</a><a href="#es-apply">Apply</a>
+        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="#es-apply">Apply</a>
       </nav>
     </div>
     <div class="es-legal">
