@@ -663,6 +663,28 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){
   #es *,#es *::before,#es *::after{animation:none!important;transition:none!important}
 }
+
+/* proof panel: symmetric cells, lines kept off the panel edges */
+#es .es-proof{padding:clamp(28px,3vw,40px) clamp(22px,3vw,44px)}
+#es .es-proof-h{padding:0 32px 20px;border-bottom:1px solid rgba(159,216,234,.16)}
+#es .es-proof-h::after{display:none}
+#es .es-proof-l li,#es .es-proof-l li:nth-child(n){padding:30px 32px 32px;border-bottom:0;border-left:1px solid rgba(159,216,234,.12);border-top:0}
+#es .es-proof-l li:nth-child(4n+1){border-left:0}
+#es .es-proof-l li:nth-child(n+5){border-top:1px solid rgba(159,216,234,.12)}
+#es .es-proof-l li:nth-child(n+6)::before{left:-5px;top:-5px}
+#es .es-proof-l span{max-width:17em}
+@media (max-width:900px){
+  #es .es-proof-l li:nth-child(n){border-left:1px solid rgba(159,216,234,.12);border-top:0}
+  #es .es-proof-l li:nth-child(2n+1){border-left:0}
+  #es .es-proof-l li:nth-child(n+3){border-top:1px solid rgba(159,216,234,.12)}
+}
+@media (max-width:640px){
+  #es .es-proof{padding:26px var(--pad-x) 28px}
+  #es .es-proof-h{padding:0 0 16px}
+  #es .es-proof-l li:nth-child(n){padding:22px 14px 24px}
+  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
+  #es .es-proof-l li:nth-child(2n){padding-right:0}
+}
 </style>
 
 <div id="es">
