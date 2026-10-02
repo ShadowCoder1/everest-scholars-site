@@ -155,7 +155,7 @@ html{scroll-behavior:smooth}
 #es .es-idx-c{grid-area:c;width:14px;height:14px;opacity:.5;transition:opacity .25s,transform .25s var(--ease)}
 
 /* ---------- section scaffolding ---------- */
-#es .es-sec{padding:clamp(96px,10.5vw,152px) 0}
+#es .es-sec{padding:clamp(64px,6.5vw,96px) 0}
 #es .es-head{align-items:baseline}
 #es .es-label{grid-column:1/4;font-size:16px;font-weight:500;line-height:1.3;color:var(--ink)}
 #es .es-h2,#es .es-head h2{font-size:clamp(34px,4.4vw,64px);line-height:1.02;letter-spacing:-.042em;font-weight:500;text-wrap:balance}
@@ -169,8 +169,8 @@ html{scroll-behavior:smooth}
 #es .es-mist{background:var(--mist)}
 
 /* ---------- route ---------- */
-#es .es-route{padding-top:clamp(80px,8vw,120px)}
-#es .es-chart{position:relative;height:clamp(280px,22vw,310px);margin-top:clamp(112px,10vw,150px)}
+#es .es-route{padding-top:clamp(64px,6.5vw,96px)}
+#es .es-chart{position:relative;height:clamp(260px,20vw,290px);margin-top:clamp(72px,7vw,104px)}
 #es .es-gl{position:absolute;left:0;right:0;height:0;border-top:1px dashed rgba(255,255,255,.1)}
 #es .es-gl span{position:absolute;right:0;top:7px;font-family:var(--mono);font-size:11px;line-height:1;color:var(--on-night-3)}
 #es .es-axis{position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--night-line-2)}
@@ -201,7 +201,7 @@ html{scroll-behavior:smooth}
 
 /* ---------- results ---------- */
 #es .es-rec-h{max-width:15em}
-#es .es-rec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:clamp(56px,6vw,88px)}
+#es .es-rec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:clamp(36px,4vw,56px)}
 #es .es-rec-col{min-width:0;border-top:1px solid var(--ink);padding-top:20px}
 #es .es-rec-col h3{font-size:clamp(23px,2.1vw,30px);line-height:1.12;letter-spacing:-.025em}
 #es .es-rec-intro{margin-top:10px;min-height:3.2em;max-width:24em;font-size:14.5px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
@@ -249,30 +249,30 @@ html{scroll-behavior:smooth}
 /* ---------- fellowship ---------- */
 #es .es-btn-ink{background:var(--ink);color:#fff}
 #es .es-btn-lg{height:58px;padding:0 28px;font-size:16px}
-#es .es-fx-act{grid-column:4/13;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:38px}
+#es .es-fx-act{grid-column:4/13;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:30px}
 #es .es-fx-meta{font-size:14px;color:var(--ink-3)}
-#es .es-fx-cred{grid-column:4/12;margin-top:44px;max-width:44em;font-size:15px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
+#es .es-fx-cred{grid-column:4/12;margin-top:26px;max-width:44em;font-size:15px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-proof{margin-top:clamp(80px,9vw,128px)}
+#es .es-proof{margin-top:clamp(44px,4.5vw,64px)}
 #es .es-proof-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px 32px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--ink)}
-#es .es-proof-h p:first-child{font-size:16px;font-weight:500}
-#es .es-proof-h p:last-child{font-size:13.5px;color:var(--ink-3)}
+#es .es-proof-h p{font-size:16px;font-weight:500;color:var(--ink)}
 #es .es-proof-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-#es .es-proof-l li{min-width:0;padding:34px 28px 36px;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+#es .es-proof-l li{min-width:0;padding:26px 28px 28px;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
 #es .es-proof-l li:nth-child(4n+1){border-left:0;padding-left:0}
 #es .es-proof-l b{display:block;font-size:clamp(32px,3.3vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1;white-space:nowrap}
 #es .es-proof-l span{display:block;margin-top:14px;font-size:13.5px;line-height:1.45;color:var(--ink-3);max-width:16em;text-wrap:pretty}
 
-#es .es-pth-head{margin-top:clamp(120px,13vw,184px)}
-#es .es-pth{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(52px,5.5vw,80px) 0;border-top:1px solid var(--line-2)}
-#es .es-pth-head+.es-pth{margin-top:clamp(56px,6vw,88px);border-top:2px solid var(--ink)}
-#es .es-pth-n{grid-column:1/4}
-#es .es-pth-n b{display:block;font-size:clamp(48px,5vw,72px);font-weight:400;letter-spacing:-.05em;line-height:.9;color:#b9bec6;font-variant-numeric:tabular-nums}
-#es .es-pth-n span{display:block;margin-top:16px;font-size:16.5px;font-weight:500;color:var(--ink)}
-#es .es-pth-b{grid-column:4/13;min-width:0}
-#es .es-pth-b h3{font-size:clamp(27px,2.6vw,38px);font-weight:500;letter-spacing:-.034em;line-height:1.08;max-width:17em;text-wrap:balance}
-#es .es-pth-d{margin-top:16px;font-size:17.5px;line-height:1.55;color:var(--ink-2);max-width:33em;text-wrap:pretty}
-#es .es-pth-c{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 48px;margin-top:40px}
+#es .es-pth-head{margin-top:clamp(72px,7vw,104px)}
+#es .es-pth{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(32px,3.2vw,44px) 0;border-top:1px solid var(--line-2);grid-template-rows:auto 1fr}
+#es .es-pth-head+.es-pth{margin-top:clamp(36px,3.5vw,48px);border-top:2px solid var(--ink)}
+#es .es-pth-n{grid-column:1/6;grid-row:1}
+#es .es-pth-n b{display:block;font-size:clamp(40px,3.8vw,54px);font-weight:400;letter-spacing:-.05em;line-height:.9;color:#b9bec6;font-variant-numeric:tabular-nums}
+#es .es-pth-n span{display:block;margin-top:10px;font-size:16px;font-weight:500;color:var(--ink)}
+#es .es-pth-b{display:contents}
+#es .es-pth-hd{grid-column:1/6;grid-row:2;margin-top:20px;align-self:start}
+#es .es-pth-b h3{font-size:clamp(23px,2.1vw,30px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:17em;text-wrap:balance}
+#es .es-pth-d{margin-top:12px;font-size:16.5px;line-height:1.55;color:var(--ink-2);max-width:33em;text-wrap:pretty}
+#es .es-pth-c{grid-column:6/13;grid-row:1/3;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px 40px;align-content:start;padding-top:6px}
 #es .es-mh{font-size:14px;font-weight:600;letter-spacing:.005em;color:var(--ink);margin-bottom:12px}
 #es .es-pth-l li{position:relative;padding:4px 0 4px 20px;font-size:15.5px;line-height:1.45;color:var(--ink)}
 #es .es-pth-l li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:1px;background:var(--ink-3)}
@@ -281,7 +281,7 @@ html{scroll-behavior:smooth}
 #es .es-pth-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;color:var(--ink-3)}
 
 #es .es-cmp-sec{overflow:hidden}
-#es .es-cmp{position:relative;height:clamp(300px,30vw,380px);margin-top:clamp(56px,6vw,88px)}
+#es .es-cmp{position:relative;height:clamp(250px,24vw,310px);margin-top:clamp(64px,6vw,84px)}
 #es .es-cmp-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 #es .es-cmp-svg path{fill:none;stroke:rgba(255,255,255,.32);stroke-width:1.1;stroke-dasharray:1;stroke-dashoffset:0}
 #es .es-cmp-svg .es-cmp-hi{stroke:var(--glow);stroke-width:1.4}
@@ -295,7 +295,7 @@ html{scroll-behavior:smooth}
 #es .es-cmp-pb b{left:-5px;top:20px}#es .es-cmp-pb span{left:-5px;top:45px}
 #es .es-cmp-pt b{left:-5px;bottom:46px}#es .es-cmp-pt span{left:-5px;bottom:24px}
 #es .es-cmp-pbl b{right:-6px;bottom:48px;text-align:right}#es .es-cmp-pbl span{right:-6px;bottom:26px;text-align:right}
-#es .es-cmp-copy{grid-column:4/11;margin-top:clamp(56px,6vw,80px);font-size:clamp(17px,1.35vw,19px);line-height:1.6;color:var(--on-night-2);max-width:36em;text-wrap:pretty}
+#es .es-cmp-copy{grid-column:4/11;margin-top:clamp(36px,3.5vw,48px);font-size:clamp(17px,1.35vw,19px);line-height:1.6;color:var(--on-night-2);max-width:36em;text-wrap:pretty}
 #es .es-cmp.is-pre .es-cmp-svg path{stroke-dashoffset:1}
 #es .es-cmp.is-pre .es-cmp-n{opacity:0}
 #es .es-cmp.is-on .es-cmp-svg path{transition:stroke-dashoffset 1.4s var(--ease)}
@@ -306,30 +306,30 @@ html{scroll-behavior:smooth}
 #es .es-cmp.is-on .es-cmp-n4{transition-delay:1.4s}
 #es .es-cmp.is-on .es-cmp-n5{transition-delay:2.1s}
 
-#es .es-inf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(56px,6vw,88px)}
-#es .es-inf li{display:flex;flex-direction:column;gap:12px;min-height:212px;padding:28px 26px 30px;background:#fff;border-radius:var(--r)}
+#es .es-inf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(36px,3.5vw,48px)}
+#es .es-inf li{display:flex;flex-direction:column;gap:10px;padding:24px 24px 26px;background:#fff;border-radius:var(--r)}
 #es .es-inf b{font-size:18px;font-weight:500;letter-spacing:-.018em;line-height:1.25;color:var(--ink)}
 #es .es-inf span{font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-fd-head{margin-top:clamp(64px,7vw,104px)}
+#es .es-fd-head{margin-top:clamp(40px,4vw,56px)}
 #es .es-fd-head h3{grid-column:4/13;font-size:clamp(21px,1.8vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
-#es .es-fds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);row-gap:48px;margin-top:32px}
+#es .es-fds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);row-gap:40px;margin-top:24px}
 #es .es-fd{display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:22px}
 #es .es-fd-k{font-size:13.5px;color:var(--ink-3)}
 #es .es-fd h4{margin-top:6px;font-size:clamp(22px,1.9vw,27px);font-weight:500;letter-spacing:-.028em;line-height:1.15}
-#es .es-fd ul{margin-top:22px}
-#es .es-fd ul li{padding:9px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.4}
-#es .es-fd-a{margin-top:auto;padding-top:22px;font-size:14px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
+#es .es-fd ul{margin-top:16px}
+#es .es-fd ul li{padding:7px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.4}
+#es .es-fd-a{margin-top:auto;padding-top:16px;font-size:14px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-case-head{margin-top:clamp(120px,13vw,184px)}
-#es .es-cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);row-gap:40px;margin-top:clamp(48px,5vw,72px)}
+#es .es-case-head{margin-top:clamp(72px,7vw,104px)}
+#es .es-cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);row-gap:32px;margin-top:clamp(32px,3vw,44px)}
 #es .es-cases li{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--ink);padding-top:20px}
 #es .es-case-k{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-3)}
 #es .es-case-k svg{width:13px;height:13px;flex:none}
 #es .es-cases b{font-size:clamp(23px,2vw,29px);font-weight:500;letter-spacing:-.03em;line-height:1.1;text-wrap:balance}
 #es .es-cases span{font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-final{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:end;gap:32px 64px;margin-top:clamp(112px,12vw,168px);padding:clamp(40px,5vw,72px);background:var(--night);color:#fff;border-radius:var(--r)}
+#es .es-final{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:end;gap:32px 64px;margin-top:clamp(64px,6vw,88px);padding:clamp(40px,5vw,72px);background:var(--night);color:#fff;border-radius:var(--r)}
 #es .es-final h3{font-size:clamp(32px,3.6vw,52px);font-weight:500;letter-spacing:-.042em;line-height:1.02}
 #es .es-final-c p{margin-top:18px;max-width:30em;font-size:17px;line-height:1.55;color:var(--on-night-2);text-wrap:pretty}
 #es .es-final-a{display:flex;flex-direction:column;align-items:flex-start;gap:14px;justify-self:end}
@@ -347,7 +347,7 @@ html{scroll-behavior:smooth}
 #es .es-faq-list details p{padding:0 56px 24px 0;color:var(--ink-2);max-width:40em;margin-top:-4px}
 
 /* ---------- apply ---------- */
-#es .es-apply{position:relative;overflow:hidden;isolation:isolate;padding-top:clamp(290px,27vw,400px);padding-bottom:clamp(96px,9vw,136px)}
+#es .es-apply{position:relative;overflow:hidden;isolation:isolate;padding-top:clamp(230px,21vw,320px);padding-bottom:clamp(72px,7vw,104px)}
 #es .es-apply-media{position:absolute;left:0;right:0;top:0;height:clamp(440px,40vw,640px);z-index:-1}
 #es .es-apply-media img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 #es .es-apply-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0a0c10 0,rgba(10,12,16,0) 22%,rgba(10,12,16,0) 52%,rgba(10,12,16,.62) 76%,#0a0c10 100%)}
@@ -430,10 +430,11 @@ html{scroll-behavior:smooth}
   #es .es-proof-l{grid-template-columns:repeat(2,minmax(0,1fr))}
   #es .es-proof-l li:nth-child(4n+1){border-left:1px solid var(--line);padding-left:28px}
   #es .es-proof-l li:nth-child(2n+1){border-left:0;padding-left:0}
-  #es .es-pth{row-gap:24px}
-  #es .es-pth-n{grid-column:1/-1;display:flex;align-items:baseline;gap:18px}
+  #es .es-pth{row-gap:18px;grid-template-rows:none}
+  #es .es-pth-n{grid-column:1/-1;grid-row:auto;display:flex;align-items:baseline;gap:16px}
   #es .es-pth-n span{margin-top:0;font-size:17px}
-  #es .es-pth-b{grid-column:1/-1}
+  #es .es-pth-hd{grid-column:1/-1;grid-row:auto;margin-top:0}
+  #es .es-pth-c{grid-column:1/-1;grid-row:auto;padding-top:6px}
   #es .es-cmp-copy,#es .es-fd-head h3{grid-column:1/-1}
   #es .es-inf{grid-template-columns:repeat(2,minmax(0,1fr))}
   #es .es-fds{grid-template-columns:1fr;max-width:36em}
@@ -483,8 +484,8 @@ html{scroll-behavior:smooth}
   #es .es-proof-l li{padding:24px 16px 26px}
   #es .es-proof-l li:nth-child(2n+1){padding-left:0}
   #es .es-proof-l b{font-size:30px}
-  #es .es-pth-n b{font-size:44px}
-  #es .es-pth-c{grid-template-columns:1fr;gap:28px;margin-top:28px}
+  #es .es-pth-n b{font-size:40px}
+  #es .es-pth-c{grid-template-columns:1fr;gap:22px}
   #es .es-pth-d{font-size:16.5px}
   #es .es-inf{grid-template-columns:1fr}
   #es .es-inf li{min-height:0;padding:24px 22px}
@@ -518,7 +519,7 @@ html{scroll-behavior:smooth}
   #es .es-idx-n{align-self:end}
   #es .es-idx-d{align-self:start;margin-top:0;font-size:13.5px}
   #es .es-idx-c{opacity:.55}
-  #es .es-sec{padding:64px 0}
+  #es .es-sec{padding:56px 0}
   #es .es-route{padding-top:60px}
   #es .es-label{margin-bottom:12px}
   #es .es-h2,#es .es-head h2{font-size:clamp(31px,8.6vw,40px);line-height:1.05;letter-spacing:-.038em}
@@ -761,8 +762,7 @@ html{scroll-behavior:smooth}
     <article class="es-pth" id="es-p-competitions">
       <div class="es-pth-n"><b>01</b><span>Competitions</span></div>
       <div class="es-pth-b">
-        <h3>Develop a competition-ready research project.</h3>
-        <p class="es-pth-d">Build, refine and present original work for science fairs and research competitions.</p>
+        <div class="es-pth-hd"><h3>Develop a competition-ready research project.</h3><p class="es-pth-d">Build, refine and present original work for science fairs and research competitions.</p></div>
         <div class="es-pth-c">
           <div><p class="es-mh">You’ll work on</p><ul class="es-pth-l"><li>Research strategy and project planning</li><li>Competition selection and timelines</li><li>Abstract, paper, poster and presentation</li><li>ISEF forms and documentation</li><li>Mock judging with experienced competitors</li><li>Technical Q&amp;A and presentation coaching</li></ul></div>
           <div class="es-pth-a"><p class="es-mh">Built for students targeting</p><p class="es-pth-t">ISEF and affiliated fairs · JSHS · Regeneron STS · Stockholm Junior Water Prize · Brain Bee · other research competitions</p></div>
@@ -772,8 +772,7 @@ html{scroll-behavior:smooth}
     <article class="es-pth" id="es-p-publication">
       <div class="es-pth-n"><b>02</b><span>Research &amp; Publication</span></div>
       <div class="es-pth-b">
-        <h3>Turn an idea into serious research.</h3>
-        <p class="es-pth-d">Develop a project, learn how to approach researchers, and work toward a manuscript or other appropriate research output.</p>
+        <div class="es-pth-hd"><h3>Turn an idea into serious research.</h3><p class="es-pth-d">Develop a project, learn how to approach researchers, and work toward a manuscript or other appropriate research output.</p></div>
         <div class="es-pth-c">
           <div><p class="es-mh">You’ll work on</p><ul class="es-pth-l"><li>Finding a focused research question</li><li>Literature review and study design</li><li>Finding relevant professors and labs</li><li>Personalized professor outreach</li><li>Research execution with mentor guidance</li><li>Data analysis and interpretation</li><li>Manuscript development</li><li>Preprint, conference and journal submission strategy</li></ul></div>
           <div class="es-pth-a"><p class="es-mh">Possible outcomes</p><p class="es-pth-t">A completed research project, manuscript, poster, preprint, conference submission or journal submission, depending on the project and its readiness.</p></div>
@@ -783,8 +782,7 @@ html{scroll-behavior:smooth}
     <article class="es-pth" id="es-p-programs">
       <div class="es-pth-n"><b>03</b><span>Selective Programs</span></div>
       <div class="es-pth-b">
-        <h3>Build stronger applications to selective research programs.</h3>
-        <p class="es-pth-d">Develop the research story, written materials and interview skills needed to present your work competitively.</p>
+        <div class="es-pth-hd"><h3>Build stronger applications to selective research programs.</h3><p class="es-pth-d">Develop the research story, written materials and interview skills needed to present your work competitively.</p></div>
         <div class="es-pth-c">
           <div><p class="es-mh">You’ll work on</p><ul class="es-pth-l"><li>Personalized program shortlist</li><li>Application strategy and timeline</li><li>Research-interest statements</li><li>Essay development and revision</li><li>Résumé and activity descriptions</li><li>Recommendation strategy</li><li>Application review</li><li>Mock interviews</li></ul></div>
           <div class="es-pth-a"><p class="es-mh">Programs students may target</p><p class="es-pth-t">RSI · SSP · MITES · Simons · Garcia · Clark Scholars · COSMOS · PROMYS · Ross · other selective programs</p><p class="es-pth-note">Program recommendations depend on the student’s eligibility, interests and timeline.</p></div>
