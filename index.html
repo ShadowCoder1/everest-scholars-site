@@ -818,6 +818,24 @@ html{scroll-behavior:smooth}
   #es .es-ach-sch-v b{font-size:clamp(48px,15vw,64px)}
   #es .es-ach-sch-v span{font-size:15px}
 }
+
+/* paths: each path sits on a soft gradient wash in its own hue; header gets an alpenglow glow */
+#es .es-pth-head{position:relative;isolation:isolate}
+#es .es-pth-head::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(1100px,110%);height:300%;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(ellipse 38% 34% at 30% 52%,rgba(242,167,102,.20),rgba(242,167,102,0) 70%),radial-gradient(ellipse 36% 32% at 52% 46%,rgba(239,142,127,.16),rgba(239,142,127,0) 70%),radial-gradient(ellipse 38% 34% at 72% 54%,rgba(110,168,220,.18),rgba(110,168,220,0) 70%)}
+#es .es-pth{padding:clamp(30px,3.2vw,46px) clamp(24px,3vw,48px);border:1px solid color-mix(in srgb,var(--acc) 26%,transparent);border-radius:18px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(118deg,color-mix(in srgb,var(--acc) 24%,#fff) 0%,color-mix(in srgb,var(--acc) 10%,#fff) 34%,#fff 68%,color-mix(in srgb,var(--acc) 7%,#fff) 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px -28px color-mix(in srgb,var(--acc-ink) 45%,transparent)}
+#es .es-pth+.es-pth{margin-top:16px}
+#es .es-pth-head+.es-pth{border-top:1px solid color-mix(in srgb,var(--acc) 26%,transparent)}
+#es .es-pth::before{left:clamp(24px,3vw,48px);top:0;width:min(220px,30%);height:2px;border-radius:0 0 2px 2px}
+#es .es-pth::after{content:"";position:absolute;z-index:-1;right:-8%;top:-30%;width:46%;height:120%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,var(--acc) 16%,transparent),transparent);opacity:.9}
+#es .es-pth-l li{color:#1b1f27}
+@media (max-width:640px){
+  #es .es-pth{padding:26px 20px 28px;border-radius:14px}
+  #es .es-pth::before{left:20px}
+  #es .es-pth+.es-pth{margin-top:12px}
+}
 </style>
 
 <div id="es">
