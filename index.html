@@ -214,7 +214,7 @@ html{scroll-behavior:smooth}
 #es .es-fx-cred{grid-column:4/12;margin-top:26px;max-width:44em;font-size:15px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
 
 
-#es .es-pth-head{margin-top:clamp(72px,7vw,104px)}
+#es .es-pth-head{margin-top:0}
 #es .es-pth{--acc:var(--glow);--acc-ink:var(--glow-ink);position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(32px,3.2vw,44px) 0;border-top:1px solid var(--line-2);grid-template-rows:auto 1fr}
 #es #es-p-publication{--acc:var(--glacier);--acc-ink:var(--glacier-ink)}
 #es #es-p-programs{--acc:var(--rose);--acc-ink:var(--rose-ink)}
@@ -836,6 +836,7 @@ html{scroll-behavior:smooth}
   #es .es-pth::before{left:20px}
   #es .es-pth+.es-pth{margin-top:12px}
 }
+#es .es-pth-head .es-sub{text-wrap:balance;max-width:38em}
 </style>
 
 <div id="es">
@@ -992,21 +993,10 @@ html{scroll-behavior:smooth}
 
 <section class="es-sec es-light es-fx es-topo es-reg" id="es-paths" data-tone="light">
   <div class="es-wrap">
-    <div class="es-grid es-head es-fx-intro">
-      <p class="es-label">The fellowship</p>
-      <h2>Build a research profile that compounds.</h2>
-      <p class="es-sub es-sub-w">Start with one path or combine all three. We build a personalized roadmap around your interests, experience and goals, then pair you with mentors who help you execute&nbsp;it.</p>
-      <div class="es-fx-act">
-        <a class="es-btn es-btn-ink" href="#es-apply">Apply for a strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <p class="es-fx-meta"><span class="es-nw">30 minutes</span> · <span class="es-nw">Student + parent recommended</span> · <span class="es-nw">No obligation</span></p>
-      </div>
-      <p class="es-fx-cred">Built by researchers, founders and competition winners with acceptances to MIT, Harvard, Stanford, Princeton, Yale, Columbia, Johns Hopkins, Carnegie Mellon, Berkeley and&nbsp;Cornell.</p>
-    </div>
-
     <div class="es-grid es-head es-head-c es-pth-head">
       <p class="es-label">Paths</p>
       <h2>Choose your focus. Build beyond&nbsp;it.</h2>
-      <p class="es-sub es-sub-w">Every student starts with a personalized research roadmap. Choose the path closest to your current goal, or combine paths into a longer-term&nbsp;strategy.</p>
+      <p class="es-sub es-sub-w">Start with one path or combine all three. We build a personalized roadmap around your interests, experience and goals, then pair you with mentors who help you execute&nbsp;it.</p>
     </div>
 
     <article class="es-pth" id="es-p-competitions">
