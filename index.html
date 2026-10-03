@@ -774,13 +774,55 @@ html{scroll-behavior:smooth}
   #es .es-hero>.es-sky .es-sk{top:calc((100% - 26px) * var(--r) / 3)}
   #es .es-sky+.es-hero-body{padding-top:206px}
 }
+
+/* nav v2: logo lockup, tracked wordmark, active-section dot */
+#es .es-nav-in{height:76px}
+#es .es-mark{display:inline-flex;align-items:center;gap:14px;min-height:44px;padding-top:0;font-size:inherit;letter-spacing:0;line-height:1}
+#es .es-mark span{margin:0;opacity:1;font-weight:inherit}
+#es .es-mark-i{position:relative;display:block;width:54px;height:44px;flex:none}
+#es .es-mark-i img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .35s}
+#es .es-mark-l{opacity:0}
+#es .es-mark-t{display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:1px solid rgba(255,255,255,.2);transition:border-color .35s}
+#es .es-mark-t b{font-size:15px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;line-height:1;margin-right:-.26em}
+#es .es-mark-t i{font-style:normal;font-size:9px;font-weight:500;letter-spacing:.56em;text-transform:uppercase;line-height:1;color:var(--glow);margin-right:-.56em;transition:color .35s}
+#es .es-nav.is-scrolled.is-light:not(.is-open) .es-mark-l{opacity:1}
+#es .es-nav.is-scrolled.is-light:not(.is-open) .es-mark-d{opacity:0}
+#es .es-nav.is-scrolled.is-light:not(.is-open) .es-mark-t{border-left-color:rgba(11,13,18,.16)}
+#es .es-nav.is-scrolled.is-light:not(.is-open) .es-mark-t i{color:var(--glow-ink)}
+#es .es-links{gap:2px;margin-right:6px}
+#es .es-links a{position:relative;font-size:14px;font-weight:500;letter-spacing:.004em;padding:10px 13px;opacity:.72;transition:opacity .2s}
+#es .es-links a::after{content:"";position:absolute;left:50%;bottom:1px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--glow);opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s var(--ease)}
+#es .es-links a[aria-current="true"]{opacity:1}
+#es .es-links a[aria-current="true"]::after{opacity:1;transform:none;box-shadow:0 0 8px 1px rgba(242,167,102,.6)}
+#es .es-nav-sep{width:1px;height:22px;margin-right:18px;background:currentColor;opacity:.18;flex:none}
+#es .es-nav .es-nav-cta{height:40px;padding:0 16px 0 18px;gap:9px;font-size:14px;font-weight:500}
+#es .es-nav .es-nav-cta svg{width:12px;height:12px}
+#es .es-foot .es-mark-i{width:42px;height:34px}
+@media (hover:hover){
+  #es .es-links a:hover::after{opacity:.55;transform:none}
+  #es .es-nav .es-nav-cta:hover svg{transform:translateX(3px)}
+}
+@media (max-width:900px){
+  #es .es-nav-sep{display:none}
+  #es .es-links a::after{display:none}
+}
+@media (max-width:640px){
+  #es .es-nav-in{height:64px}
+  #es .es-mark{gap:11px}
+  #es .es-mark-i{width:44px;height:36px}
+  #es .es-mark-t{padding-left:11px;gap:5px}
+  #es .es-mark-t b{font-size:13px;letter-spacing:.22em;margin-right:-.22em}
+  #es .es-mark-t i{font-size:8px;letter-spacing:.5em;margin-right:-.5em}
+  #es .es-menu-btn span{display:none}
+  #es .es-nav .es-nav-cta{height:42px;padding:0 15px}
+}
 </style>
 
 <div id="es">
 
 <header class="es-nav">
   <div class="es-wrap es-nav-in">
-    <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top">Everest<span>Scholars</span></a>
+    <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top"><span class="es-mark-i" aria-hidden="true"><img class="es-mark-d" src="https://shadowcoder1.github.io/everest-scholars-site/assets/brand/mark-on-dark.png" data-local-src="assets/brand/mark-on-dark.png" alt="" width="49" height="40" decoding="async"><img class="es-mark-l" src="https://shadowcoder1.github.io/everest-scholars-site/assets/brand/mark-on-light.png" data-local-src="assets/brand/mark-on-light.png" alt="" width="49" height="40" decoding="async"></span><span class="es-mark-t" aria-hidden="true"><b>Everest</b><i>Scholars</i></span></a>
     <nav class="es-links" id="es-menu" aria-label="Sections">
       <a href="#es-route">How it works</a>
       <a href="#es-results">Results</a>
@@ -788,8 +830,9 @@ html{scroll-behavior:smooth}
       <a href="#es-team">Outcomes</a>
       <a href="#es-faq">FAQ</a>
     </nav>
-    <button class="es-menu-btn" type="button" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
-    <a class="es-btn es-btn-light" href="#es-apply">Apply</a>
+    <button class="es-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+    <span class="es-nav-sep" aria-hidden="true"></span>
+    <a class="es-btn es-btn-light es-nav-cta" href="#es-apply">Apply<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
   </div>
 </header>
 
@@ -1098,7 +1141,7 @@ html{scroll-behavior:smooth}
 <footer class="es-foot" data-tone="dark">
   <div class="es-wrap">
     <div class="es-foot-top">
-      <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top">Everest<span>Scholars</span></a>
+      <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top"><span class="es-mark-i" aria-hidden="true"><img class="es-mark-d" src="https://shadowcoder1.github.io/everest-scholars-site/assets/brand/mark-on-dark.png" data-local-src="assets/brand/mark-on-dark.png" alt="" width="49" height="40" decoding="async"></span><span class="es-mark-t" aria-hidden="true"><b>Everest</b><i>Scholars</i></span></a>
       <nav aria-label="Footer">
         <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="#es-apply">Apply</a>
       </nav>
@@ -1196,6 +1239,22 @@ html{scroll-behavior:smooth}
     });
   }
 
+
+  /* nav: mark the section in view */
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    var links = Array.prototype.slice.call(root.querySelectorAll('.es-links a[href^="#es-"]'));
+    var map = {};
+    links.forEach(function (a) { var sec = document.getElementById(a.getAttribute('href').slice(1)); if (sec) map[sec.id] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        if (map[e.target.id]) map[e.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+  })();
   /* nav: solid once scrolled; light over light sections */
   var nav = root.querySelector('.es-nav');
   var zones = Array.prototype.slice.call(root.querySelectorAll('section[data-tone], footer[data-tone]'));
