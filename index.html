@@ -204,52 +204,6 @@ html{scroll-behavior:smooth}
 #es .es-stages .es-sn{display:none;flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1.25px rgba(255,255,255,.6);place-items:center;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0}
 #es .es-stages p{margin-top:10px;font-size:15.5px;line-height:1.55;color:var(--on-night-2);max-width:21em}
 
-/* ---------- results ---------- */
-#es .es-rec-h{max-width:15em}
-#es .es-rec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:clamp(36px,4vw,56px)}
-#es .es-rec-col{position:relative;min-width:0;border-top:1px solid var(--ink);padding-top:20px}
-#es .es-rec-col::before{content:"";position:absolute;left:0;top:0;width:81px;height:5px;background:repeating-linear-gradient(90deg,var(--glow-ink) 0 1px,transparent 1px 8px);opacity:.75}
-#es .es-rec-col h3{font-size:clamp(23px,2.1vw,30px);line-height:1.12;letter-spacing:-.025em}
-#es .es-rec-intro{margin-top:10px;min-height:3.2em;max-width:24em;font-size:14.5px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
-#es .es-college-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,94px);column-gap:18px;align-items:center;margin-top:26px;padding:16px 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-#es .es-college-featured li{display:flex;align-items:center;justify-content:center;gap:14px;min-width:0;min-height:0}
-#es .es-college-featured li:first-child{gap:10px}
-#es .es-college-featured li:nth-child(3){grid-column:1/-1}
-#es .es-college-featured li:nth-child(4){gap:10px}
-#es .es-college-featured img{display:block;width:auto;height:auto;max-width:100%;max-height:54px;object-fit:contain}
-#es .es-college-featured .es-logo-mit{max-height:52px}
-#es .es-college-featured .es-logo-stanford-mark{max-width:28%;max-height:54px;flex:none}
-#es .es-college-featured .es-logo-stanford-wordmark{max-width:67%;max-height:42px}
-#es .es-college-featured .es-logo-harvard{max-width:78%;max-height:74px}
-#es .es-college-featured .es-logo-princeton-shield{max-width:25%;max-height:55px;flex:none}
-#es .es-college-featured .es-logo-princeton{max-width:65%;max-height:36px}
-#es .es-college-featured .es-logo-yale{max-height:45px}
-#es .es-college-more-label{margin-top:22px;font-size:11px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
-#es .es-college-marquee{overflow:hidden;margin-top:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-#es .es-college-track{display:flex;width:max-content;animation:es-college-drift 65s linear infinite}
-#es .es-college-marquee:hover .es-college-track{animation-play-state:paused}
-#es .es-college-set{display:flex;align-items:center;gap:40px;flex:none;padding-right:40px}
-#es .es-college-set img{display:block;width:auto;height:auto;max-width:165px;max-height:38px;object-fit:contain}
-#es .es-college-set .es-logo-hopkins,#es .es-college-set .es-logo-berkeley{max-height:46px}
-@keyframes es-college-drift{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){#es .es-college-track{animation:none}#es .es-college-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}#es .es-college-set[aria-hidden="true"]{display:none}}
-#es .es-scholarship-total{margin-top:28px;padding-bottom:28px;border-bottom:1px solid var(--line-2)}
-#es .es-scholarship-total b{display:block;font-size:clamp(43px,3.8vw,58px);line-height:1.04;letter-spacing:-.04em;font-weight:500;font-variant-numeric:tabular-nums}
-#es .es-scholarship-total span{display:block;margin-top:10px;max-width:22em;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
-#es .es-scholarship-pull{margin-top:27px;max-width:18em;font-size:clamp(22px,1.9vw,27px);line-height:1.2;letter-spacing:-.025em;font-weight:500;text-wrap:balance}
-#es .es-scholarship-proof{margin-top:14px;max-width:28em;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
-#es .es-competition-hook{margin-top:26px;padding-bottom:27px;border-bottom:1px solid var(--line-2)}
-#es .es-competition-hook b{display:block;font-size:clamp(45px,4vw,60px);line-height:1.04;letter-spacing:-.04em;font-weight:500;font-variant-numeric:tabular-nums}
-#es .es-competition-hook span{display:block;margin-top:12px;max-width:17em;font-size:17px;line-height:1.3;color:var(--ink-2);text-wrap:pretty}
-#es .es-competition-summary{margin-top:24px;max-width:23em;font-size:19px;line-height:1.42;letter-spacing:-.015em;text-wrap:pretty}
-#es .es-competition-summary strong{font-weight:500}
-#es .es-competition-names{display:flex;flex-wrap:wrap;gap:9px 0;margin-top:25px;max-width:27em}
-#es .es-competition-names li{min-width:0;max-width:100%;font-size:clamp(16px,1.35vw,19px);line-height:1.35;font-weight:500;color:var(--ink)}
-#es .es-competition-names li:not(:last-child)::after{content:"·";display:inline-block;padding:0 11px;color:var(--ink-3);font-weight:400}
-#es .es-competition-turn{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:27px;padding-top:19px;border-top:1px solid var(--line-2);font-size:clamp(22px,2vw,28px);font-weight:500;line-height:1.2;letter-spacing:-.025em;color:var(--ink)}
-#es .es-competition-turn svg{width:21px;height:21px;flex:none;transition:transform .25s var(--ease)}
-#es .es-rec-foot{margin-top:36px;padding-top:17px;border-top:1px solid var(--line-2);font-size:13.5px;line-height:1.5;color:var(--ink-3)}
-#es .es-rec-foot b{color:var(--ink);font-weight:500}
 
 
 /* ---------- fellowship ---------- */
@@ -259,18 +213,6 @@ html{scroll-behavior:smooth}
 #es .es-fx-meta{font-size:14px;color:var(--ink-3)}
 #es .es-fx-cred{grid-column:4/12;margin-top:26px;max-width:44em;font-size:15px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
 
-#es .es-proof{position:relative;isolation:isolate;overflow:hidden;margin-top:clamp(44px,4.5vw,64px);padding:clamp(24px,2.6vw,36px) clamp(22px,3vw,44px) 0;border-radius:var(--r);color:var(--on-night);background:linear-gradient(180deg,var(--twilight-2) 0,var(--twilight) 55%,#0a0e19 100%);box-shadow:inset 0 0 0 1px rgba(159,216,234,.1),0 1px 0 rgba(255,255,255,.6)}
-#es .es-proof::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(159,216,234,.55) 30%,rgba(159,216,234,.55) 70%,transparent)}
-#es .es-proof-h{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:12px 32px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid rgba(159,216,234,.22)}
-#es .es-proof-h::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(90deg,rgba(159,216,234,.5) 0 1px,transparent 1px 80px),repeating-linear-gradient(90deg,rgba(159,216,234,.2) 0 1px,transparent 1px 10px) 0 3px/100% 3px no-repeat;-webkit-mask-image:linear-gradient(90deg,#000 20%,transparent);mask-image:linear-gradient(90deg,#000 20%,transparent)}
-#es .es-proof-h p{font-size:16px;font-weight:500;color:var(--on-night)}
-#es .es-proof-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-#es .es-proof-l li{position:relative;min-width:0;padding:28px 28px 30px;border-bottom:1px solid rgba(159,216,234,.1);border-left:1px solid rgba(159,216,234,.1)}
-#es .es-proof-l li:nth-child(n+5){border-bottom:0}
-#es .es-proof-l li:nth-child(n+6)::before{content:"";position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:linear-gradient(var(--glow),var(--glow)) center/9px 1px no-repeat,linear-gradient(var(--glow),var(--glow)) center/1px 9px no-repeat;opacity:.85}
-#es .es-proof-l li:nth-child(4n+1){border-left:0;padding-left:0}
-#es .es-proof-l b{display:block;font-size:clamp(32px,3.3vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1.06;white-space:nowrap;background:linear-gradient(180deg,#fff 22%,#ffe2c4 62%,#f2a766 108%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-#es .es-proof-l span{display:block;margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--on-night-2);max-width:16em;text-wrap:pretty}
 
 #es .es-pth-head{margin-top:clamp(72px,7vw,104px)}
 #es .es-pth{--acc:var(--glow);--acc-ink:var(--glow-ink);position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(32px,3.2vw,44px) 0;border-top:1px solid var(--line-2);grid-template-rows:auto 1fr}
@@ -439,8 +381,6 @@ html{scroll-behavior:smooth}
 /* route */
 #es .es-route{background:linear-gradient(180deg,var(--night) 0,var(--night) 35%,#0b1020 100%);--tc:linear-gradient(90deg,var(--glacier),var(--ice));--to:.2;--ts:1500px 1000px;--tp:right -300px top -260px;--tf:radial-gradient(ellipse 52% 62% at 84% 16%,#000 10%,transparent 100%)}
 
-/* results */
-#es #es-results{--gc:rgba(16,34,64,.055);--cols:12;--gm:linear-gradient(180deg,transparent 0,#000 120px,rgba(0,0,0,.7) 34%,transparent 70%)}
 
 /* fellowship */
 #es .es-fx{--tc:var(--glacier-ink);--to:.13;--ts:1400px 933px;--tp:right -340px top -250px;--tf:radial-gradient(ellipse 50% 46% at 82% 12%,#000 15%,transparent 100%)}
@@ -464,7 +404,6 @@ html{scroll-behavior:smooth}
   #es .es-btn-light:hover{background:#e6e8eb}
   #es .es-btn-ghost:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.75);background:rgba(255,255,255,.06)}
   #es .es-go:hover span{text-decoration-color:currentColor}
-  #es .es-competition-turn:hover svg{transform:translateX(4px)}
   #es .es-links a:hover{opacity:1}
   #es .es-idx a:hover::before{width:100%}
   #es .es-idx a:hover .es-idx-c{opacity:1;transform:translateX(3px)}
@@ -495,16 +434,8 @@ html{scroll-behavior:smooth}
 @media (max-width:900px){
   #es .es-cmp-copy{grid-column:1/-1}
   #es .es-fx-act,#es .es-fx-cred{grid-column:1/-1}
-  #es .es-proof-l{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #es .es-proof-l li:nth-child(4n+1){border-left:1px solid rgba(159,216,234,.1);padding-left:28px}
-  #es .es-proof-l li:nth-child(n+5){border-bottom:1px solid rgba(159,216,234,.1)}
-  #es .es-proof-l li:nth-child(n+7){border-bottom:0}
-  #es .es-proof-l li:nth-child(n+6)::before{display:none}
-  #es .es-proof-l li:nth-child(n+3)::before{content:"";display:block;position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:linear-gradient(var(--glow),var(--glow)) center/9px 1px no-repeat,linear-gradient(var(--glow),var(--glow)) center/1px 9px no-repeat;opacity:.85}
-  #es .es-proof-l li:nth-child(2n+1)::before{display:none}
   #es .es-pth::before{width:min(240px,60%)}
   #es .es-colgrid{--cols:6}
-  #es .es-proof-l li:nth-child(2n+1){border-left:0;padding-left:0}
   #es .es-pth{row-gap:18px;grid-template-rows:none}
   #es .es-pth-n{grid-column:1/-1;grid-row:auto;display:flex;align-items:baseline;gap:16px}
   #es .es-pth-n span{margin-top:0;font-size:17px}
@@ -544,9 +475,6 @@ html{scroll-behavior:smooth}
   #es .es-stages li{padding:28px 14px 0 0}
   #es .es-label{grid-column:1/-1;margin-bottom:18px}
   #es .es-head h2,#es .es-sub{grid-column:1/-1}
-  #es .es-rec{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #es .es-rec-col:last-child{grid-column:1/-1}
-  #es .es-rec-intro{min-height:0}
   #es .es-c{border-top:0;padding:0;margin-top:20px}
   #es .es-faq-h{grid-column:1/-1;position:static;margin-bottom:32px;padding:0}
   #es .es-faq-list{grid-column:1/-1}
@@ -554,18 +482,13 @@ html{scroll-behavior:smooth}
   #es .es-form-card{margin-top:44px}
 }
 @media (max-width:640px){
-  #es .es-proof{margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:24px var(--pad-x) 0;border-radius:0;box-shadow:inset 0 1px 0 rgba(159,216,234,.14)}
   #es .es-apply>.es-wrap::before{display:none}
-  #es .es-proof-l li{padding:24px 0 26px 16px}
-  #es .es-proof-l li:nth-child(2n+1){padding-right:12px}
   #es .es-colgrid{--cols:4}
   #es .es-reg::after{top:20px}
   #es .es-route{--ts:1100px 733px;--tp:right -360px top -200px;--tf:radial-gradient(ellipse 80% 40% at 80% 12%,#000 10%,transparent 100%)}
   #es .es-fx{--ts:1000px 667px;--tp:right -380px top -170px;--tf:radial-gradient(ellipse 80% 30% at 85% 8%,#000 10%,transparent 100%)}
   #es .es-cmp-sec{--ts:1300px 867px;--tp:30% 40%}
   #es .es-final::before{-webkit-mask-position:right -420px top -300px,0 0;mask-position:right -420px top -300px,0 0}
-  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
-  #es .es-proof-l b{font-size:30px}
   #es .es-pth-n b{font-size:40px}
   #es .es-pth-c{grid-template-columns:1fr;gap:22px}
   #es .es-pth-d{font-size:16.5px}
@@ -623,15 +546,6 @@ html{scroll-behavior:smooth}
   #es .es-stages h3{font-size:19px}
   #es .es-stages .es-sn{display:grid}
   #es .es-stages p{margin:3px 0 0 36px;font-size:15px;line-height:1.5}
-  #es .es-rec{grid-template-columns:1fr;gap:42px;margin-top:38px}
-  #es .es-rec-col:last-child{grid-column:auto}
-  #es .es-rec-col{padding-top:16px}
-  #es .es-rec-intro{margin-top:8px;font-size:14px}
-  #es .es-scholarship-total{margin-top:22px;padding-bottom:22px}
-  #es .es-scholarship-total b{font-size:clamp(43px,11.4vw,56px)}
-  #es .es-competition-hook{margin-top:20px;padding-bottom:22px}
-  #es .es-competition-hook b{font-size:clamp(43px,12vw,56px)}
-  #es .es-rec-foot{margin-top:30px}
   #es .es-c{margin-top:16px}
   #es .es-faq-h{font-size:clamp(31px,8.6vw,40px);margin-bottom:24px}
   #es .es-faq-list summary{min-height:54px;padding:12px 0;font-size:17px;gap:16px}
@@ -664,101 +578,176 @@ html{scroll-behavior:smooth}
   #es *,#es *::before,#es *::after{animation:none!important;transition:none!important}
 }
 
-/* proof panel: symmetric cells, lines kept off the panel edges */
-#es .es-proof{padding:clamp(28px,3vw,40px) clamp(22px,3vw,44px)}
-#es .es-proof-h{padding:0 32px 20px;border-bottom:1px solid rgba(159,216,234,.16)}
-#es .es-proof-h::after{display:none}
-#es .es-proof-l li,#es .es-proof-l li:nth-child(n){padding:30px 32px 32px;border-bottom:0;border-left:1px solid rgba(159,216,234,.12);border-top:0}
-#es .es-proof-l li:nth-child(4n+1){border-left:0}
-#es .es-proof-l li:nth-child(n+5){border-top:1px solid rgba(159,216,234,.12)}
-#es .es-proof-l li:nth-child(n+6)::before{left:-5px;top:-5px}
-#es .es-proof-l span{max-width:17em}
-@media (max-width:900px){
-  #es .es-proof-l li:nth-child(n){border-left:1px solid rgba(159,216,234,.12);border-top:0}
-  #es .es-proof-l li:nth-child(2n+1){border-left:0}
-  #es .es-proof-l li:nth-child(n+3){border-top:1px solid rgba(159,216,234,.12)}
-}
-@media (max-width:640px){
-  #es .es-proof{padding:26px var(--pad-x) 28px}
-  #es .es-proof-h{padding:0 0 16px}
-  #es .es-proof-l li:nth-child(n){padding:22px 14px 24px}
-  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
-  #es .es-proof-l li:nth-child(2n){padding-right:0}
-}
+/* results v4: one dark band. glowing awards, labelled logo wall, admissions panel (keeps the proof band v3 look) */
+#es .es-ach{padding:clamp(60px,5.4vw,78px) 0 clamp(64px,6vw,88px);color:var(--on-night);overflow:hidden;
+  background:linear-gradient(180deg,#0b1020 0,var(--twilight) 24%,var(--twilight) 74%,#0a0d16 100%);
+  --tc:linear-gradient(100deg,var(--glacier) 0,var(--ice) 32%,var(--rose) 68%,var(--glow) 100%);--to:.24;--ts:1700px 1133px;--tp:62% 34%;
+  --tf:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}
+#es .es-ach::before{inset:-60px;animation:es-drift 80s ease-in-out infinite alternate}
+#es .es-ach-h{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500;line-height:1.3;letter-spacing:0;color:rgba(255,255,255,.8)}
+#es .es-ach-h::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 4px rgba(242,167,102,.14),0 0 14px 2px rgba(242,167,102,.55)}
 
-/* proof band: full-bleed dark strip with drifting contours */
-#es .es-proof{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:clamp(56px,6vw,84px);border-radius:0;box-shadow:none;
-  padding:clamp(52px,5.5vw,76px) max(var(--pad-x),calc((100vw - var(--max)) / 2));
-  background:linear-gradient(180deg,#0a0d16 0,var(--twilight) 38%,var(--twilight) 62%,#0a0d16 100%)}
-#es .es-proof::before{display:none}
-#es .es-proof::after{content:"";position:absolute;inset:-60px;z-index:-1;pointer-events:none;
-  background:linear-gradient(100deg,var(--glacier) 0,var(--ice) 32%,var(--rose) 68%,var(--glow) 100%);opacity:.26;
-  -webkit-mask-image:var(--topo),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);-webkit-mask-size:1700px 1133px,100% 100%;-webkit-mask-position:62% 46%,0 0;-webkit-mask-repeat:no-repeat;-webkit-mask-composite:source-in;
-          mask-image:var(--topo),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-size:1700px 1133px,100% 100%;mask-position:62% 46%,0 0;mask-repeat:no-repeat;mask-composite:intersect;
-  animation:es-drift 80s ease-in-out infinite alternate}
-#es .es-proof-h{padding:0 0 20px}
-#es .es-proof-l li,#es .es-proof-l li:nth-child(n){padding:30px clamp(18px,2.2vw,32px) 30px}
-#es .es-proof-l li:nth-child(4n+1){padding-left:0}
-#es .es-proof-l li:nth-child(4n){padding-right:0}
-#es .es-proof-l b{font-size:clamp(28px,3vw,48px)}
-@media (max-width:900px){
-  #es .es-proof-l li:nth-child(n){padding:26px 22px}
-  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
-  #es .es-proof-l li:nth-child(2n){padding-right:0}
-}
-@media (max-width:640px){
-  #es .es-proof{padding:36px var(--pad-x) 38px}
-  #es .es-proof::after{-webkit-mask-size:1200px 800px,100% 100%;mask-size:1200px 800px,100% 100%;-webkit-mask-position:40% 40%,0 0;mask-position:40% 40%,0 0}
-  #es .es-proof-l li:nth-child(n){padding:22px 14px 24px}
-  #es .es-proof-l li:nth-child(2n+1){padding-left:0}
-  #es .es-proof-l li:nth-child(2n){padding-right:0}
-}
-
-/* proof band v3: no grid lines, glowing awards, logo wall */
-#es .es-proof-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,5.5vw,88px);align-items:center}
-#es .es-proof-h{padding:0;border-bottom:0}
-#es .es-proof-h p{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:rgba(255,255,255,.78)}
-#es .es-proof-h p::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 4px rgba(242,167,102,.14),0 0 14px 2px rgba(242,167,102,.55)}
-#es .es-proof-l{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:clamp(26px,2.6vw,38px);margin-top:clamp(26px,2.6vw,36px)}
-#es .es-proof-l li,#es .es-proof-l li:nth-child(n){padding:0;border:0}
-#es .es-proof .es-proof-l li::before{display:none}
-#es .es-proof-l b{font-size:clamp(34px,3.5vw,54px);line-height:1.02;filter:drop-shadow(0 0 16px rgba(242,167,102,.3));animation:es-pglow 5.5s ease-in-out infinite alternate}
-#es .es-proof-l li:nth-child(2n) b{animation-delay:-1.4s}
-#es .es-proof-l li:nth-child(3n) b{animation-delay:-2.8s}
-#es .es-proof-l li:nth-child(4n) b{animation-delay:-4.1s}
+/* the eight awards: four columns that share the tile grid below */
+#es .es-ach-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(26px,2.6vw,36px);margin-top:clamp(28px,2.8vw,38px)}
+#es .es-ach-l li{min-width:0}
+#es .es-ach-l b{display:block;font-size:clamp(30px,3.2vw,46px);font-weight:500;letter-spacing:-.04em;line-height:1.02;white-space:nowrap;
+  background:linear-gradient(180deg,#fff 22%,#ffe2c4 62%,#f2a766 108%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 16px rgba(242,167,102,.3));animation:es-pglow 5.5s ease-in-out infinite alternate}
+#es .es-ach-l li:nth-child(2n) b{animation-delay:-1.4s}
+#es .es-ach-l li:nth-child(3n) b{animation-delay:-2.8s}
+#es .es-ach-l li:nth-child(4n) b{animation-delay:-4.1s}
 @keyframes es-pglow{from{filter:drop-shadow(0 0 8px rgba(242,167,102,.16))}to{filter:drop-shadow(0 0 24px rgba(242,167,102,.5))}}
-#es .es-proof-l span{display:flex;align-items:baseline;gap:10px;max-width:none;margin-top:12px;font-size:14.5px;font-weight:500;letter-spacing:.002em;line-height:1.4;color:#d7dee8}
-#es .es-proof-l span::before{content:"";flex:none;width:14px;height:1px;background:linear-gradient(90deg,var(--glow),rgba(242,167,102,0));transform:translateY(-4px)}
+#es .es-ach-l span{display:flex;align-items:baseline;gap:10px;margin-top:12px;font-size:14.5px;font-weight:500;letter-spacing:.002em;line-height:1.4;color:#d7dee8;text-wrap:pretty}
+#es .es-ach-l span::before{content:"";flex:none;width:14px;height:1px;background:linear-gradient(90deg,var(--glow),rgba(242,167,102,0));transform:translateY(-4px)}
 
-#es .es-proof-logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-#es .es-proof-logos li{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;height:clamp(96px,8.4vw,120px);padding:18px 22px;background:#fff;border-radius:12px;
+/* logo wall + admissions on the same 12 columns */
+#es .es-ach-wall{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(34px,3.2vw,46px);margin-top:clamp(44px,4.4vw,60px)}
+#es .es-ach-g{min-width:0}
+#es .es-ach-comp{grid-column:1/-1}
+#es .es-ach-pub{grid-column:1/4}
+#es .es-ach-prog{grid-column:4/13}
+#es .es-ach-adm{grid-column:1/10}
+#es .es-ach-sch{grid-column:10/13}
+#es .es-ach-k{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11.5px;font-weight:400;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;color:#93a9c2;white-space:nowrap}
+#es .es-ach-k::after{content:"";flex:1 1 auto;min-width:24px;height:1px;background:linear-gradient(90deg,rgba(159,216,234,.34),rgba(159,216,234,0))}
+#es .es-ach-t{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);margin-top:16px}
+#es .es-ach-pub .es-ach-t{grid-template-columns:1fr}
+#es .es-ach-prog .es-ach-t{grid-template-columns:repeat(3,minmax(0,1fr))}
+#es .es-ach-t li{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:0;aspect-ratio:960/378;min-height:92px;padding:12px 18px;background:#fff;border-radius:12px;text-align:center;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 0 0 1px rgba(255,255,255,.07),0 10px 22px -10px rgba(0,0,0,.6),0 32px 60px -24px rgba(0,0,0,.8);
   transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-#es .es-proof-logos img{display:block;width:auto;height:auto;max-width:100%;object-fit:contain}
-#es .es-lg-isef{grid-column:1/-1;height:auto!important;aspect-ratio:960/378;padding:0!important;overflow:hidden;background:#f0923d!important}
+#es .es-ach-t img{display:block;width:auto;height:auto;max-width:100%;object-fit:contain}
+#es .es-ach-t span{font-size:10.5px;font-weight:600;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;text-wrap:balance}
+#es .es-lg-isef{padding:0!important;overflow:hidden;background:#f0923d!important}
 #es .es-lg-isef img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 50%}
-#es .es-lg-sts img{max-height:26px}
-#es .es-lg-sts span{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1b4b97;white-space:nowrap}
-#es .es-lg-jshs img{max-height:78px}
-#es .es-lg-dav img{max-height:42px}
-#es .es-lg-nat img{max-height:34px}
+#es .es-lg-sts img{max-height:clamp(22px,1.9vw,27px)}
+#es .es-lg-sts span{color:#1b4b97}
+#es .es-lg-jshs img{max-height:clamp(60px,5.2vw,76px)}
+#es .es-lg-dav img{max-height:clamp(36px,3vw,42px)}
+#es .es-lg-nat img{max-height:clamp(28px,2.4vw,34px)}
+#es .es-lg-rsi img{max-height:clamp(40px,3.9vw,56px)}
+#es .es-lg-rsi span{color:#1c3f94}
+#es .es-lg-ssp img{max-height:clamp(44px,3.9vw,56px)}
+#es .es-lg-sbu img{max-height:clamp(22px,2.1vw,30px)}
+#es .es-lg-sbu span{color:#990000}
+#es .es-ach-also{margin-top:16px;font-size:13.5px;line-height:1.5;color:var(--on-night-3);text-wrap:pretty}
+#es .es-ach-also b{color:#d7dee8;font-weight:500;white-space:nowrap}
+#es .es-ach-also b:not(:last-child)::after{content:"·";padding:0 5px 0 9px;color:var(--on-night-3);font-weight:400}
+
+/* admissions: one white panel, five featured logos in hairline cells, the rest drifting below */
+#es .es-adm{margin-top:16px;overflow:hidden;background:#fff;border-radius:12px;color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 0 0 1px rgba(255,255,255,.07),0 10px 22px -10px rgba(0,0,0,.6),0 32px 60px -24px rgba(0,0,0,.8)}
+#es .es-college-featured{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));height:clamp(92px,7.6vw,110px)}
+#es .es-college-featured li{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;padding:0 clamp(12px,1.4vw,20px)}
+#es .es-college-featured li+li{border-left:1px solid var(--line)}
+#es .es-college-featured img{display:block;width:auto;height:auto;max-width:100%;max-height:44px;object-fit:contain;min-width:0}
+#es .es-college-featured .es-logo-stanford-mark{max-width:24%;max-height:40px;flex:none}
+#es .es-college-featured .es-logo-stanford-wordmark{max-width:72%;max-height:32px}
+#es .es-college-featured .es-logo-mit{max-height:40px}
+#es .es-college-featured .es-logo-harvard{max-height:54px}
+#es .es-college-featured .es-logo-princeton-shield{max-width:22%;max-height:40px;flex:none}
+#es .es-college-featured .es-logo-princeton{max-width:74%;max-height:27px}
+#es .es-college-featured .es-logo-yale{max-height:38px}
+#es .es-adm-more{display:flex;align-items:center;gap:20px;height:62px;padding-left:clamp(16px,1.6vw,24px);border-top:1px solid var(--line);background:#f7f8fa}
+#es .es-college-more-label{flex:none;font-family:var(--mono);font-size:11px;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+#es .es-college-marquee{flex:1 1 auto;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+#es .es-college-track{display:flex;width:max-content;animation:es-college-drift 55s linear infinite}
+#es .es-college-marquee:hover .es-college-track{animation-play-state:paused}
+#es .es-college-set{display:flex;align-items:center;gap:44px;flex:none;padding-right:44px}
+#es .es-college-set img{display:block;width:auto;height:auto;max-width:150px;max-height:30px;object-fit:contain}
+#es .es-college-set .es-logo-hopkins,#es .es-college-set .es-logo-berkeley{max-height:36px}
+@keyframes es-college-drift{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){#es .es-college-track{animation:none}#es .es-college-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}#es .es-college-set[aria-hidden="true"]{display:none}}
+
+/* scholarships total, set by ES_SCHOLARSHIPS */
+#es .es-ach-sch-v{margin-top:16px}
+#es .es-ach-sch-v b{display:block;font-size:clamp(34px,3.3vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1.02;font-variant-numeric:tabular-nums;white-space:nowrap;
+  background:linear-gradient(180deg,#fff 22%,#ffe2c4 62%,#f2a766 108%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 16px rgba(242,167,102,.3));animation:es-pglow 5.5s -2s ease-in-out infinite alternate}
+#es .es-ach-sch-v span{display:block;margin-top:12px;max-width:17em;font-size:14.5px;font-weight:500;line-height:1.4;color:#d7dee8;text-wrap:pretty}
+
 @media (hover:hover){
-  #es .es-proof-logos li:hover{transform:translateY(-4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 0 0 1px rgba(255,255,255,.1),0 14px 28px -10px rgba(0,0,0,.6),0 40px 70px -24px rgba(0,0,0,.85),0 0 42px -6px rgba(242,167,102,.35)}
+  #es .es-ach-t li:hover{transform:translateY(-4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 0 0 1px rgba(255,255,255,.1),0 14px 28px -10px rgba(0,0,0,.6),0 40px 70px -24px rgba(0,0,0,.85),0 0 42px -6px rgba(242,167,102,.35)}
 }
 @media (max-width:900px){
-  #es .es-proof-in{grid-template-columns:1fr;gap:40px}
-  #es .es-proof-logos{grid-template-columns:repeat(4,minmax(0,1fr))}
-  #es .es-lg-isef{grid-column:1/-1}
+  #es .es-ach-l{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #es .es-ach-comp .es-ach-t{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #es .es-ach-pub,#es .es-ach-prog,#es .es-ach-adm,#es .es-ach-sch{grid-column:1/-1}
+  #es .es-ach-prog .es-ach-t{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #es .es-ach-prog .es-ach-t li:last-child{grid-column:1/-1}
+  #es .es-ach-prog .es-ach-t li:last-child,#es .es-ach-pub .es-ach-t li{aspect-ratio:1952/378}
+  #es .es-lg-sts img{max-height:30px}
+  #es .es-lg-jshs img{max-height:84px}
+  #es .es-lg-dav img{max-height:48px}
+  #es .es-lg-nat img{max-height:40px}
+  #es .es-lg-rsi img{max-height:58px}
+  #es .es-lg-ssp img{max-height:62px}
+  #es .es-lg-sbu img{max-height:32px}
+  #es .es-college-featured{grid-template-columns:repeat(6,minmax(0,1fr));height:auto}
+  #es .es-college-featured li{grid-column:span 2;height:84px;border-top:1px solid var(--line)}
+  #es .es-college-featured li:nth-child(-n+3){border-top:0}
+  #es .es-college-featured li:nth-child(n+4){grid-column:span 3}
+  #es .es-college-featured li:nth-child(4){border-left:0}
 }
 @media (max-width:640px){
-  #es .es-proof-l{row-gap:24px;column-gap:18px}
-  #es .es-proof-l b{font-size:30px}
-  #es .es-proof-l span{font-size:13.5px;gap:8px}
-  #es .es-proof-l span::before{width:10px}
-  #es .es-proof-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  #es .es-proof-logos li{height:88px;padding:14px 16px}
-  #es .es-lg-jshs img{max-height:62px}
-  #es .es-lg-sts span{font-size:10px;letter-spacing:.1em}
+  #es .es-ach{padding:56px 0 60px}
+  #es .es-ach-h{font-size:15px;align-items:flex-start}
+  #es .es-ach-h::before{margin-top:7px}
+  #es .es-ach-l{column-gap:18px;row-gap:24px;margin-top:24px}
+  #es .es-ach-l b{font-size:clamp(25px,7.6vw,30px)}
+  #es .es-ach-l span{font-size:13.5px;gap:8px;margin-top:9px}
+  #es .es-ach-l span::before{width:10px}
+  #es .es-ach-wall{row-gap:32px;margin-top:40px}
+  #es .es-ach-t{gap:10px;margin-top:14px}
+  #es .es-ach-t li,#es .es-ach-pub .es-ach-t li,#es .es-ach-prog .es-ach-t li:last-child{aspect-ratio:auto;min-height:0;height:84px;padding:12px 14px;gap:7px}
+  #es .es-ach-t span{font-size:9.5px;letter-spacing:.1em}
+  #es .es-lg-jshs img{max-height:58px}
+  #es .es-lg-dav img{max-height:34px}
+  #es .es-lg-nat img{max-height:28px}
+  #es .es-lg-rsi img{max-height:38px}
+  #es .es-ach-prog .es-ach-t li,#es .es-ach-prog .es-ach-t li:last-child{height:96px}
+  #es .es-lg-ssp img{max-height:46px}
+  #es .es-lg-sbu img{max-height:22px}
+  #es .es-lg-sts img{max-height:20px}
+  #es .es-college-featured{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #es .es-college-featured li,#es .es-college-featured li:nth-child(n+4){grid-column:auto;height:76px;border-left:0;border-top:1px solid var(--line)}
+  #es .es-college-featured li:nth-child(-n+3){border-top:1px solid var(--line)}
+  #es .es-college-featured li:first-child,#es .es-college-featured li:nth-child(2){border-top:0}
+  #es .es-college-featured li:nth-child(2n){border-left:1px solid var(--line)}
+  #es .es-college-featured li:nth-child(3){grid-column:1/-1;border-left:0}
+  #es .es-college-featured li:nth-child(4){border-left:0}
+  #es .es-college-featured li:nth-child(5){border-left:1px solid var(--line)}
+  #es .es-college-featured .es-logo-harvard{max-height:46px}
+  #es .es-adm-more{flex-direction:column;align-items:stretch;gap:10px;height:auto;padding:14px 0 16px}
+  #es .es-college-more-label{padding-left:16px}
+  #es .es-college-set{gap:34px;padding-right:34px}
+  #es .es-college-set img{max-height:26px;max-width:130px}
+  #es .es-college-set .es-logo-hopkins,#es .es-college-set .es-logo-berkeley{max-height:32px}
+  #es .es-ach-sch-v b{font-size:clamp(34px,10vw,42px)}
+}
+
+/* centered section heads: paths, compound, included, outcomes */
+#es .es-head-c{justify-items:center;text-align:center}
+#es .es-head-c .es-label,#es .es-head-c h2,#es .es-head-c .es-sub{grid-column:1/-1;margin-left:auto;margin-right:auto}
+#es .es-head-c .es-label{margin-bottom:18px}
+#es .es-head-c h2{max-width:17em}
+#es .es-head-c .es-sub{max-width:36em}
+@media (min-width:1100px){
+  #es .es-head-1l h2{max-width:none;white-space:nowrap}
+}
+
+/* how it works: the heading spans the full measure and sits on one line from 1100px */
+#es .es-route .es-head .es-label{grid-column:1/-1;margin-bottom:18px}
+#es .es-route .es-head h2{grid-column:1/-1;max-width:none}
+#es .es-route .es-head .es-sub{grid-column:1/-1}
+@media (min-width:1100px){#es .es-route .es-head h2{white-space:nowrap}}
+
+/* compound: a centered, wider closing paragraph under the diagram */
+#es .es-cmp-copy{grid-column:1/-1;justify-self:center;max-width:44em;margin-top:clamp(40px,4vw,56px);text-align:center;font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:var(--on-night-2);text-wrap:balance}
+#es .es-cmp-copy::before{content:"";display:block;width:64px;height:1px;margin:0 auto clamp(22px,2.2vw,30px);background:linear-gradient(90deg,var(--glacier),var(--rose),var(--glow));box-shadow:0 0 10px rgba(242,167,102,.35)}
+@media (max-width:640px){
+  #es .es-cmp-copy{text-align:left;justify-self:start;text-wrap:pretty}
+  #es .es-cmp-copy::before{margin-left:0}
 }
 
 /* hero: awards float as a background layer; headline sits higher */
@@ -910,63 +899,62 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<section class="es-sec es-mist es-colgrid es-reg" id="es-results" data-tone="light">
+<section class="es-sec es-dark es-ach es-topo es-reg" id="es-results" data-tone="dark">
   <div class="es-wrap">
-    <h2 class="es-h2 es-rec-h">Mentors who have competed, published and won.</h2>
-    <div class="es-rec">
-      <div class="es-rec-col">
-        <h3>Colleges</h3>
-        <p class="es-rec-intro">Where our founding mentors and students they previously worked with have been admitted.</p>
-        <ul class="es-college-featured" aria-label="Stanford, MIT, Harvard, Princeton and Yale">
+    <h2 class="es-ach-h">Our team and past mentees have achieved</h2>
+    <ul class="es-ach-l"><li><b>3× 1st Place</b><span>Regeneron ISEF</span></li><li><b>Top Award</b><span>Regeneron ISEF</span></li><li><b>Top 40</b><span>Regeneron Science Talent Search</span></li><li><b>National 1st</b><span>Junior Science and Humanities Symposium</span></li><li><b>$50K</b><span>Davidson Fellows scholarship</span></li><li><b>Nature</b><span>Research published in Nature-family journals</span></li><li><b>HYPSM</b><span>Admissions to Harvard, Yale, Princeton, Stanford and MIT</span></li><li><b>Ivy League</b><span>Admissions across all eight</span></li></ul>
+
+    <div class="es-ach-wall">
+      <div class="es-ach-g es-ach-comp">
+        <h3 class="es-ach-k">Competitions &amp; awards</h3>
+        <ul class="es-ach-t" aria-label="Competitions and awards"><li class="es-lg-isef"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/isef.jpg" data-local-src="assets/competitions/isef.jpg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/8/8b/2021_ISEF_Logo.png" alt="Regeneron ISEF" loading="lazy" decoding="async"></li><li class="es-lg-sts"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/regeneron.svg" data-local-src="assets/competitions/regeneron.svg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Regeneron_logo.svg" alt="Regeneron" loading="lazy" decoding="async"><span>Science Talent Search</span></li><li class="es-lg-jshs"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/jshs.png" data-local-src="assets/competitions/jshs.png" data-fallback-src="https://www.jshs.org/wp-content/uploads/2021/09/JSHS-Logo-RGB-1.png" alt="Junior Science and Humanities Symposium" loading="lazy" decoding="async"></li><li class="es-lg-dav"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/davidson.svg" data-local-src="assets/competitions/davidson.svg" data-fallback-src="https://www.davidsongifted.org/wp-content/themes/kps3-di/assets/images/logo.svg" alt="Davidson Institute" loading="lazy" decoding="async"></li></ul>
+        <p class="es-ach-also">Also honored at <b>Broadcom MASTERS</b> <b>3M Young Scientist Challenge</b> <b>Stockholm Junior Water Prize</b> <b>National STEM Challenge</b></p>
+      </div>
+      <div class="es-ach-g es-ach-pub">
+        <h3 class="es-ach-k">Published in</h3>
+        <ul class="es-ach-t" aria-label="Journals"><li class="es-lg-nat"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/nature.svg" data-local-src="assets/competitions/nature.svg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Nature_journal_logo.svg" alt="Nature" loading="lazy" decoding="async"></li></ul>
+      </div>
+      <div class="es-ach-g es-ach-prog">
+        <h3 class="es-ach-k">Selective programs</h3>
+        <ul class="es-ach-t" aria-label="Selective summer research programs"><li class="es-lg-rsi"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/rsi-cee.svg" data-local-src="assets/competitions/rsi-cee.svg" data-fallback-src="https://www.cee.org/themes/custom/cee_2k21/logo.svg" alt="Center for Excellence in Education" loading="lazy" decoding="async"><span>Research Science Institute</span></li><li class="es-lg-ssp"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/ssp.png" data-local-src="assets/competitions/ssp.png" data-fallback-src="https://ssp.org/wp-content/uploads/2026/03/SSP-Logo_Black-Type_RGB-1.jpg" alt="Summer Science Program" loading="lazy" decoding="async"></li><li class="es-lg-sbu"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/stony-brook.svg" data-local-src="assets/competitions/stony-brook.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Stony_Brook_U_logo_horizontal.svg" alt="Stony Brook University" loading="lazy" decoding="async"><span>Simons Summer Research Program</span></li></ul>
+      </div>
+      <div class="es-ach-g es-ach-adm">
+        <h3 class="es-ach-k">Admissions</h3>
+        <div class="es-adm">
+          <ul class="es-college-featured" aria-label="Stanford, MIT, Harvard, Princeton and Yale">
           <li><img class="es-logo-stanford-mark" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/stanford-block-s.png" data-local-src="assets/colleges/stanford-block-s.png" data-fallback-src="https://identity.stanford.edu/wp-content/uploads/sites/3/2020/07/block-s-right.png" alt="" loading="lazy" decoding="async"><img class="es-logo-stanford-wordmark" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/stanford-wordmark.svg" data-local-src="assets/colleges/stanford-wordmark.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Stanford_wordmark_(2012).svg" alt="Stanford University" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-mit" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/mit.svg" data-local-src="assets/colleges/mit.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/MIT_2023_red_logo.svg" alt="MIT" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-harvard" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/harvard.svg" data-local-src="assets/colleges/harvard.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Harvard_University_logo.svg" alt="Harvard University" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-princeton-shield" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/princeton-shield.svg" data-local-src="assets/colleges/princeton-shield.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Princeton_seal.svg" alt="" loading="lazy" decoding="async"><img class="es-logo-princeton" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/princeton.svg" data-local-src="assets/colleges/princeton.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Princeton_text_logo.svg" alt="Princeton University" loading="lazy" decoding="async"></li>
           <li><img class="es-logo-yale" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/yale.svg" data-local-src="assets/colleges/yale.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Yale_University_logo.svg" alt="Yale University" loading="lazy" decoding="async"></li>
-        </ul>
-        <p class="es-college-more-label">Also admitted to</p>
-        <div class="es-college-marquee" aria-label="Columbia, Cornell, Johns Hopkins, Carnegie Mellon and UC Berkeley">
-          <div class="es-college-track">
+          </ul>
+          <div class="es-adm-more">
+            <p class="es-college-more-label">Also admitted to</p>
+            <div class="es-college-marquee" aria-label="Columbia, Cornell, Johns Hopkins, Carnegie Mellon and UC Berkeley">
+            <div class="es-college-track">
             <div class="es-college-set">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/columbia.svg" data-local-src="assets/colleges/columbia.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Columbia_University_1754.svg" alt="Columbia University" loading="eager" decoding="async">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/cornell.svg" data-local-src="assets/colleges/cornell.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Cornell_University_logo.svg" alt="Cornell University" loading="eager" decoding="async">
-              <img class="es-logo-hopkins" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/johns-hopkins.png" data-local-src="assets/colleges/johns-hopkins.png" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Johns_Hopkins_University_logo.png" alt="Johns Hopkins University" loading="eager" decoding="async">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/carnegie-mellon.svg" data-local-src="assets/colleges/carnegie-mellon.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnegie_Mellon_University_wordmark.svg" alt="Carnegie Mellon University" loading="eager" decoding="async">
-              <img class="es-logo-berkeley" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/berkeley.svg" data-local-src="assets/colleges/berkeley.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/University_of_California%2C_Berkeley_logo.svg" alt="UC Berkeley" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/columbia.svg" data-local-src="assets/colleges/columbia.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Columbia_University_1754.svg" alt="Columbia University" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/cornell.svg" data-local-src="assets/colleges/cornell.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Cornell_University_logo.svg" alt="Cornell University" loading="eager" decoding="async">
+            <img class="es-logo-hopkins" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/johns-hopkins.png" data-local-src="assets/colleges/johns-hopkins.png" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Johns_Hopkins_University_logo.png" alt="Johns Hopkins University" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/carnegie-mellon.svg" data-local-src="assets/colleges/carnegie-mellon.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnegie_Mellon_University_wordmark.svg" alt="Carnegie Mellon University" loading="eager" decoding="async">
+            <img class="es-logo-berkeley" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/berkeley.svg" data-local-src="assets/colleges/berkeley.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/University_of_California%2C_Berkeley_logo.svg" alt="UC Berkeley" loading="eager" decoding="async">
             </div>
             <div class="es-college-set" aria-hidden="true">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/columbia.svg" data-local-src="assets/colleges/columbia.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Columbia_University_1754.svg" alt="" loading="eager" decoding="async">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/cornell.svg" data-local-src="assets/colleges/cornell.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Cornell_University_logo.svg" alt="" loading="eager" decoding="async">
-              <img class="es-logo-hopkins" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/johns-hopkins.png" data-local-src="assets/colleges/johns-hopkins.png" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Johns_Hopkins_University_logo.png" alt="" loading="eager" decoding="async">
-              <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/carnegie-mellon.svg" data-local-src="assets/colleges/carnegie-mellon.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnegie_Mellon_University_wordmark.svg" alt="" loading="eager" decoding="async">
-              <img class="es-logo-berkeley" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/berkeley.svg" data-local-src="assets/colleges/berkeley.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/University_of_California%2C_Berkeley_logo.svg" alt="" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/columbia.svg" data-local-src="assets/colleges/columbia.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Columbia_University_1754.svg" alt="" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/cornell.svg" data-local-src="assets/colleges/cornell.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Cornell_University_logo.svg" alt="" loading="eager" decoding="async">
+            <img class="es-logo-hopkins" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/johns-hopkins.png" data-local-src="assets/colleges/johns-hopkins.png" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Johns_Hopkins_University_logo.png" alt="" loading="eager" decoding="async">
+            <img src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/carnegie-mellon.svg" data-local-src="assets/colleges/carnegie-mellon.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnegie_Mellon_University_wordmark.svg" alt="" loading="eager" decoding="async">
+            <img class="es-logo-berkeley" src="https://shadowcoder1.github.io/everest-scholars-site/assets/colleges/berkeley.svg" data-local-src="assets/colleges/berkeley.svg" data-fallback-src="https://commons.wikimedia.org/wiki/Special:FilePath/University_of_California%2C_Berkeley_logo.svg" alt="" loading="eager" decoding="async">
+            </div>
+            </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="es-rec-col">
-        <h3>Scholarships</h3>
-        <p class="es-rec-intro">Awards earned by our mentors and students they previously worked with.</p>
-        <p class="es-scholarship-total" data-es-scholarships hidden><b data-es-scholarships-value></b><span>in scholarships won, combined</span></p>
-        <p class="es-scholarship-pull">Build a project you can defend.</p>
-        <p class="es-scholarship-proof">We help you choose a testable question, collect evidence, and explain what the results actually show. Our founding mentors earned a Masason Foundation full ride and a $20,000 STEM Stars scholarship; a former student earned a $50,000 Davidson Fellows award.</p>
+      <div class="es-ach-g es-ach-sch" data-es-scholarships hidden>
+        <h3 class="es-ach-k">Scholarships</h3>
+        <p class="es-ach-sch-v"><b data-es-scholarships-value></b><span>won by our team and past mentees, combined</span></p>
       </div>
-      <div class="es-rec-col">
-        <h3>Competitions</h3>
-        <p class="es-rec-intro">The best track record you can imagine.</p>
-        <div class="es-competition-hook">
-          <b>Top 0.001%</b>
-          <span>of high school researchers worldwide.</span>
-        </div>
-        <p class="es-competition-summary">Our mentors and students they have worked with have won <strong>first place</strong> and earned top honors across major research competitions and awards.</p>
-        <ul class="es-competition-names" aria-label="Research competitions and awards where our mentors and students have earned honors">
-          <li>ISEF</li><li>National JSHS</li><li>Regeneron STS</li><li>Broadcom MASTERS</li><li>National STEM Challenge</li><li>3M Young Scientist Challenge</li><li>Stockholm Junior Water Prize</li><li>Davidson Fellows</li>
-        </ul>
-        <a class="es-competition-turn" href="#es-apply" aria-label="Now it’s your turn. Apply for a strategy call"><span>Now it’s your turn.</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </div>
-    <div class="es-rec-foot">
-      <p><b>Published research</b> First-author papers in peer-reviewed journals, with coauthors at Johns Hopkins and Carnegie Mellon; former students’ papers in Nature-family journals.</p>
     </div>
   </div>
 </section>
@@ -984,17 +972,7 @@ html{scroll-behavior:smooth}
       <p class="es-fx-cred">Built by researchers, founders and competition winners with acceptances to MIT, Harvard, Stanford, Princeton, Yale, Columbia, Johns Hopkins, Carnegie Mellon, Berkeley and&nbsp;Cornell.</p>
     </div>
 
-    <div class="es-proof">
-      <div class="es-proof-in">
-        <div class="es-proof-main">
-          <div class="es-proof-h"><p>Our team and past mentees have achieved</p></div>
-          <ul class="es-proof-l"><li><b>1st Place</b><span>Regeneron ISEF</span></li><li><b>Top Award</b><span>Regeneron ISEF</span></li><li><b>Top 40</b><span>Regeneron Science Talent Search</span></li><li><b>National 1st</b><span>Junior Science and Humanities Symposium</span></li><li><b>$50K</b><span>Davidson Fellows scholarship</span></li><li><b>Nature</b><span>Research published in Nature-family journals</span></li><li><b>HYPSM</b><span>Admissions to Harvard, Yale, Princeton, Stanford and MIT</span></li><li><b>Ivy League</b><span>Admissions across all eight</span></li></ul>
-        </div>
-        <ul class="es-proof-logos" aria-label="Competitions, awards and journals"><li class="es-lg-isef"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/isef.jpg" data-local-src="assets/competitions/isef.jpg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/8/8b/2021_ISEF_Logo.png" alt="Regeneron ISEF" loading="lazy" decoding="async"></li><li class="es-lg-sts"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/regeneron.svg" data-local-src="assets/competitions/regeneron.svg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Regeneron_logo.svg" alt="Regeneron" loading="lazy" decoding="async"><span>Science Talent Search</span></li><li class="es-lg-jshs"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/jshs.png" data-local-src="assets/competitions/jshs.png" data-fallback-src="https://www.jshs.org/wp-content/uploads/2021/09/JSHS-Logo-RGB-1.png" alt="Junior Science and Humanities Symposium" loading="lazy" decoding="async"></li><li class="es-lg-dav"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/davidson.svg" data-local-src="assets/competitions/davidson.svg" data-fallback-src="https://www.davidsongifted.org/wp-content/themes/kps3-di/assets/images/logo.svg" alt="Davidson Institute" loading="lazy" decoding="async"></li><li class="es-lg-nat"><img src="https://shadowcoder1.github.io/everest-scholars-site/assets/competitions/nature.svg" data-local-src="assets/competitions/nature.svg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Nature_journal_logo.svg" alt="Nature" loading="lazy" decoding="async"></li></ul>
-      </div>
-    </div>
-
-    <div class="es-grid es-head es-pth-head">
+    <div class="es-grid es-head es-head-c es-pth-head">
       <p class="es-label">Paths</p>
       <h2>Choose your focus. Build beyond&nbsp;it.</h2>
       <p class="es-sub es-sub-w">Every student starts with a personalized research roadmap. Choose the path closest to your current goal, or combine paths into a longer-term&nbsp;strategy.</p>
@@ -1035,7 +1013,7 @@ html{scroll-behavior:smooth}
 
 <section class="es-sec es-dark es-cmp-sec es-topo es-reg" id="es-compound" data-tone="dark">
   <div class="es-wrap">
-    <div class="es-grid es-head">
+    <div class="es-grid es-head es-head-c es-head-1l">
       <p class="es-label">How the paths connect</p>
       <h2>The paths are designed to&nbsp;compound.</h2>
     </div>
@@ -1051,7 +1029,7 @@ html{scroll-behavior:smooth}
 
 <section class="es-sec es-dark es-inf-sec es-colgrid es-reg" id="es-included" data-tone="dark">
   <div class="es-wrap">
-    <div class="es-grid es-head">
+    <div class="es-grid es-head es-head-c">
       <p class="es-label">Included</p>
       <h2>Every fellow gets the infrastructure behind the&nbsp;work.</h2>
     </div>
@@ -1061,12 +1039,12 @@ html{scroll-behavior:smooth}
 
 <section class="es-sec es-light es-team es-reg" id="es-team" data-tone="light">
   <div class="es-wrap">
-    <div class="es-grid es-head es-case-head">
+    <div class="es-grid es-head es-head-c es-case-head">
       <p class="es-label">Outcomes</p>
       <h2>What previous mentees have gone on to&nbsp;accomplish.</h2>
       <p class="es-sub es-sub-w">Prior mentorship outcomes from members of our team, before Everest&nbsp;Scholars.</p>
     </div>
-    <ul class="es-cases"><li><p class="es-case-k">From project idea<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>ISEF 1st Place</b><span>First place in an ISEF category, after one-on-one mentorship from a member of our team.</span></li><li><p class="es-case-k">From research development<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>Regeneron STS Top 40</b><span>Named one of 40 national finalists in the Regeneron Science Talent Search.</span></li><li><p class="es-case-k">From high school research<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>Nature-family publication</b><span>Original research published in a Nature-family journal.</span></li><li><p class="es-case-k">From research portfolio<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>All eight Ivy League universities</b><span>Admitted to every school in the Ivy League.</span></li></ul>
+    <ul class="es-cases"><li><p class="es-case-k">From project idea<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>3× ISEF First Place</b><span>Three first-place ISEF category awards, after one-on-one mentorship from our team.</span></li><li><p class="es-case-k">From research development<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>Regeneron STS Top 40</b><span>Named one of 40 national finalists in the Regeneron Science Talent Search.</span></li><li><p class="es-case-k">From high school research<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>Nature-family publication</b><span>Original research published in a Nature-family journal.</span></li><li><p class="es-case-k">From research portfolio<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></p><b>All eight Ivy League universities</b><span>Admitted to every school in the Ivy League.</span></li></ul>
 
     <div class="es-final">
       <div class="es-final-c">
@@ -1179,7 +1157,7 @@ html{scroll-behavior:smooth}
 
   /* sky awards: each slot surfaces one award, holds it, lets it drift away, then takes the next */
   (function () {
-    var AWARDS = ['ISEF Grand Award','2× ISEF First Place','Regeneron STS Top 40','National JSHS First Place','Davidson Fellow, $50,000',
+    var AWARDS = ['ISEF Grand Award','3× ISEF First Place','Regeneron STS Top 40','National JSHS First Place','Davidson Fellow, $50,000',
       'Regeneron STS Top 300 Scholar','Published in Nature-family journals','Masason Foundation Scholar','Stockholm Junior Water Prize','Broadcom MASTERS Finalist',
       '3M Young Scientist Top 10','Pennsylvania JSHS First Place','Actuarial Foundation STEM Stars','First-author research papers','IEEE MIT URTC Presenter',
       'Brain Bee First Place Team','Blue Ocean Top 10 of 23,000','Public Forum Debate, US #5','Harvard Crimson Business Finalist','International Public Policy Forum',
