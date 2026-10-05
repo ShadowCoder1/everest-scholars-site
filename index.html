@@ -152,7 +152,7 @@ html{scroll-behavior:smooth}
 #es .es-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;animation:es-up .9s .55s var(--ease) both}
 
 #es .es-idx{width:100%;margin-top:clamp(52px,7vh,92px);padding-bottom:34px;animation:es-fade 1s .8s both}
-#es .es-idx ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+#es .es-idx ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap)}
 #es .es-idx a{display:grid;grid-template-columns:minmax(0,1fr) 14px;grid-template-areas:"n c" "d d";column-gap:12px;align-items:center;height:100%;border-top:1px solid rgba(255,255,255,.22);padding:16px 0 4px;transition:border-color .25s}
 #es .es-idx-n{grid-area:n;font-size:15px;font-weight:500}
 #es .es-idx-d{grid-area:d;margin-top:5px;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.62)}
@@ -218,6 +218,7 @@ html{scroll-behavior:smooth}
 #es .es-pth{--acc:var(--glow);--acc-ink:var(--glow-ink);position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(32px,3.2vw,44px) 0;border-top:1px solid var(--line-2);grid-template-rows:auto 1fr}
 #es #es-p-publication{--acc:var(--glacier);--acc-ink:var(--glacier-ink)}
 #es #es-p-programs{--acc:var(--rose);--acc-ink:var(--rose-ink)}
+#es #es-p-admissions{--acc:#a99be6;--acc-ink:#5b4fb8}
 #es .es-pth::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:calc((100% + var(--gap)) * 5 / 12 - var(--gap));background:linear-gradient(90deg,var(--acc-ink),var(--acc) 50%,rgba(255,255,255,0))}
 #es .es-pth-head+.es-pth{margin-top:clamp(36px,3.5vw,48px)}
 #es .es-pth-n{grid-column:1/6;grid-row:1}
@@ -375,6 +376,7 @@ html{scroll-behavior:smooth}
 #es .es-idx li{--acc:var(--glow)}
 #es .es-idx li:nth-child(2){--acc:var(--glacier)}
 #es .es-idx li:nth-child(3){--acc:var(--rose)}
+#es .es-idx li:nth-child(4){--acc:#a99be6}
 #es .es-idx a{position:relative}
 #es .es-idx a::before{content:"";position:absolute;left:0;top:-1px;width:36px;height:1px;background:var(--acc);box-shadow:0 0 8px var(--acc);transition:width .5s var(--ease)}
 
@@ -837,6 +839,7 @@ html{scroll-behavior:smooth}
   #es .es-pth+.es-pth{margin-top:12px}
 }
 #es .es-pth-head .es-sub{text-wrap:balance;max-width:38em}
+@media (min-width:641px) and (max-width:1100px){#es .es-idx ul{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:6px}}
 </style>
 
 <div id="es">
@@ -889,6 +892,7 @@ html{scroll-behavior:smooth}
       <li><a href="#es-p-competitions"><span class="es-idx-n">Competitions</span><span class="es-idx-d">ISEF, JSHS, Regeneron STS</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
       <li><a href="#es-p-publication"><span class="es-idx-n">Research &amp; Publication</span><span class="es-idx-d">From a question to a manuscript</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
       <li><a href="#es-p-programs"><span class="es-idx-n">Selective Programs</span><span class="es-idx-d">RSI, SSP, MITES and more</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
+      <li><a href="#es-p-admissions"><span class="es-idx-n">College Admissions</span><span class="es-idx-d">Harvard, Yale, Princeton, Stanford, MIT</span><svg class="es-idx-c" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></li>
     </ul>
   </nav>
 </section>
@@ -996,7 +1000,7 @@ html{scroll-behavior:smooth}
     <div class="es-grid es-head es-head-c es-pth-head">
       <p class="es-label">Paths</p>
       <h2>Choose your focus. Build beyond&nbsp;it.</h2>
-      <p class="es-sub es-sub-w">Start with one path or combine all three. We build a personalized roadmap around your interests, experience and goals, then pair you with mentors who help you execute&nbsp;it.</p>
+      <p class="es-sub es-sub-w">Start with one path or combine several. We build a personalized roadmap around your interests, experience and goals, then pair you with mentors who help you execute&nbsp;it.</p>
     </div>
 
     <article class="es-pth" id="es-p-competitions">
@@ -1026,6 +1030,16 @@ html{scroll-behavior:smooth}
         <div class="es-pth-c">
           <div><p class="es-mh">You’ll work on</p><ul class="es-pth-l"><li>Personalized program shortlist</li><li>Application strategy and timeline</li><li>Research-interest statements</li><li>Essay development and revision</li><li>Résumé and activity descriptions</li><li>Recommendation strategy</li><li>Application review</li><li>Mock interviews</li></ul></div>
           <div class="es-pth-a"><p class="es-mh">Programs students may target</p><p class="es-pth-t">RSI · SSP · MITES · Simons · Garcia · Clark Scholars · COSMOS · PROMYS · Ross · other selective programs</p><p class="es-pth-note">Program recommendations depend on the student’s eligibility, interests and timeline.</p></div>
+        </div>
+      </div>
+    </article>
+    <article class="es-pth" id="es-p-admissions">
+      <div class="es-pth-n"><b>04</b><span>College Admissions</span></div>
+      <div class="es-pth-b">
+        <div class="es-pth-hd"><h3>Build an application for the most selective universities.</h3><p class="es-pth-d">Turn your research, activities and story into a focused application for Harvard, Yale, Princeton, Stanford, MIT and the Ivy League, guided by people who were admitted there.</p></div>
+        <div class="es-pth-c">
+          <div><p class="es-mh">You’ll work on</p><ul class="es-pth-l"><li>School list and admissions strategy</li><li>Early Decision and Early Action planning</li><li>Personal statement and supplemental essays</li><li>Activities list and honors</li><li>Positioning your research and competitions</li><li>Recommendation strategy</li><li>Interview preparation</li><li>Full application review</li></ul></div>
+          <div class="es-pth-a"><p class="es-mh">Built for students targeting</p><p class="es-pth-t">Harvard · Yale · Princeton · Stanford · MIT · Ivy League · other highly selective universities</p><p class="es-pth-note">Admissions decisions are made by each university. Every essay and every word is the student’s own.</p></div>
         </div>
       </div>
     </article>
@@ -1091,7 +1105,7 @@ html{scroll-behavior:smooth}
       <details><summary>Can you guarantee a professor or lab placement?<i aria-hidden="true"></i></summary><p>No. Whether a professor takes on a student depends on their interest and capacity. We help students find relevant labs and write strong, personalized outreach.</p></details>
       <details><summary>Do you guarantee awards, publication or admission?<i aria-hidden="true"></i></summary><p>No. Judges, editors and admissions offices make those decisions, not us.</p></details>
       <details><summary>Will you write any of it?<i aria-hidden="true"></i></summary><p>Never. Mentors ask questions and give feedback. Every word and every line of code is the student’s.</p></details>
-      <details><summary>Do you help with college applications?<i aria-hidden="true"></i></summary><p>Only with presenting the research: the activities list, a resume and LinkedIn.</p></details>
+      <details><summary>Do you help with college applications?<i aria-hidden="true"></i></summary><p>Yes. The College Admissions path covers school strategy, essays, activities, recommendations and interviews for highly selective universities. We guide and edit; every word is the student’s own.</p></details>
     </div>
   </div>
 </section>
