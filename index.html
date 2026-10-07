@@ -308,34 +308,14 @@ html{scroll-behavior:smooth}
 #es .es-apply-media{position:absolute;left:0;right:0;top:0;height:clamp(440px,40vw,640px);z-index:-1}
 #es .es-apply-media img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 #es .es-apply-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0a0c10 0,rgba(10,12,16,0) 22%,rgba(10,12,16,0) 52%,rgba(10,12,16,.62) 76%,#0a0c10 100%)}
-#es .es-apply-copy{grid-column:1/7;align-self:start}
+#es .es-apply-copy{grid-column:1/-1;align-self:start}
 #es .es-apply-copy .es-label{color:rgba(255,255,255,.7)}
-#es .es-apply-copy h2{font-size:clamp(34px,4.4vw,64px);line-height:1.02;letter-spacing:-.042em;margin-top:18px;text-wrap:balance;max-width:11em}
+#es .es-apply-copy h2{font-size:clamp(34px,4.4vw,64px);line-height:1.02;letter-spacing:-.042em;margin-top:18px;text-wrap:balance}
+#es .es-apply-title-link{display:block;width:100%;text-decoration:underline;text-decoration-color:rgba(255,255,255,.28);text-decoration-thickness:1px;text-underline-offset:6px;transition:text-decoration-color .2s}
+#es .es-apply-title-link svg{display:inline-block;width:.42em;height:.42em;margin-left:.28em;vertical-align:.04em;transition:transform .25s var(--ease)}
+#es .es-apply-title-link:hover{text-decoration-color:currentColor}
+#es .es-apply-title-link:hover svg{transform:translateX(3px)}
 #es .es-apply-sub{margin-top:22px;font-size:clamp(17px,1.35vw,19px);color:var(--on-night-2);max-width:30em;text-wrap:pretty}
-#es .es-form-card{position:relative;grid-column:7/13;align-self:start;background:linear-gradient(180deg,rgba(17,26,47,.95),rgba(11,16,30,.97));border:1px solid rgba(159,216,234,.16);border-radius:var(--r);padding:40px}
-#es .es-form-card::before{content:"";position:absolute;left:28px;right:28px;top:-1px;height:1px;background:linear-gradient(90deg,rgba(239,142,127,0),var(--rose) 30%,var(--glow) 70%,rgba(242,167,102,0))}
-#es #es-apply-form{position:relative}
-#es .es-ts{margin-top:20px}#es .es-ts:empty{display:none}#es .es-ts iframe{max-width:100%}
-#es .es-form-err{margin-top:12px;font-size:14px;color:#f08a78;min-height:0}
-#es .es-field{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:12px}
-#es .es-field+.es-field{margin-top:22px}
-#es .es-field label{grid-row:1;grid-column:1;font-size:14px;line-height:20px;color:var(--on-night-2);margin-bottom:8px}
-#es .es-field input{grid-row:2;grid-column:1/-1}
-#es #es-apply-form input{display:block;width:100%;height:52px;padding:0 16px;border-radius:var(--r);background:rgba(8,11,20,.88);border:1px solid rgba(159,216,234,.2);color:#fff;font-size:16px;outline:0;transition:border-color .2s,box-shadow .2s}
-#es #es-apply-form input:focus{border-color:var(--glow);box-shadow:0 0 0 3px rgba(242,167,102,.16)}
-#es #es-apply-form input[aria-invalid="true"]{border-color:#f08a78}
-#es .es-err{grid-row:1;grid-column:2;justify-self:end;text-align:right;font-size:13px;line-height:20px;color:#f5a393}
-#es #es-apply-form button{margin-top:28px;width:100%;height:52px;border-radius:var(--r);background:#fff;color:var(--ink);font-size:15.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:10px;transition:background-color .2s}
-#es #es-apply-form button svg{width:14px;height:14px;transition:transform .25s var(--ease)}
-#es .es-form-fine{margin-top:14px;font-size:13.5px;line-height:1.45;color:var(--on-night-3)}
-#es .es-fields{transition:opacity .35s}
-#es .es-done .es-fields{opacity:0;visibility:hidden}
-#es .es-ok{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s .1s}
-#es .es-done .es-ok{opacity:1;pointer-events:auto}
-#es .es-ok p:focus{outline:0}
-#es .es-ok i{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1.25px var(--glow);display:grid;place-items:center;color:var(--glow)}
-#es .es-ok i svg{width:18px;height:18px}
-#es .es-ok p{margin-top:22px;font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.25;max-width:14em}
 
 /* ---------- footer ---------- */
 #es .es-foot{background:var(--night);color:var(--on-night-2);padding:8px 0 40px}
@@ -410,9 +390,6 @@ html{scroll-behavior:smooth}
   #es .es-idx a:hover::before{width:100%}
   #es .es-idx a:hover .es-idx-c{opacity:1;transform:translateX(3px)}
   #es .es-faq-list summary:hover{color:#3a3f48}
-  #es #es-apply-form input:hover:not(:focus){border-color:rgba(255,255,255,.32)}
-  #es #es-apply-form button:hover{background:#e6e8eb}
-  #es #es-apply-form button:hover svg{transform:translateX(3px)}
   #es .es-foot nav a:hover,#es .es-legal a:hover{color:#fff}
 }
 
@@ -480,8 +457,7 @@ html{scroll-behavior:smooth}
   #es .es-c{border-top:0;padding:0;margin-top:20px}
   #es .es-faq-h{grid-column:1/-1;position:static;margin-bottom:32px;padding:0}
   #es .es-faq-list{grid-column:1/-1}
-  #es .es-apply-copy,#es .es-form-card{grid-column:1/-1}
-  #es .es-form-card{margin-top:44px}
+  #es .es-apply-copy{grid-column:1/-1}
 }
 @media (max-width:640px){
   #es .es-apply>.es-wrap::before{display:none}
@@ -558,10 +534,6 @@ html{scroll-behavior:smooth}
   #es .es-apply-media::after{background:linear-gradient(180deg,#0a0c10 0,rgba(10,12,16,0) 16%,rgba(10,12,16,0) 56%,rgba(10,12,16,.7) 74%,#0a0c10 90%)}
   #es .es-apply-copy h2{font-size:clamp(31px,8.6vw,40px);line-height:1.05;margin-top:12px}
   #es .es-apply-sub{margin-top:14px;font-size:16.5px}
-  #es .es-form-card{padding:22px 20px 18px;margin-top:28px}
-  #es .es-field+.es-field{margin-top:20px}
-  #es #es-apply-form button{margin-top:24px}
-  #es .es-form-fine{margin-top:12px}
   #es .es-foot{padding:0 0 24px}
   #es .es-foot-top{flex-direction:column;align-items:flex-start;gap:4px;padding-bottom:10px}
   #es .es-foot nav{margin:0 0 0 -10px}
@@ -572,9 +544,6 @@ html{scroll-behavior:smooth}
 @media (max-width:360px){
   #es .es-menu-btn{width:44px;padding:0;justify-content:center;margin-right:2px}
   #es .es-menu-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  #es .es-err{grid-row:3;grid-column:1/-1;justify-self:start;text-align:left;min-height:26px;padding-top:6px;line-height:18px}
-  #es .es-field+.es-field{margin-top:8px}
-  #es #es-apply-form button{margin-top:6px}
 }
 @media (prefers-reduced-motion:reduce){
   #es *,#es *::before,#es *::after{animation:none!important;transition:none!important}
@@ -856,7 +825,7 @@ html{scroll-behavior:smooth}
     </nav>
     <button class="es-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
     <span class="es-nav-sep" aria-hidden="true"></span>
-    <a class="es-btn es-btn-light es-nav-cta" href="#es-apply">Apply<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    <a class="es-btn es-btn-light es-nav-cta" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
   </div>
 </header>
 
@@ -877,11 +846,11 @@ html{scroll-behavior:smooth}
     <div class="es-sky-f"><p class="es-sk es-sk-n" style="--x:0%;--r:0"><span></span></p><p class="es-sk es-sk-f" style="--x:36%;--r:0"><span></span></p><p class="es-sk es-sk-m" style="--x:66%;--r:0"><span></span></p><p class="es-sk es-sk-m" style="--x:16%;--r:1"><span></span></p><p class="es-sk es-sk-n" style="--x:50%;--r:1"><span></span></p><p class="es-sk es-sk-f" style="--x:80%;--r:1"><span></span></p></div>
   </div>
   <div class="es-wrap es-hero-body">
-    <p class="es-status">Now enrolling for the January 2027 cohort</p>
+    <p class="es-status">Now enrolling for the <span data-cohort-label>Fall 2027</span> cohort</p>
     <h1><span class="es-l"><span>Real research,</span></span><span class="es-l"><span>guided <span class="es-nw">one-on-one.</span></span></span></h1>
     <p class="es-lede">For grades 9–12, fully online. Our mentors include an ISEF Grand Award winner, a National JSHS first&#8209;place finisher and a&nbsp;Regeneron STS Top&nbsp;300&nbsp;Scholar.</p>
     <div class="es-cta">
-      <a class="es-btn es-btn-light" href="#es-apply">Apply for a strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a class="es-btn es-btn-light" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply for a free strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
       <a class="es-btn es-btn-ghost" href="#es-route">How it works</a>
     </div>
     <div class="es-sky-m" aria-hidden="true"><p class="es-sky-k">Won by our mentors and mentees</p><p class="es-sk es-sk-n es-sk-solo"><span></span></p></div>
@@ -1087,7 +1056,7 @@ html{scroll-behavior:smooth}
         <p>Programs are personalized to each student’s goals, timeline and level of support. We’ll recommend the appropriate path during your strategy&nbsp;call.</p>
       </div>
       <div class="es-final-a">
-        <a class="es-btn es-btn-light es-btn-lg" href="#es-apply">Apply for a strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="es-btn es-btn-light es-btn-lg" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply for a free strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
         <p><span class="es-nw">30 minutes</span> · <span class="es-nw">Student + parent recommended</span> · <span class="es-nw">No obligation</span></p>
       </div>
     </div>
@@ -1120,32 +1089,8 @@ html{scroll-behavior:smooth}
   <div class="es-wrap es-grid">
     <div class="es-apply-copy">
       <p class="es-label">Strategy call</p>
-      <h2>Apply for a strategy call.</h2>
-      <p class="es-apply-sub">30 minutes with our team. Student and parent recommended, no obligation. We walk through goals, paths and pricing. The next cohort starts in January&nbsp;2027.</p>
-    </div>
-    <div class="es-form-card">
-      <form id="es-apply-form" action="/email_lists/1278745/subscriptions" method="post" novalidate>
-        <div class="es-fields">
-          <div class="es-field">
-            <label for="es-name">Student’s name</label>
-            <input id="es-name" name="name" type="text" autocomplete="name" required aria-describedby="es-name-err">
-            <p class="es-err" id="es-name-err" aria-live="polite"></p>
-          </div>
-          <div class="es-field">
-            <label for="es-email">Parent or student email</label>
-            <input id="es-email" name="email" type="email" autocomplete="email" required aria-describedby="es-email-err">
-            <p class="es-err" id="es-email-err" aria-live="polite"></p>
-          </div>
-          <div class="es-ts"></div>
-          <button type="submit">Apply for a strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></button>
-          <p class="es-form-fine">Free. We will email you to pick a time.</p>
-          <p class="es-form-err" id="es-form-err" aria-live="polite"></p>
-        </div>
-        <div class="es-ok" role="status" aria-live="polite">
-          <i><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6"/></svg></i>
-          <p tabindex="-1"></p>
-        </div>
-      </form>
+      <h2><a class="es-apply-title-link" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Start with a free strategy call.<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+      <p class="es-apply-sub">30 minutes with our team. Student and parent recommended, no obligation. We walk through goals, paths and pricing. The next cohort starts in <span data-cohort-label>Fall 2027</span>.</p>
     </div>
   </div>
 </section>
@@ -1156,7 +1101,7 @@ html{scroll-behavior:smooth}
     <div class="es-foot-top">
       <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top"><span class="es-mark-i" aria-hidden="true"><img class="es-mark-d" src="https://shadowcoder1.github.io/everest-scholars-site/assets/brand/mark-on-dark.png" data-local-src="assets/brand/mark-on-dark.png" alt="" width="49" height="40" decoding="async"></span><span class="es-mark-t" aria-hidden="true"><b>Everest</b><i>Scholars</i></span></a>
       <nav aria-label="Footer">
-        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="#es-apply">Apply</a>
+        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply</a>
       </nav>
     </div>
     <div class="es-legal">
@@ -1173,6 +1118,16 @@ html{scroll-behavior:smooth}
   var ES_SCHOLARSHIPS = '$800,000'; // the exact confirmed total, in the form '$XXX,XXX'. Leave '' until confirmed.
   var root = document.getElementById('es');
   if (!root) return;
+
+  /* cohort label: advances quarterly from Fall 2027 */
+  var now = new Date();
+  var monthsSinceCohortStart = (now.getFullYear() - 2027) * 12 + now.getMonth() - 8;
+  var cohortStep = Math.max(0, Math.floor(monthsSinceCohortStart / 3));
+  var cohortStart = new Date(2027, 8 + cohortStep * 3, 1);
+  var cohortLabel = ['Fall', 'Winter', 'Spring', 'Summer'][cohortStep % 4] + ' ' + cohortStart.getFullYear();
+  Array.prototype.forEach.call(root.querySelectorAll('[data-cohort-label]'), function (el) {
+    el.textContent = cohortLabel;
+  });
 
   /* compound diagram: draws itself when it scrolls into view (stays fully visible without JS) */
   (function () {
@@ -1327,83 +1282,6 @@ html{scroll-behavior:smooth}
     });
   }
 
-  /* application form */
-  var form = document.getElementById('es-apply-form');
-  if (!form) return;
-  var nameEl = form.querySelector('input[name="name"]');
-  var emailEl = form.querySelector('input[name="email"]');
-  /* Podia protects email signups with Cloudflare Turnstile; render the same invisible check */
-  var tsBox = form.querySelector('.es-ts'), tsId = null, tsToken = null;
-  var tsMeta = document.querySelector('meta[name="turnstile-site-key"]');
-  var tsKey = tsMeta ? tsMeta.getAttribute('content') : null;
-  function renderTs() {
-    if (!tsKey || !tsBox || tsId !== null) return;
-    if (!window.turnstile || !window.turnstile.render) { setTimeout(renderTs, 300); return; }
-    try {
-      tsId = window.turnstile.render(tsBox, { sitekey: tsKey, appearance: 'interaction-only', theme: 'dark',
-        callback: function (t) { tsToken = t; }, 'expired-callback': function () { tsToken = null; }, 'error-callback': function () { tsToken = null; } });
-    } catch (_) {}
-  }
-  var ON_PODIA = !!document.querySelector('meta[name="turnstile-site-key"], meta[name="csrf-token"]') || /podia\.com$/.test(location.hostname);
-  if (ON_PODIA) {
-    if (!window.turnstile && !document.querySelector('script[src*="turnstile/v0/api.js"]')) {
-      var tsScript = document.createElement('script'); tsScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'; tsScript.async = true; tsScript.defer = true; document.head.appendChild(tsScript);
-    }
-    renderTs();
-  }
-  function waitForToken(ms) {
-    return new Promise(function (resolve) {
-      var t0 = Date.now();
-      (function check() {
-        var t = tsToken || (window.turnstile && tsId !== null && window.turnstile.getResponse ? window.turnstile.getResponse(tsId) : null);
-        if (t || Date.now() - t0 > ms) return resolve(t || null);
-        setTimeout(check, 250);
-      })();
-    });
-  }
-  function setErr(input, msg) {
-    var box = document.getElementById(input.getAttribute('aria-describedby'));
-    if (box) box.textContent = msg || '';
-    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
-  }
-  [nameEl, emailEl].forEach(function (el) { el.addEventListener('input', function () { setErr(el, ''); }); });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    var name = nameEl.value.trim();
-    var email = emailEl.value.trim();
-    var ok = true;
-    if (!name) { setErr(nameEl, 'Enter the student’s name'); ok = false; } else setErr(nameEl, '');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setErr(emailEl, 'Enter a valid email'); ok = false; } else setErr(emailEl, '');
-    if (!ok) { (name ? emailEl : nameEl).focus(); return; }
-    var btn = form.querySelector('button[type="submit"]');
-    var formErr = document.getElementById('es-form-err');
-    if (formErr) formErr.textContent = '';
-    btn.disabled = true;
-    const onPodia = ON_PODIA;
-    if (onPodia) {
-      var sent = false;
-      try {
-        var token = await waitForToken(12000);
-        var fd = new FormData(form);
-        if (token) fd.set('cf-turnstile-response', token);
-        var res = await fetch(form.action, { method: 'POST', body: fd, credentials: 'same-origin', headers: { 'Accept': 'text/javascript, text/html, */*' } });
-        var body = await res.text();
-        sent = res.ok && !/invalid|error|already/i.test(body);
-        if (!sent && /already/i.test(body)) sent = true;
-      } catch (_) { sent = false; }
-      if (!sent) {
-        btn.disabled = false;
-        if (formErr) formErr.textContent = 'That did not go through. Please try again in a moment.';
-        if (window.turnstile && tsId !== null) { try { window.turnstile.reset(tsId); } catch (_) {} }
-        return;
-      }
-    }
-    form.classList.add('es-done');
-    var okMsg = form.querySelector('.es-ok p');
-    okMsg.textContent = 'Thank you. We will email you shortly to schedule your call.';
-    okMsg.focus({ preventScroll: true });
-  });
 })();
 </script>
 </body>

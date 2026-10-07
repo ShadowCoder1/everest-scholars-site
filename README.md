@@ -10,7 +10,8 @@ The whole homepage is one file: **`index.html`**. When you change it on `main`, 
 index.html (this repo) → GitHub Pages → loader in Podia → everestscholars.podia.com
 ```
 
-- **Podia** still runs the application form, emails, payments and courses.
+- **Airtable** hosts the strategy-call application. **Podia** still runs emails, payments and courses.
+- Cohort labels start at **Fall 2027** and advance automatically every three months.
 - **Podia holds a tiny loader** (`podia-loader.html`) that fetches this page. **Never edit Podia's "Third-party code" setting;** that is where the loader lives.
 
 ## Making a change (easiest way, no setup)
@@ -25,13 +26,13 @@ You can see when it's done under **Actions** ("pages build and deployment" turns
 
 ## Making bigger changes
 
-- **Preview locally:** clone the repo and open `index.html` directly in Chrome. The form won't send there; it only sends on Podia.
+- **Preview locally:** clone the repo and open `index.html` directly in Chrome. The application button opens the hosted Airtable form.
 - **Using an AI:** if you use Claude Code, Cursor or similar, tell it to read this README first and follow the rules below.
 
 ## Rules (so the site doesn't break)
 
 1. **Everything goes inside `<div id="es"> … </div>`.** Every CSS rule must start with `#es` (for example `#es .es-hero h1 { … }`). The page is dropped into Podia, and unscoped CSS will clash with Podia's styles.
-2. **Don't touch the form's plumbing.** Keep `id="es-apply-form"`, the `action` URL, the `name="name"` and `name="email"` fields, and the `.es-ts` / Turnstile code. That's what sends signups to Podia. Changing the visible words around the form is fine.
+2. **Keep application calls consistent.** All application links and buttons should point to the Airtable strategy-call form. Don't add name or email fields to this page; Airtable collects those submissions.
 3. **Images must use full URLs** starting with `https://`. Use `images.unsplash.com` links. If you add image files to this repo, use `https://shadowcoder1.github.io/everest-scholars-site/<file>`, not a relative path.
 4. **No people's names on the site, and no numbers or claims we can't back up.**
 5. **Keep the one-`<script>` structure.** All JavaScript lives in the single `<script>` at the bottom.
