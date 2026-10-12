@@ -1,18 +1,19 @@
 # Everest Scholars website
 
-Live site: **https://everestscholars.podia.com**
+Live site: **https://www.everestscholars.org** (also at https://shadowcoder1.github.io/everest-scholars-site/)
 
-The whole homepage is one file: **`index.html`**. When you change it on `main`, the live site updates by itself in about 2 minutes.
+The whole homepage is one file: **`index.html`**. GitHub Pages serves this repo directly. When you change `index.html` on `main`, the live site updates by itself in about a minute.
 
 ## How it works
 
 ```
-index.html (this repo) → GitHub Pages → loader in Podia → everestscholars.podia.com
+index.html (this repo) → GitHub Pages → www.everestscholars.org
 ```
 
-- **Airtable** hosts the strategy-call application. **Podia** still runs emails, payments and courses.
+- **Airtable** hosts the strategy-call application. Every Apply button links to it, and responses land in Airtable.
 - Cohort labels start at **Fall 2027** and advance automatically every three months.
-- **Podia holds a tiny loader** (`podia-loader.html`) that fetches this page. **Never edit Podia's "Third-party code" setting;** that is where the loader lives.
+- **Images and logos** live in `assets/` and are referenced with relative paths (e.g. `assets/brand/mark-on-dark.png`).
+- **`CNAME`** (once added) tells GitHub Pages to serve the site at www.everestscholars.org. Don't delete it.
 
 ## Making a change (easiest way, no setup)
 
@@ -20,36 +21,36 @@ index.html (this repo) → GitHub Pages → loader in Podia → everestscholars.
 2. Press **Ctrl+F / Cmd+F** and search for the text you want to change, e.g. `Real research`.
 3. Edit it.
 4. Click **Commit changes** → **Commit directly to the main branch** → **Commit changes**.
-5. Wait about 2 minutes, then open the site and hard-refresh (**Cmd+Shift+R** on Mac, **Ctrl+Shift+R** on Windows).
+5. Wait about a minute, then open the site and hard-refresh (**Cmd+Shift+R** on Mac, **Ctrl+Shift+R** on Windows).
 
 You can see when it's done under **Actions** ("pages build and deployment" turns green).
 
 ## Making bigger changes
 
-- **Preview locally:** clone the repo and open `index.html` directly in Chrome. The application button opens the hosted Airtable form.
+- **Preview locally:** clone the repo and open `index.html` directly in Chrome. Everything works locally, including images.
 - **Using an AI:** if you use Claude Code, Cursor or similar, tell it to read this README first and follow the rules below.
 
 ## Rules (so the site doesn't break)
 
-1. **Everything goes inside `<div id="es"> … </div>`.** Every CSS rule must start with `#es` (for example `#es .es-hero h1 { … }`). The page is dropped into Podia, and unscoped CSS will clash with Podia's styles.
-2. **Keep application calls consistent.** All application links and buttons should point to the Airtable strategy-call form. Don't add name or email fields to this page; Airtable collects those submissions.
-3. **Images must use full URLs** starting with `https://`. Use `images.unsplash.com` links. If you add image files to this repo, use `https://shadowcoder1.github.io/everest-scholars-site/<file>`, not a relative path.
-4. **No people's names on the site, and no numbers or claims we can't back up.**
-5. **Keep the one-`<script>` structure.** All JavaScript lives in the single `<script>` at the bottom.
+1. **Keep CSS scoped to `#es`.** Every CSS rule starts with `#es` (for example `#es .es-hero h1 { … }`). It keeps styles predictable.
+2. **Keep application calls consistent.** All application links and buttons point to the Airtable strategy-call form. Don't add name or email fields to this page; Airtable collects those submissions.
+3. **Keep the one-`<script>` structure.** All JavaScript lives in the single `<script>` at the bottom.
+4. **Images:** put files in `assets/` and use a relative path like `assets/competitions/isef.jpg`. External images from `images.unsplash.com` are fine too.
+5. **No people's names on the site, no em dashes, and no numbers or claims we can't back up.**
 
 ## Common edits
 
 | What | Where to look (search for) |
 |---|---|
 | Hero headline | `Real research` |
-| Scholarships stat | `var ES_SCHOLARSHIPS` (e.g. `'$800K'`; set to `''` to hide it) |
-| The three paths | `Competitions`, `Publication`, `Programs` |
+| Scholarships stat | `var ES_SCHOLARSHIPS` (e.g. `'$800,000'`; set to `''` to hide it) |
+| The four paths | `Competitions`, `Research &amp; Publication`, `Selective Programs`, `College Admissions` |
 | FAQ | `Questions families ask` |
-| Consultation form text | `Start with a free consultation` |
+| Application section | `Start with a free strategy call` (Airtable link: search `airtable.com`) |
 | Footer | `© 2026 Everest Scholars` |
 
 ## Undoing a bad change
 
-On github.com, open the repo → **Commits**. Open the commit that broke things and edit the file back, or restore the previous version. The live site follows `main` within about 2 minutes.
+On github.com, open the repo → **Commits**. Open the commit that broke things and edit the file back, or restore the previous version. The live site follows `main` within about a minute.
 
-If the homepage ever shows up **blank**, the most recent change almost certainly broke the HTML or JavaScript. Undo it.
+If the homepage ever shows up **blank** or unstyled, the most recent change almost certainly broke the HTML or JavaScript. Undo it.
