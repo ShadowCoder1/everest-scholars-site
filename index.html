@@ -768,6 +768,9 @@ html{scroll-behavior:smooth}
 #es .es-links a[aria-current="true"]{opacity:1}
 #es .es-links a[aria-current="true"]::after{opacity:1;transform:none;box-shadow:0 0 8px 1px rgba(242,167,102,.6)}
 #es .es-nav-sep{width:1px;height:22px;margin-right:18px;background:currentColor;opacity:.18;flex:none}
+#es .es-nav-login{font-size:14px;font-weight:500;letter-spacing:.004em;padding:10px 14px;margin:0 6px 0 -8px;white-space:nowrap;opacity:.78;transition:opacity .2s}
+#es .es-nav-login:hover{opacity:1}
+#es .es-links-login{display:none}
 #es .es-nav .es-nav-cta{height:40px;padding:0 16px 0 18px;gap:9px;font-size:14px;font-weight:500}
 #es .es-nav .es-nav-cta svg{width:12px;height:12px}
 #es .es-foot .es-mark-i{width:42px;height:34px}
@@ -777,6 +780,8 @@ html{scroll-behavior:smooth}
 }
 @media (max-width:900px){
   #es .es-nav-sep{display:none}
+  #es .es-nav-login{display:none}
+  #es .es-links .es-links-login{display:flex}
   #es .es-links a::after{display:none}
 }
 @media (max-width:640px){
@@ -835,9 +840,11 @@ html{scroll-behavior:smooth}
       <a href="#es-paths">Fellowship</a>
       <a href="#es-team">Outcomes</a>
       <a href="#es-faq">FAQ</a>
+      <a class="es-links-login" href="portal/">Log in</a>
     </nav>
     <button class="es-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="es-menu"><span>Menu</span><i aria-hidden="true"></i></button>
     <span class="es-nav-sep" aria-hidden="true"></span>
+    <a class="es-nav-login" href="portal/">Log in</a>
     <a class="es-btn es-btn-light es-nav-cta" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
   </div>
 </header>
@@ -1114,7 +1121,7 @@ html{scroll-behavior:smooth}
     <div class="es-foot-top">
       <a class="es-mark" href="#es-top" aria-label="Everest Scholars, back to top"><span class="es-mark-i" aria-hidden="true"><img class="es-mark-d" src="assets/brand/mark-on-dark.png" alt="" width="49" height="40" decoding="async"></span><span class="es-mark-t" aria-hidden="true"><b>Everest</b><i>Scholars</i></span></a>
       <nav aria-label="Footer">
-        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply</a>
+        <a href="#es-route">How it works</a><a href="#es-results">Results</a><a href="#es-paths">Fellowship</a><a href="#es-team">Outcomes</a><a href="#es-faq">FAQ</a><a href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply</a><a href="portal/">Log in</a>
       </nav>
     </div>
     <div class="es-legal">

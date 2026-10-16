@@ -1,0 +1,14 @@
+{
+  "name": "everest-portal-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "firebase emulators:exec --only firestore --project demo-everest-test \"node --test tests/\"",
+    "dev": "firebase emulators:exec --only auth,firestore --project demo-everest \"node seed.mjs && node serve.mjs\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
+    "firebase": "^13.0.0",
+    "firebase-admin": "^13.0.0"
+  }
+}

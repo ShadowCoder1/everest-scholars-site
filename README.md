@@ -15,6 +15,10 @@ index.html (this repo) → GitHub Pages → www.everestscholars.org
 - **Images and logos** live in `assets/` and are referenced with relative paths (e.g. `assets/brand/mark-on-dark.png`).
 - **`CNAME`** (once added) tells GitHub Pages to serve the site at www.everestscholars.org. Don't delete it.
 
+## The portal
+
+The login-only portal for students and mentors lives in `portal/`, at www.everestscholars.org/portal. Its database rules and local preview are in `firebase/`. Read `firebase/README.md` before changing either.
+
 ## Making a change (easiest way, no setup)
 
 1. Open `index.html` in this repo on github.com and click the **pencil icon** (Edit).

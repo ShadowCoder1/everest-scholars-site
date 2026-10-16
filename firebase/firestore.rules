@@ -1,0 +1,203 @@
+rules_version = '2';
+
+// Everest Scholars portal.
+//
+// Every person has a profile at /members/{email}, keyed by their lowercase
+// email. The role on that profile decides what they can do:
+//   student  sees their own work; resources open once `active` (enrolled) is true
+//   mentor   sees and coaches the students whose `mentorEmail` is theirs
+//   admin    founders: everything, plus adding people and resources
+//
+// Student work lives under /members/{studentEmail}/{sessions,tasks,milestones,
+// requests,colleges,checkins}. Check-ins are internal: mentors and admins only.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- who is asking ----------
+    function signedIn() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
+    }
+    function myEmail() { return request.auth.token.email.lower(); }
+    function profilePath(email) { return /databases/$(database)/documents/members/$(email); }
+    function isMember() { return signedIn() && exists(profilePath(myEmail())); }
+    function me() { return get(profilePath(myEmail())).data; }
+    function isAdmin() { return isMember() && me().role == 'admin'; }
+    function isStaff() { return isMember() && me().role in ['mentor', 'admin']; }
+    function isEnrolled() { return isStaff() || (isMember() && me().get('active', false) == true); }
+    function isSelf(email) { return isMember() && email == myEmail(); }
+    function mentors(email) {
+      return isStaff() && get(profilePath(email)).data.get('mentorEmail', '') == myEmail();
+    }
+    function canSee(email) { return isSelf(email) || isAdmin() || mentors(email); }
+    function canCoach(email) { return isAdmin() || mentors(email); }
+
+    // ---------- validation helpers ----------
+    function str(v, max) { return v is string && v.size() <= max; }
+    function filled(v, max) { return str(v, max) && v.size() > 0; }
+    function optStr(d, k, max) { return !(k in d) || str(d[k], max); }
+    function optUrl(d, k) {
+      return !(k in d) || d[k] == '' || (str(d[k], 2000) && d[k].matches('^https?://.+'));
+    }
+    function optIn(d, k, values) { return !(k in d) || d[k] in values; }
+    function changesOnly(keys) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys);
+    }
+
+    function validMember(email) {
+      let d = request.resource.data;
+      return email == email.lower()
+        && d.email == email
+        && filled(d.name, 120)
+        && d.role in ['student', 'mentor', 'admin']
+        && (!('active' in d) || d.active is bool)
+        && optStr(d, 'mentorEmail', 200)
+        && (!('paths' in d) || d.paths is list)
+        && (!('sessionsPlanned' in d) || d.sessionsPlanned is int)
+        && optStr(d, 'goals', 5000)
+        && optUrl(d, 'driveFolderUrl');
+    }
+    function validSession() {
+      let d = request.resource.data;
+      return d.start is timestamp
+        && filled(d.title, 200)
+        && (!('durationMin' in d) || (d.durationMin is int && d.durationMin > 0 && d.durationMin <= 600))
+        && optStr(d, 'notes', 20000)
+        && optStr(d, 'nextSteps', 5000)
+        && optUrl(d, 'link')
+        && optUrl(d, 'notesUrl');
+    }
+    function validCheckin() {
+      let d = request.resource.data;
+      return d.status in ['on_track', 'needs_attention', 'at_risk']
+        && str(d.date, 10)
+        && optStr(d, 'note', 5000)
+        && d.by == myEmail();
+    }
+    function validTask() {
+      let d = request.resource.data;
+      return filled(d.title, 300)
+        && d.done is bool
+        && optStr(d, 'due', 10)
+        && optStr(d, 'details', 5000)
+        && str(d.createdBy, 200);
+    }
+    function validMilestone() {
+      let d = request.resource.data;
+      return filled(d.title, 300)
+        && d.status in ['planned', 'in_progress', 'done']
+        && optStr(d, 'due', 10)
+        && optStr(d, 'path', 20)
+        && optStr(d, 'notes', 5000);
+    }
+    function validRequest() {
+      let d = request.resource.data;
+      return d.type in ['review', 'question']
+        && filled(d.title, 300)
+        && optStr(d, 'kind', 40)
+        && optStr(d, 'body', 20000)
+        && optUrl(d, 'url');
+    }
+    function validCollege() {
+      let d = request.resource.data;
+      return filled(d.name, 200)
+        && optIn(d, 'tier', ['reach', 'target', 'likely'])
+        && optStr(d, 'plan', 10)
+        && optStr(d, 'deadline', 10)
+        && optStr(d, 'status', 30)
+        && optStr(d, 'notes', 5000);
+    }
+    function validResource() {
+      let d = request.resource.data;
+      return filled(d.title, 300)
+        && d.category in ['competitions', 'programs', 'colleges', 'guides']
+        && optStr(d, 'program', 120)
+        && optStr(d, 'year', 10)
+        && optStr(d, 'result', 200)
+        && optStr(d, 'kind', 40)
+        && optStr(d, 'description', 5000)
+        && str(d.url, 2000) && d.url.matches('^https?://.+');
+    }
+
+    // ---------- people ----------
+    match /members/{email} {
+      // Anyone signed in can read a mentor's or admin's profile (to see who their mentor is).
+      allow get: if isMember()
+        && (email == myEmail() || isAdmin() || mentors(email) || resource.data.role in ['mentor', 'admin']);
+      allow list: if isAdmin()
+        || (isStaff() && resource.data.get('mentorEmail', '') == myEmail());
+      allow create: if isAdmin() && validMember(email);
+      allow update: if (isAdmin() && validMember(email))
+        || (isSelf(email) && changesOnly(['lastSeenAt']) && request.resource.data.lastSeenAt == request.time)
+        || (mentors(email) && changesOnly(['goals', 'driveFolderUrl']) && validMember(email));
+      allow delete: if isAdmin() && email != myEmail();
+
+      match /sessions/{id} {
+        allow read: if canSee(email);
+        allow create, update: if canCoach(email) && validSession();
+        allow delete: if canCoach(email);
+      }
+
+      match /checkins/{id} {
+        allow read: if canCoach(email);
+        allow create: if canCoach(email) && validCheckin();
+        allow update: if canCoach(email) && validCheckin() && resource.data.by == myEmail();
+        allow delete: if isAdmin() || (canCoach(email) && resource.data.by == myEmail());
+      }
+
+      match /tasks/{id} {
+        allow read: if canSee(email);
+        allow create: if (canCoach(email) || isSelf(email))
+          && validTask() && request.resource.data.createdBy == myEmail();
+        allow update: if (canCoach(email) && validTask())
+          || (isSelf(email) && changesOnly(['done', 'doneAt']) && request.resource.data.done is bool)
+          || (isSelf(email) && resource.data.createdBy == myEmail()
+              && validTask() && request.resource.data.createdBy == myEmail());
+        allow delete: if canCoach(email) || (isSelf(email) && resource.data.createdBy == myEmail());
+      }
+
+      match /milestones/{id} {
+        allow read: if canSee(email);
+        allow create: if canCoach(email) && validMilestone();
+        allow update: if (canCoach(email) && validMilestone())
+          || (isSelf(email) && changesOnly(['status']) && validMilestone());
+        allow delete: if canCoach(email);
+      }
+
+      match /requests/{id} {
+        allow read: if canSee(email);
+        allow create: if isSelf(email) && validRequest()
+          && request.resource.data.keys().hasOnly(['type', 'title', 'kind', 'body', 'url', 'status', 'createdBy', 'createdAt'])
+          && request.resource.data.status == 'open'
+          && request.resource.data.createdBy == myEmail()
+          && !('reply' in request.resource.data);
+        allow update: if (canCoach(email)
+              && changesOnly(['status', 'reply', 'replyUrl', 'answeredAt', 'answeredBy'])
+              && request.resource.data.status in ['open', 'answered']
+              && optStr(request.resource.data, 'reply', 20000)
+              && optUrl(request.resource.data, 'replyUrl')
+              && request.resource.data.get('answeredBy', myEmail()) == myEmail())
+          || (isSelf(email) && resource.data.status == 'open'
+              && changesOnly(['title', 'kind', 'body', 'url']) && validRequest());
+        allow delete: if canCoach(email) || (isSelf(email) && resource.data.status == 'open');
+      }
+
+      match /colleges/{id} {
+        allow read: if canSee(email);
+        allow create, update: if (isSelf(email) || canCoach(email)) && validCollege();
+        allow delete: if isSelf(email) || canCoach(email);
+      }
+    }
+
+    // ---------- shared library: past applications, guides ----------
+    match /resources/{id} {
+      allow read: if isEnrolled();
+      allow create: if isStaff() && validResource() && request.resource.data.addedBy == myEmail();
+      allow update: if isStaff() && validResource()
+        && request.resource.data.addedBy == resource.data.addedBy
+        && (isAdmin() || resource.data.addedBy == myEmail());
+      allow delete: if isAdmin() || (isStaff() && resource.data.addedBy == myEmail());
+    }
+  }
+}
