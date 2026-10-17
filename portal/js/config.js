@@ -1,10 +1,10 @@
 // Firebase project settings for the portal. These values are public by design:
 // what each person can read or change is enforced by firebase/firestore.rules.
 export const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  projectId: '',
-  appId: '',
+  apiKey: 'AIzaSyAsNZ1I5qmaaPhW_Ph08vN-8CFPUU-FcwU',
+  authDomain: 'everest-scholars-portal.firebaseapp.com',
+  projectId: 'everest-scholars-portal',
+  appId: '1:139246497846:web:5c1c638a6473c4642be897',
 };
 
 // OAuth client used to create each student's "Name - Everest Scholars" folder in
