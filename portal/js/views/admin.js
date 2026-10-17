@@ -8,6 +8,7 @@ import { icon } from '../icons.js';
 import { listMembers, saveMember, removeMember, normEmail } from '../store.js';
 import { googleClientId } from '../config.js';
 import { createStudentFolder } from '../drive.js';
+import { openInviteForm, pendingInvites } from './invites.js';
 
 const ROLES = { student: 'Student', mentor: 'Mentor', admin: 'Founder' };
 const FILTERS = [['all', 'Everyone'], ['student', 'Students'], ['mentor', 'Mentors'], ['admin', 'Founders']];
@@ -23,8 +24,9 @@ export async function renderPeople(ctx, openEmail) {
   const draw = () => {
     const shown = people.filter((p) => filter === 'all' || p.role === filter);
     mount(ctx.root, html`
-      <header class="ph"><div><h1>People</h1><p class="ph-sub">Everyone with portal access. People sign in with the exact email listed here.</p></div>
-        <div class="ph-a"><button type="button" class="btn btn-primary" data-add>${icon('plus')}Add a person</button></div></header>
+      <header class="ph"><div><h1>People</h1><p class="ph-sub">Everyone with portal access. Send an invite code, or add someone by the exact email they will sign in with.</p></div>
+        <div class="ph-a"><button type="button" class="btn btn-secondary" data-add>Add by email</button><button type="button" class="btn btn-primary" data-invite>${icon('plus')}Create an invite</button></div></header>
+      <div id="invites"></div>
       <div class="seg seg-filter" role="group" aria-label="Filter people">${FILTERS.map(([k, l]) => html`<button type="button" class="seg-b ${filter === k ? 'is-on' : ''}" data-filter="${k}" aria-pressed="${filter === k ? 'true' : 'false'}">${l}<span class="num">${k === 'all' ? people.length : people.filter((p) => p.role === k).length}</span></button>`)}</div>
       <section class="card">
         ${shown.length ? html`<div class="tbl-wrap"><table class="tbl tbl-people tbl-stack">
@@ -43,6 +45,8 @@ export async function renderPeople(ctx, openEmail) {
       filter = b.dataset.filter; try { sessionStorage.setItem('es-people', filter); } catch (_) {} draw();
     }));
     ctx.root.querySelector('[data-add]').addEventListener('click', () => personForm());
+    ctx.root.querySelector('[data-invite]').addEventListener('click', async () => { if (await openInviteForm(ctx, staff)) pendingInvites(ctx, ctx.root.querySelector('#invites')); });
+    pendingInvites(ctx, ctx.root.querySelector('#invites'));
     ctx.root.querySelectorAll('[data-edit]').forEach((b) => b.addEventListener('click', () => personForm(people.find((p) => p.email === b.dataset.edit))));
   };
 
@@ -56,7 +60,7 @@ export async function renderPeople(ctx, openEmail) {
       : '';
     const removeBtn = !isNew && p.email !== ctx.me.email ? html`<button type="button" class="btn btn-danger-quiet btn-sm" data-remove>Remove access</button>` : '';
     const done = await openForm({
-      title: isNew ? 'Add a person' : `Edit ${p.name}`,
+      title: isNew ? 'Add by email' : `Edit ${p.name}`,
       intro: isNew ? 'They can sign in right away with Google, or set up a password, using this exact email.' : '',
       fields: [
         { name: 'name', label: 'Full name', value: p?.name || '', required: true },

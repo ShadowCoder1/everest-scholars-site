@@ -88,6 +88,23 @@ export const CHECKIN = {
 };
 export const pill = (label, tone = 'neutral') => html`<span class="pill pill-${tone}">${label}</span>`;
 
+// ---------- invite code waiting to be used (survives the email-confirmation round trip) ----------
+const INVITE_KEY = 'es-invite';
+export const pendingCode = {
+  get: () => { try { return localStorage.getItem(INVITE_KEY) || ''; } catch (_) { return ''; } },
+  set: (c) => { try { localStorage.setItem(INVITE_KEY, String(c).toUpperCase().replace(/[^A-Z0-9]/g, '')); } catch (_) {} },
+  clear: () => { try { localStorage.removeItem(INVITE_KEY); } catch (_) {} },
+};
+
+// ---------- clipboard ----------
+export async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch (_) {
+    const t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select(); const ok = document.execCommand('copy'); t.remove(); return ok;
+  }
+}
+
 // ---------- toast ----------
 let toastTimer;
 export function toast(message, tone = '') {

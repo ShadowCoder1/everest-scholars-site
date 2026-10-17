@@ -14,11 +14,20 @@ These rules are enforced by the database itself (`firestore.rules`), not just hi
 
 ## Adding someone
 
-1. A founder opens **People** and clicks **Add a person**.
-2. They enter the person's name, the exact email they will sign in with, and their role. Students also get a mentor, paths and enrollment.
-3. That person goes to everestscholars.org/portal and either clicks **Continue with Google** or chooses **First time? Set up your password**. Password sign-ups confirm their email first.
+**With an invite code (the usual way).**
 
-Anyone who signs in with an email that is not on the People list sees "No portal access yet" and nothing else.
+1. A mentor clicks **Invite a student** on My mentees. A founder clicks **Create an invite** on People, and can also invite mentors and founders.
+2. The portal shows a one-time code (like `K7QM-4XPA`) and a join link. Click **Copy invite message** and send it by text or email.
+3. The person opens the link, or chooses **Join with an invite code** at everestscholars.org/portal.
+4. They sign in with Google or create a password, confirm their name, and land in the portal with the role on the code. A student's code also links them to their mentor.
+
+Codes work once and expire after 14 days. Unused codes are listed under **Pending invites**, where you can share them again or revoke them.
+
+The code decides the role. Nobody can pick "mentor" for themselves. Mentors can only invite students, and only to themselves. Students that mentors invite start as not enrolled; a founder marks them enrolled (paid) on People, which opens the resource library.
+
+**By email.** A founder can also click **Add by email** on People and enter the exact email the person will sign in with. They can then sign in directly, with no code.
+
+Anyone who signs in without a profile sees "No portal access yet", with a box for an invite code.
 
 ## Student folder
 

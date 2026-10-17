@@ -505,3 +505,31 @@ code { font: 13px var(--mono); background: var(--tint); padding: 2px 6px; border
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- invites ---------- */
+.code-box { margin: 16px 0 18px; padding: 18px 20px; border-radius: 12px; text-align: center; color: #fff;
+  background: radial-gradient(120% 120% at 85% 0%, rgba(239, 142, 127, .18), transparent 55%), linear-gradient(180deg, var(--twilight), var(--night)); }
+.code-l { font-size: 12.5px; color: rgba(255, 255, 255, .6); }
+.code-v { margin: 6px 0 4px; font-size: 34px; font-weight: 600; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
+.code-s { font-size: 13px; color: rgba(255, 255, 255, .62); }
+.copy-row { display: flex; gap: 8px; margin-top: 6px; }
+.copy-row input { flex: 1; min-width: 0; height: 40px; padding: 0 12px; border: 1px solid var(--line-2); border-radius: var(--r-sm); background: var(--tint); font-size: 13.5px; color: var(--ink-2); }
+.dlg-read > p b { color: var(--ink); font-weight: 600; }
+.invites { list-style: none; padding: 0; }
+.inv { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.inv:first-child { padding-top: 2px; }
+.inv:last-child { border-bottom: 0; padding-bottom: 2px; }
+.inv-code { flex: none; padding: 6px 10px; border-radius: 8px; background: var(--tint); font-size: 14px; font-weight: 600; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.inv-b { flex: 1; min-width: 0; }
+.inv-t { font-size: 15px; font-weight: 500; }
+.inv-m { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; font-size: 13px; color: var(--ink-3); }
+.inv-a { display: flex; gap: 6px; flex: none; }
+#invites > .card { margin-top: 20px; }
+.auth-join { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-3); }
+.auth-join a { color: var(--ink); font-weight: 500; }
+.auth-hint { margin-top: 18px; font-size: 13.5px; color: var(--ink-3); }
+.auth-two { display: grid; grid-template-columns: 1fr 1.6fr; gap: 12px; }
+.auth-two > div { display: flex; flex-direction: column; gap: 6px; }
+.auth-form select { width: 100%; height: 46px; padding: 0 12px; border: 1px solid var(--line-2); border-radius: var(--r-sm); background: #fff; font-size: 15px; }
+.auth-form .auth-two { margin-bottom: 10px; }
+@media (max-width: 720px) { .inv { flex-wrap: wrap; } .inv-a { width: 100%; justify-content: flex-end; } }

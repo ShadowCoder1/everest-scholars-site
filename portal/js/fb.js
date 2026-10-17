@@ -6,7 +6,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js';
 import {
   getFirestore, connectFirestoreEmulator, doc, getDoc, getDocs, collection, query, where,
-  addDoc, setDoc, updateDoc, deleteDoc, serverTimestamp, Timestamp,
+  addDoc, setDoc, updateDoc, deleteDoc, serverTimestamp, Timestamp, writeBatch,
 } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js';
 import { firebaseConfig, DEMO } from './config.js';
 
@@ -28,5 +28,5 @@ export {
   signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification,
   sendPasswordResetEmail, signOut,
   doc, getDoc, getDocs, collection, query, where, addDoc, setDoc, updateDoc, deleteDoc,
-  serverTimestamp, Timestamp,
+  serverTimestamp, Timestamp, writeBatch,
 };

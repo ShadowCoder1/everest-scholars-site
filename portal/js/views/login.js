@@ -2,13 +2,13 @@ import {
   auth, GoogleAuthProvider, signInWithPopup, signInWithCredential, signInWithEmailAndPassword,
   createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut,
 } from '../fb.js';
-import { html, mount, esc } from '../ui.js';
+import { html, mount, esc, pendingCode } from '../ui.js';
 import { GOOGLE_G } from '../icons.js';
 import { DEMO, DEMO_ACCOUNTS } from '../config.js';
 
 const HERO = 'https://images.unsplash.com/photo-1778003586047-69c68f764af5?auto=format&fit=crop&w=1600&q=80';
 
-function frame(app, inner) {
+export function authFrame(app, inner) {
   mount(app, html`<div class="auth">
     <section class="auth-art" aria-hidden="true">
       <img class="auth-img" src="${HERO}" alt="">
@@ -34,13 +34,43 @@ const ERRORS = {
 };
 const authError = (ex) => (ex?.code in ERRORS ? ERRORS[ex.code] : 'Sign-in did not work. Try again.');
 
+const google = () => { const p = new GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' }); return p; };
+const prettyCode = (c) => `${c.slice(0, 4)}-${c.slice(4, 8)}`;
+
+// Entering an invite code before signing in. The code waits in this browser until sign-in finishes.
+export function renderCodeEntry(app) {
+  authFrame(app, html`
+    <h1>Join with an invite code</h1>
+    <p class="auth-sub">Your mentor or the Everest team sends this code. It looks like K7QM-4XPA.</p>
+    <form class="auth-form" novalidate>
+      <label class="field-l" for="a-code">Invite code</label>
+      <input id="a-code" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="K7QM-4XPA" required>
+      <p class="auth-err" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block">Continue</button>
+    </form>
+    <p class="auth-links"><a href="#" data-mode="signin">Back to sign in</a></p>`);
+  app.querySelector('[data-mode]').addEventListener('click', (e) => { e.preventDefault(); renderLogin(app); });
+  const form = app.querySelector('.auth-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const c = form.code.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (c.length !== 8) { form.querySelector('.auth-err').textContent = 'Invite codes are 8 letters and numbers, like K7QM-4XPA.'; form.code.focus(); return; }
+    pendingCode.set(c);
+    renderLogin(app, 'setup');
+  });
+}
+
 export function renderLogin(app, mode = 'signin', notice = '') {
+  const code = pendingCode.get();
   const setup = mode === 'setup';
   const reset = mode === 'reset';
-  frame(app, html`
-    <h1>${setup ? 'Set up your password' : reset ? 'Reset your password' : 'Sign in'}</h1>
-    <p class="auth-sub">${setup
-      ? 'Use the email the Everest team has on file. We will send a link to confirm it.'
+  const accept = setup && code;
+  if (code && !notice && !accept) notice = `Invite ${prettyCode(code)} is ready. Sign in to accept it.`;
+  authFrame(app, html`
+    <h1>${accept ? 'Accept your invite' : setup ? 'Set up your password' : reset ? 'Reset your password' : 'Sign in'}</h1>
+    <p class="auth-sub">${accept
+      ? html`Invite <b>${prettyCode(code)}</b>. Continue with Google, or create an account with your email and a password.`
+      : setup ? 'Use the email the Everest team has on file. We will send a link to confirm it.'
       : reset ? 'Enter your email and we will send a link to choose a new password.'
         : 'For enrolled students and their mentors.'}</p>
     ${notice ? html`<p class="auth-note" role="status">${notice}</p>` : ''}
@@ -52,13 +82,14 @@ export function renderLogin(app, mode = 'signin', notice = '') {
       ${reset ? '' : html`<label class="field-l" for="a-pass">${setup ? 'Choose a password' : 'Password'}</label>
       <input id="a-pass" name="password" type="password" autocomplete="${setup ? 'new-password' : 'current-password'}" minlength="8" required>`}
       <p class="auth-err" role="alert"></p>
-      <button type="submit" class="btn btn-primary btn-block">${setup ? 'Create password' : reset ? 'Send reset link' : 'Sign in'}</button>
+      <button type="submit" class="btn btn-primary btn-block">${accept ? 'Create account' : setup ? 'Create password' : reset ? 'Send reset link' : 'Sign in'}</button>
     </form>
     <p class="auth-links">
       ${mode === 'signin'
         ? html`<a href="#" data-mode="reset">Forgot password?</a><a href="#" data-mode="setup">First time? Set up your password</a>`
-        : html`<a href="#" data-mode="signin">Back to sign in</a>`}
+        : html`<a href="#" data-mode="signin">${accept ? 'Already have an account? Sign in' : setup ? 'Already have a password? Sign in' : 'Back to sign in'}</a>`}
     </p>
+    ${code ? html`<p class="auth-join">Wrong code? <a href="#" data-forget>Remove it</a></p>` : html`<p class="auth-join">New student or mentor? <a href="#" data-join>Join with an invite code</a></p>`}
     ${DEMO ? html`<div class="demo"><p>Local preview with sample data. Sign in as:</p>
       ${DEMO_ACCOUNTS.map((a) => html`<button type="button" class="btn btn-secondary btn-sm" data-demo="${a.email}">${a.label}</button>`)}</div>` : ''}
   `);
@@ -66,9 +97,11 @@ export function renderLogin(app, mode = 'signin', notice = '') {
   const form = app.querySelector('.auth-form');
   const err = app.querySelector('.auth-err');
   app.querySelectorAll('[data-mode]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); renderLogin(app, a.dataset.mode); }));
+  app.querySelector('[data-join]')?.addEventListener('click', (e) => { e.preventDefault(); renderCodeEntry(app); });
+  app.querySelector('[data-forget]')?.addEventListener('click', (e) => { e.preventDefault(); pendingCode.clear(); renderLogin(app, mode); });
   app.querySelector('[data-google]')?.addEventListener('click', async () => {
     err.textContent = '';
-    try { await signInWithPopup(auth, new GoogleAuthProvider()); } catch (ex) { err.textContent = authError(ex); }
+    try { await signInWithPopup(auth, google()); } catch (ex) { err.textContent = authError(ex); }
   });
   app.querySelectorAll('[data-demo]').forEach((b) => b.addEventListener('click', () => {
     const email = b.dataset.demo;
@@ -96,7 +129,7 @@ export function renderLogin(app, mode = 'signin', notice = '') {
 }
 
 export function renderVerify(app, user) {
-  frame(app, html`
+  authFrame(app, html`
     <h1>Confirm your email</h1>
     <p class="auth-sub">We sent a link to <b>${user.email}</b>. Open it, then come back here.</p>
     <button type="button" class="btn btn-primary btn-block" data-done>I have confirmed it</button>
@@ -115,17 +148,31 @@ export function renderVerify(app, user) {
   app.querySelector('[data-out]').addEventListener('click', (e) => { e.preventDefault(); signOut(auth); });
 }
 
-export function renderNoAccess(app, user) {
-  frame(app, html`
+export function renderNoAccess(app, user, onCode) {
+  authFrame(app, html`
     <h1>No portal access yet</h1>
-    <p class="auth-sub">You are signed in as <b>${user.email}</b>, but this email is not on an Everest Scholars account.</p>
-    <p class="auth-sub">If you are enrolled or mentoring with us, ask the team to add this email, or sign in with the email they have on file.</p>
-    <button type="button" class="btn btn-secondary btn-block" data-out>Sign in with a different email</button>`);
+    <p class="auth-sub"><b>${user.email}</b> is not on an Everest Scholars account.</p>
+    <form class="auth-form" novalidate>
+      <label class="field-l" for="a-code">Have an invite code?</label>
+      <input id="a-code" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="K7QM-4XPA">
+      <p class="auth-err" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block">Join with this code</button>
+    </form>
+    <div class="auth-or"><span>or</span></div>
+    <button type="button" class="btn btn-secondary btn-block" data-out>Sign in with a different account</button>
+    <p class="auth-hint">Already enrolled or mentoring with us? Sign in with the email the team has on file, or ask your mentor for an invite code.</p>`);
   app.querySelector('[data-out]').addEventListener('click', () => signOut(auth));
+  const form = app.querySelector('.auth-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const c = form.code.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (c.length !== 8) { form.querySelector('.auth-err').textContent = 'Invite codes are 8 letters and numbers, like K7QM-4XPA.'; form.code.focus(); return; }
+    onCode(c);
+  });
 }
 
 export function renderNotConfigured(app) {
-  frame(app, html`
+  authFrame(app, html`
     <h1>Portal setup in progress</h1>
     <p class="auth-sub">The portal is not connected to its database yet. Add the Firebase settings in <code>${esc('portal/js/config.js')}</code>.</p>`);
 }

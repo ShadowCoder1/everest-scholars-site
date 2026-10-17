@@ -6,7 +6,7 @@ import {
 } from '@firebase/rules-unit-testing';
 import {
   doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, collection, query, where,
-  serverTimestamp, Timestamp,
+  serverTimestamp, Timestamp, writeBatch,
 } from 'firebase/firestore';
 
 const ADMIN = 'founder@everest.test';
@@ -240,4 +240,86 @@ test('staff add resources; students cannot', async () => {
   await assertFails(deleteDoc(ref(as(MENTOR2), 'resources', 'res1')));
   await assertSucceeds(updateDoc(ref(as(MENTOR), 'resources', 'res1'), { title: 'ISEF abstract 2025' }));
   await assertSucceeds(deleteDoc(ref(as(ADMIN), 'resources', 'res1')));
+});
+
+// ---------- invite codes ----------
+const inDays = (n) => Timestamp.fromDate(new Date(Date.now() + n * 86400000));
+async function seedInvite(code, data) {
+  await env.withSecurityRulesDisabled((ctx) => setDoc(doc(ctx.firestore(), 'invites', code), {
+    role: 'student', createdBy: MENTOR, mentorEmail: MENTOR, active: false, paths: ['research'], expiresAt: inDays(14), ...data,
+  }));
+}
+function redeem(db, email, code, profile) {
+  const b = writeBatch(db);
+  b.set(doc(db, 'members', email), { email, name: 'New Person', role: 'student', mentorEmail: MENTOR, active: false, paths: ['research'], inviteCode: code, ...profile });
+  b.update(doc(db, 'invites', code), { usedBy: email, usedAt: serverTimestamp() });
+  return b.commit();
+}
+
+test('mentor invites students to themselves only, never enrolled or as staff', async () => {
+  const db = as(MENTOR);
+  const base = { role: 'student', createdBy: MENTOR, mentorEmail: MENTOR, mentorName: 'Mentor', active: false, expiresAt: inDays(14) };
+  await assertSucceeds(setDoc(doc(db, 'invites', 'ABCD2345'), base));
+  await assertFails(setDoc(doc(db, 'invites', 'ABCD2346'), { ...base, role: 'mentor' }));
+  await assertFails(setDoc(doc(db, 'invites', 'ABCD2347'), { ...base, mentorEmail: MENTOR2 }));
+  await assertFails(setDoc(doc(db, 'invites', 'ABCD2348'), { ...base, active: true }));
+  await assertFails(setDoc(doc(db, 'invites', 'ABCD2349'), { ...base, createdBy: ADMIN }));
+  await assertFails(setDoc(doc(db, 'invites', 'short'), base));
+  await assertFails(setDoc(doc(as(STUDENT), 'invites', 'ABCD2350'), { ...base, createdBy: STUDENT }));
+  await assertFails(setDoc(doc(as(STRANGER), 'invites', 'ABCD2351'), { ...base, createdBy: STRANGER }));
+});
+
+test('founder can invite mentors and enrolled students', async () => {
+  const db = as(ADMIN);
+  await assertSucceeds(setDoc(doc(db, 'invites', 'MENT0R22'), { role: 'mentor', createdBy: ADMIN, expiresAt: inDays(14) }));
+  await assertSucceeds(setDoc(doc(db, 'invites', 'STUD3NT2'), { role: 'student', createdBy: ADMIN, mentorEmail: MENTOR, active: true, expiresAt: inDays(14) }));
+});
+
+test('invites stay private: no listing by strangers, mentors list only their own', async () => {
+  await seedInvite('PRIV4TE2', {});
+  await seedInvite('OTHER222', { createdBy: MENTOR2, mentorEmail: MENTOR2 });
+  await assertFails(getDocs(collection(as(STRANGER), 'invites')));
+  await assertSucceeds(getDoc(doc(as(STRANGER), 'invites', 'PRIV4TE2')));
+  await assertFails(getDoc(doc(anon(), 'invites', 'PRIV4TE2')));
+  await assertSucceeds(getDocs(query(collection(as(MENTOR), 'invites'), where('createdBy', '==', MENTOR))));
+  await assertFails(getDocs(collection(as(MENTOR), 'invites')));
+  await assertSucceeds(getDocs(collection(as(ADMIN), 'invites')));
+});
+
+test('a new person joins with a valid code and lands with exactly its role', async () => {
+  await seedInvite('JOIN2345', {});
+  const email = 'newkid@everest.test';
+  await assertSucceeds(redeem(as(email), email, 'JOIN2345', { grade: '10', school: 'Central High' }));
+  await assertSucceeds(getDoc(doc(as(email), 'members', email)));
+  await assertSucceeds(getDoc(doc(as(MENTOR), 'members', email)));
+});
+
+test('a code cannot be bent into more access', async () => {
+  await seedInvite('BEND2345', {});
+  const email = 'sneaky@everest.test';
+  await assertFails(redeem(as(email), email, 'BEND2345', { role: 'admin' }));
+  await assertFails(redeem(as(email), email, 'BEND2345', { role: 'mentor', mentorEmail: '' }));
+  await assertFails(redeem(as(email), email, 'BEND2345', { active: true }));
+  await assertFails(redeem(as(email), email, 'BEND2345', { mentorEmail: MENTOR2 }));
+  await assertFails(redeem(as(email), email, 'BEND2345', { driveFolderUrl: 'https://x.test' }));
+});
+
+test('a code works once, before it expires, for a verified email', async () => {
+  await seedInvite('ONCE2345', {});
+  await assertSucceeds(redeem(as('first@everest.test'), 'first@everest.test', 'ONCE2345', {}));
+  await assertFails(redeem(as('second@everest.test'), 'second@everest.test', 'ONCE2345', {}));
+  await seedInvite('OLD23456', { expiresAt: Timestamp.fromDate(new Date(Date.now() - 1000)) });
+  await assertFails(redeem(as('late@everest.test'), 'late@everest.test', 'OLD23456', {}));
+  await seedInvite('UNVER234', {});
+  await assertFails(redeem(as('unverified@everest.test', false), 'unverified@everest.test', 'UNVER234', {}));
+});
+
+test('nobody joins without spending a code, or spends one without joining', async () => {
+  await seedInvite('HALF2345', {});
+  const email = 'half@everest.test';
+  const db = as(email);
+  await assertFails(setDoc(doc(db, 'members', email), { email, name: 'x', role: 'student', mentorEmail: MENTOR, active: false, paths: ['research'], inviteCode: 'HALF2345' }));
+  await assertFails(updateDoc(doc(db, 'invites', 'HALF2345'), { usedBy: email, usedAt: serverTimestamp() }));
+  await assertFails(setDoc(doc(db, 'members', email), { email, name: 'x', role: 'student' }));
+  await assertFails(redeem(db, 'someoneelse@everest.test', 'HALF2345', {}));
 });

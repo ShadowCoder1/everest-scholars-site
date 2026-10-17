@@ -8,6 +8,7 @@ import {
 import { icon } from '../icons.js';
 import { getMember, listMembers, listMentees, loadStudent, listSub, addSub, updateSub, removeSub } from '../store.js';
 import * as student from './student.js';
+import { openInviteForm, pendingInvites } from './invites.js';
 
 const STALE_DAYS = 14;
 const scopeKey = 'es-scope';
@@ -58,9 +59,10 @@ export async function renderMentees(ctx) {
 
   mount(ctx.root, html`
     <header class="ph"><div><h1>${all ? 'Students' : 'My mentees'}</h1><p class="ph-sub">${all ? 'Every enrolled student, with what needs attention first.' : `Check in on each student and keep their week moving, ${firstName(ctx.me.name)}.`}</p></div>
-      ${admin ? html`<div class="ph-a seg" role="group" aria-label="Which students">
+      <div class="ph-a">${admin ? html`<div class="seg" role="group" aria-label="Which students">
         <button type="button" class="seg-b ${all ? '' : 'is-on'}" data-scope="mine" aria-pressed="${all ? 'false' : 'true'}">My mentees</button>
-        <button type="button" class="seg-b ${all ? 'is-on' : ''}" data-scope="all" aria-pressed="${all ? 'true' : 'false'}">All students</button></div>` : ''}</header>
+        <button type="button" class="seg-b ${all ? 'is-on' : ''}" data-scope="all" aria-pressed="${all ? 'true' : 'false'}">All students</button></div>` : ''}
+        <button type="button" class="btn btn-primary" data-invite>${icon('plus')}Invite a student</button></div></header>
     <div class="stats">
       <div class="stat"><p class="stat-l">${all ? 'Students' : 'Mentees'}</p><p class="stat-v num">${list.length}</p></div>
       <div class="stat"><p class="stat-l">Sessions, last 30 days</p><p class="stat-v num">${sessions30}</p></div>
@@ -79,9 +81,16 @@ export async function renderMentees(ctx) {
           <td class="nowrap" data-l="Latest check-in">${sum?.checkins[0] ? html`${pill(CHECKIN[sum.checkins[0].status].label, CHECKIN[sum.checkins[0].status].tone)} <span class="muted">${fmtShort(sum.checkins[0].date)}</span>` : html`<span class="muted">None yet</span>`}</td>
           <td class="ta-r nowrap"><button type="button" class="btn btn-secondary btn-sm" data-checkin="${st.email}">Check in</button></td>
         </tr>`)}</tbody></table></div>`
-        : html`<div class="empty"><h2>No ${all ? 'students' : 'mentees'} yet</h2><p class="muted">${admin ? 'Add students on the People page and assign them a mentor.' : 'A founder will assign students to you. They show up here.'}</p>${admin ? html`<a class="btn btn-primary" href="#/people">Go to People</a>` : ''}</div>`}
-    </section>`);
+        : html`<div class="empty"><h2>No ${all ? 'students' : 'mentees'} yet</h2><p class="muted">Click Invite a student to get a code to send them. Once they join, they show up here.</p></div>`}
+    </section>
+    <div id="invites"></div>`);
 
+  const invitesEl = ctx.root.querySelector('#invites');
+  pendingInvites(ctx, invitesEl);
+  ctx.root.querySelector('[data-invite]').addEventListener('click', async () => {
+    const staff = admin ? (await listMembers()).filter((m) => m.role !== 'student') : [];
+    if (await openInviteForm(ctx, staff)) pendingInvites(ctx, invitesEl);
+  });
   ctx.root.querySelectorAll('[data-scope]').forEach((b) => b.addEventListener('click', () => {
     try { sessionStorage.setItem(scopeKey, b.dataset.scope); } catch (_) {}
     ctx.refresh();

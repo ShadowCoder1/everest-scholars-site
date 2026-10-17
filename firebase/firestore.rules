@@ -10,6 +10,10 @@ rules_version = '2';
 //
 // Student work lives under /members/{studentEmail}/{sessions,tasks,milestones,
 // requests,colleges,checkins}. Check-ins are internal: mentors and admins only.
+//
+// People join two ways: a founder adds their email directly, or a founder or
+// mentor creates a one-time invite code. The code fixes the role, so nobody can
+// give themselves mentor or founder access by signing up.
 service cloud.firestore {
   match /databases/{database}/documents {
 
@@ -58,6 +62,44 @@ service cloud.firestore {
         && optStr(d, 'goals', 5000)
         && optUrl(d, 'driveFolderUrl');
     }
+    function invitePath(code) { return /databases/$(database)/documents/invites/$(code); }
+    function validInvite() {
+      let d = request.resource.data;
+      return d.role in ['student', 'mentor', 'admin']
+        && d.createdBy == myEmail()
+        && d.expiresAt is timestamp
+        && d.expiresAt > request.time
+        && optStr(d, 'name', 120)
+        && optStr(d, 'mentorEmail', 200)
+        && optStr(d, 'mentorName', 120)
+        && (!('active' in d) || d.active is bool)
+        && (!('paths' in d) || d.paths is list)
+        && !('usedBy' in d);
+    }
+    // A signed-in person creating their own profile from an unused, unexpired invite,
+    // copying its role, mentor, enrollment and paths exactly, and spending it in the same write.
+    function joinsWithInvite(email) {
+      let code = request.resource.data.get('inviteCode', '');
+      return signedIn() && email == myEmail()
+        && code is string && code.matches('^[A-Z0-9]{8}$')
+        && inviteMatches(code);
+    }
+    function inviteMatches(code) {
+      let d = request.resource.data;
+      let inv = get(invitePath(code)).data;
+      return !('usedBy' in inv)
+        && request.time < inv.expiresAt
+        && getAfter(invitePath(code)).data.get('usedBy', '') == myEmail()
+        && d.role == inv.role
+        && d.get('mentorEmail', '') == inv.get('mentorEmail', '')
+        && d.get('active', false) == inv.get('active', false)
+        && d.get('paths', []) == inv.get('paths', [])
+        && d.keys().hasOnly(['email', 'name', 'role', 'mentorEmail', 'active', 'paths', 'inviteCode',
+                             'grade', 'school', 'parentName', 'parentEmail', 'createdAt'])
+        && optStr(d, 'grade', 10) && optStr(d, 'school', 160)
+        && optStr(d, 'parentName', 120) && optStr(d, 'parentEmail', 200);
+    }
+
     function validSession() {
       let d = request.resource.data;
       return d.start is timestamp
@@ -127,7 +169,7 @@ service cloud.firestore {
         && (email == myEmail() || isAdmin() || mentors(email) || resource.data.role in ['mentor', 'admin']);
       allow list: if isAdmin()
         || (isStaff() && resource.data.get('mentorEmail', '') == myEmail());
-      allow create: if isAdmin() && validMember(email);
+      allow create: if validMember(email) && (isAdmin() || joinsWithInvite(email));
       allow update: if (isAdmin() && validMember(email))
         || (isSelf(email) && changesOnly(['lastSeenAt']) && request.resource.data.lastSeenAt == request.time)
         || (mentors(email) && changesOnly(['goals', 'driveFolderUrl']) && validMember(email));
@@ -188,6 +230,27 @@ service cloud.firestore {
         allow create, update: if (isSelf(email) || canCoach(email)) && validCollege();
         allow delete: if isSelf(email) || canCoach(email);
       }
+    }
+
+    // ---------- invites ----------
+    // The code is the document id and the secret. Knowing it lets a signed-in person read it.
+    match /invites/{code} {
+      allow get: if signedIn();
+      allow list: if isAdmin() || (isStaff() && resource.data.createdBy == myEmail());
+      // Founders invite anyone. Mentors invite students to themselves, not yet enrolled.
+      allow create: if isStaff() && code.matches('^[A-Z0-9]{8}$') && validInvite()
+        && (isAdmin() || (request.resource.data.role == 'student'
+            && request.resource.data.get('mentorEmail', '') == myEmail()
+            && request.resource.data.get('active', false) == false));
+      // Spending an invite: only alongside creating the redeemer's own profile from it.
+      allow update: if signedIn()
+        && !('usedBy' in resource.data)
+        && request.time < resource.data.expiresAt
+        && changesOnly(['usedBy', 'usedAt'])
+        && request.resource.data.usedBy == myEmail()
+        && request.resource.data.usedAt == request.time
+        && getAfter(profilePath(myEmail())).data.get('inviteCode', '') == code;
+      allow delete: if isAdmin() || (isStaff() && resource.data.createdBy == myEmail());
     }
 
     // ---------- shared library: past applications, guides ----------

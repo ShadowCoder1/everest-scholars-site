@@ -1,8 +1,9 @@
 import { auth, configured, onAuthStateChanged, signOut } from './fb.js';
-import { html, mount, raw, avatar, folderHref, toast, friendlyError } from './ui.js';
+import { html, mount, raw, avatar, folderHref, toast, friendlyError, pendingCode } from './ui.js';
 import { icon } from './icons.js';
 import { getMember, touchLastSeen } from './store.js';
 import { renderLogin, renderVerify, renderNoAccess, renderNotConfigured } from './views/login.js';
+import { renderJoin } from './views/join.js';
 import * as student from './views/student.js';
 import * as mentor from './views/mentor.js';
 import { renderPeople } from './views/admin.js';
@@ -163,9 +164,12 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMen
 if (!configured) {
   renderNotConfigured(app);
 } else {
+  // A join link (#/join/CODE) saves its code until sign-in finishes.
+  const linkCode = () => (location.hash.match(/^#\/join\/([A-Za-z0-9-]{8,9})$/) || [])[1] || '';
   onAuthStateChanged(auth, async (user) => {
     me = null;
-    if (!user) return renderLogin(app);
+    if (linkCode()) { pendingCode.set(linkCode()); history.replaceState(null, '', location.pathname); }
+    if (!user) return renderLogin(app, pendingCode.get() ? 'setup' : 'signin');
     if (!user.emailVerified) return renderVerify(app, user);
     try {
       me = await getMember(user.email);
@@ -173,7 +177,11 @@ if (!configured) {
       if (!String(ex?.code).includes('permission-denied')) { console.error(ex); toast(friendlyError(ex), 'bad'); }
       me = null;
     }
-    if (!me) return renderNoAccess(app, user);
+    if (!me) {
+      if (pendingCode.get()) return renderJoin(app, user, pendingCode.get());
+      return renderNoAccess(app, user, (code) => { pendingCode.set(code); renderJoin(app, user, code); });
+    }
+    if (pendingCode.get()) { pendingCode.clear(); toast('You already have portal access, so the invite was not needed.'); }
     touchLastSeen(me.email).catch(() => {});
     render();
   });

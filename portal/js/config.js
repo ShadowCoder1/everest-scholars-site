@@ -21,4 +21,6 @@ export const DEMO_ACCOUNTS = [
   { email: 'founder@everest.test', label: 'Founder (admin)' },
   { email: 'mentor@everest.test', label: 'Mentor' },
   { email: 'student@everest.test', label: 'Student' },
+  { email: 'newcomer@everest.test', label: 'New person' },
+  { email: 'newcomer2@everest.test', label: 'Another new person' },
 ];
