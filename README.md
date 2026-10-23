@@ -1,23 +1,23 @@
 # Everest Futures website
 
-Live site: **https://www.everestscholars.org** (also at https://shadowcoder1.github.io/everest-scholars-site/)
+Live site: **https://www.everestfutures.com** (also at https://shadowcoder1.github.io/everest-scholars-site/)
 
 The whole homepage is one file: **`index.html`**. GitHub Pages serves this repo directly. When you change `index.html` on `main`, the live site updates by itself in about a minute.
 
 ## How it works
 
 ```
-index.html (this repo) → GitHub Pages → www.everestscholars.org
+index.html (this repo) → GitHub Pages → www.everestfutures.com
 ```
 
 - **Airtable** hosts the strategy-call application. Every Apply button links to it, and responses land in Airtable.
 - Cohort labels start at **Fall 2027** and advance automatically every three months.
 - **Images and logos** live in `assets/` and are referenced with relative paths (e.g. `assets/brand/mark-on-dark.png`).
-- **`CNAME`** (once added) tells GitHub Pages to serve the site at www.everestscholars.org. Don't delete it.
+- **`CNAME`** tells GitHub Pages to serve the site at www.everestfutures.com. Don't delete it.
 
 ## The portal
 
-The login-only portal for students and mentors lives in `portal/`, at www.everestscholars.org/portal. Its database rules and local preview are in `firebase/`. Read `firebase/README.md` before changing either.
+The login-only portal for students and mentors lives in `portal/`, at www.everestfutures.com/portal. Its database rules and local preview are in `firebase/`. Read `firebase/README.md` before changing either.
 
 ## Making a change (easiest way, no setup)
 

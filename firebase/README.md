@@ -1,6 +1,6 @@
 # Everest Futures portal
 
-The login-only portal lives at **www.everestscholars.org/portal**. The pages are plain files in `portal/` (served by GitHub Pages like the rest of the site). Logins and data are in Firebase: Authentication for sign-in, Firestore for everything else.
+The login-only portal lives at **www.everestfutures.com/portal**. The pages are plain files in `portal/` (served by GitHub Pages like the rest of the site). Logins and data are in Firebase: Authentication for sign-in, Firestore for everything else.
 
 ## Who sees what
 
@@ -18,7 +18,7 @@ These rules are enforced by the database itself (`firestore.rules`), not just hi
 
 1. A mentor clicks **Invite a student** on My mentees. A founder clicks **Create an invite** on People, and can also invite mentors and founders.
 2. The portal shows a one-time code (like `K7QM-4XPA`) and a join link. Click **Copy invite message** and send it by text or email.
-3. The person opens the link, or chooses **Join with an invite code** at everestscholars.org/portal.
+3. The person opens the link, or chooses **Join with an invite code** at everestfutures.com/portal.
 4. They sign in with Google or create a password, confirm their name, and land in the portal with the role on the code. A student's code also links them to their mentor.
 
 Codes work once and expire after 14 days. Unused codes are listed under **Pending invites**, where you can share them again or revoke them.

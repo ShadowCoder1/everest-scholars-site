@@ -1,5 +1,5 @@
 // Serves the site folder locally so /portal/ and /assets/ resolve as they do on
-// everestscholars.org. Open http://localhost:5050/portal/?demo
+// everestfutures.com. Open http://localhost:5050/portal/?demo
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, resolve } from 'node:path';
