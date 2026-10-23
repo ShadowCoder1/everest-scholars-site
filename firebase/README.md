@@ -1,4 +1,4 @@
-# Everest Scholars portal
+# Everest Futures portal
 
 The login-only portal lives at **www.everestscholars.org/portal**. The pages are plain files in `portal/` (served by GitHub Pages like the rest of the site). Logins and data are in Firebase: Authentication for sign-in, Firestore for everything else.
 
@@ -31,7 +31,7 @@ Anyone who signs in without a profile sees "No portal access yet", with a box fo
 
 ## Student folder
 
-Each student has a Google Drive folder named **"Student Name - Everest Scholars"**. The **Student folder** button opens the link saved on their profile. If no link is saved yet, it searches Drive for that exact folder name. A founder can paste the link on the People page, or click **Create Drive folder** (once a Google OAuth client ID is set in `portal/js/config.js`). That creates the folder in their Drive and shares it with the student, their parent and their mentor.
+Each student has a Google Drive folder named **"Student Name - Everest Futures"**. The **Student folder** button opens the link saved on their profile. If no link is saved yet, it searches Drive for that exact folder name. A founder can paste the link on the People page, or click **Create Drive folder** (once a Google OAuth client ID is set in `portal/js/config.js`). That creates the folder in their Drive and shares it with the student, their parent and their mentor.
 
 ## Resources
 

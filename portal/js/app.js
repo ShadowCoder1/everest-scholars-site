@@ -63,14 +63,14 @@ function shell(current) {
   const roleLabel = { admin: 'Founder', mentor: 'Mentor', student: 'Student' }[me.role] || '';
   mount(app, html`<div class="pt">
     <aside class="side" id="side">
-      <a class="brand" href="#/" aria-label="Everest Scholars portal home">
+      <a class="brand" href="#/" aria-label="Everest Futures portal home">
         <img src="../assets/brand/mark-on-dark.png" alt="" width="46" height="38">
-        <span class="brand-t"><b>Everest</b><i>Scholars</i></span>
+        <span class="brand-t"><b>Everest</b><i>Futures</i></span>
       </a>
       <nav class="nav" aria-label="Portal">${items.map((i) => navItem(i, current))}</nav>
       <div class="side-f">
         ${isStaff() ? '' : html`<a class="btn btn-side" href="#/questions">Ask your mentor</a>`}
-        <p>Everest Scholars portal</p>
+        <p>Everest Futures portal</p>
       </div>
     </aside>
     <div class="scrim" data-close-side></div>
@@ -128,7 +128,7 @@ async function render() {
     if (seq === renderSeq) mount(page, html`<div class="card empty-card"><h2>This page did not load</h2><p>${friendlyError(ex)}</p><button class="btn btn-secondary" type="button" onclick="location.reload()">Reload</button></div>`);
   }
   if (seq === renderSeq) { page.focus({ preventScroll: true }); window.scrollTo(0, 0); }
-  document.title = `${page.querySelector('h1')?.textContent || 'Portal'} | Everest Scholars`;
+  document.title = `${page.querySelector('h1')?.textContent || 'Portal'} | Everest Futures`;
 }
 
 const STUDENT_PAGES = {

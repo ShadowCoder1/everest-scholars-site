@@ -5,11 +5,12 @@ import { icon } from '../icons.js';
 import { createInvite, listInvites, revokeInvite, prettyCode, INVITE_DAYS } from '../store.js';
 
 const ROLE_LABEL = { student: 'Student', mentor: 'Mentor', admin: 'Founder' };
-export const joinLink = (code) => `${location.origin}${location.pathname.replace(/[^/]*$/, '')}#/join/${code}`;
+const portalUrl = () => `${location.origin}${location.pathname.replace(/[^/]*$/, '')}`;
+export const joinLink = (code) => `${portalUrl()}#/join/${code}`;
 
 function inviteMessage(inv) {
-  const who = inv.role === 'student' ? 'the Everest Scholars student portal' : `the Everest Scholars portal as a ${ROLE_LABEL[inv.role].toLowerCase()}`;
-  return `You're invited to ${who}.\n\n1. Open ${joinLink(inv.id)}\n2. Sign in with Google, or create a password\n\nOr go to everestscholars.org/portal, choose "Join with an invite code" and enter ${prettyCode(inv.id)}. The code works once and expires ${fmtDay(toDate(inv.expiresAt))}.`;
+  const who = inv.role === 'student' ? 'the Everest Futures student portal' : `the Everest Futures portal as a ${ROLE_LABEL[inv.role].toLowerCase()}`;
+  return `You're invited to ${who}.\n\n1. Open ${joinLink(inv.id)}\n2. Sign in with Google, or create a password\n\nOr go to ${portalUrl().replace(/^https?:\/\//, '')}, choose "Join with an invite code" and enter ${prettyCode(inv.id)}. The code works once and expires ${fmtDay(toDate(inv.expiresAt))}.`;
 }
 
 export function showInvite(inv) {

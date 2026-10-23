@@ -12,11 +12,11 @@ export function authFrame(app, inner) {
   mount(app, html`<div class="auth">
     <section class="auth-art" aria-hidden="true">
       <img class="auth-img" src="${HERO}" alt="">
-      <div class="auth-brand"><img src="../assets/brand/mark-on-dark.png" alt="" width="46" height="38"><span class="brand-t"><b>Everest</b><i>Scholars</i></span></div>
+      <div class="auth-brand"><img src="../assets/brand/mark-on-dark.png" alt="" width="46" height="38"><span class="brand-t"><b>Everest</b><i>Futures</i></span></div>
       <div class="auth-copy"><p class="auth-k">Mentor and student portal</p><p class="auth-h">Sessions, plans, drafts and past applications, in one place.</p></div>
     </section>
     <section class="auth-pane"><div class="auth-card">${inner}</div>
-      <p class="auth-back"><a href="../">Back to everestscholars.org</a></p></section>
+      <p class="auth-back"><a href="../">Back to Everest Futures</a></p></section>
   </div>`);
 }
 
@@ -151,7 +151,7 @@ export function renderVerify(app, user) {
 export function renderNoAccess(app, user, onCode) {
   authFrame(app, html`
     <h1>No portal access yet</h1>
-    <p class="auth-sub"><b>${user.email}</b> is not on an Everest Scholars account.</p>
+    <p class="auth-sub"><b>${user.email}</b> is not on an Everest Futures account.</p>
     <form class="auth-form" novalidate>
       <label class="field-l" for="a-code">Have an invite code?</label>
       <input id="a-code" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="K7QM-4XPA">

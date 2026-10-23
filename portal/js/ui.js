@@ -37,7 +37,7 @@ export const initials = (name = '', email = '') => {
   return ((parts[0]?.[0] || '') + (parts.length > 1 ? parts[parts.length - 1][0] : '')).toUpperCase() || '?';
 };
 export const avatar = (person, size = '') => html`<span class="avatar ${size}" aria-hidden="true">${initials(person?.name, person?.email)}</span>`;
-export const driveFolderName = (name) => `${String(name || '').trim()} - Everest Scholars`;
+export const driveFolderName = (name) => `${String(name || '').trim()} - Everest Futures`;
 export const folderHref = (student) => safeUrl(student?.driveFolderUrl)
   || `https://drive.google.com/drive/search?q=${encodeURIComponent(`"${driveFolderName(student?.name)}"`)}`;
 

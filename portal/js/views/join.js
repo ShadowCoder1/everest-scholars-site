@@ -33,7 +33,7 @@ export async function renderJoin(app, user, code) {
 
   const student = inv.role === 'student';
   authFrame(app, html`
-    <h1>Join Everest Scholars</h1>
+    <h1>Join Everest Futures</h1>
     <p class="auth-sub">You are joining as a <b>${ROLE[inv.role]}</b>${inv.mentorName ? html`, mentored by <b>${inv.mentorName}</b>` : ''}. Signed in as <b>${user.email}</b>.</p>
     <form class="auth-form" novalidate>
       <label class="field-l" for="j-name">Your full name</label>

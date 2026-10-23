@@ -7,7 +7,7 @@ export const firebaseConfig = {
   appId: '1:139246497846:web:5c1c638a6473c4642be897',
 };
 
-// OAuth client used to create each student's "Name - Everest Scholars" folder in
+// OAuth client used to create each student's "Name - Everest Futures" folder in
 // Google Drive from the People page. Leave empty to paste folder links by hand.
 export const googleClientId = '';
 

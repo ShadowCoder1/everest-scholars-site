@@ -1,4 +1,4 @@
-# Everest Scholars website
+# Everest Futures website
 
 Live site: **https://www.everestscholars.org** (also at https://shadowcoder1.github.io/everest-scholars-site/)
 
@@ -51,7 +51,7 @@ You can see when it's done under **Actions** ("pages build and deployment" turns
 | The four paths | `Competitions`, `Research &amp; Publication`, `Selective Programs`, `College Admissions` |
 | FAQ | `Questions families ask` |
 | Application section | `Start with a free strategy call` (Airtable link: search `airtable.com`) |
-| Footer | `© 2026 Everest Scholars` |
+| Footer | `© 2026 Everest Futures` |
 
 ## Undoing a bad change
 

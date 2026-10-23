@@ -1,6 +1,6 @@
 rules_version = '2';
 
-// Everest Scholars portal.
+// Everest Futures portal.
 //
 // Every person has a profile at /members/{email}, keyed by their lowercase
 // email. The role on that profile decides what they can do:

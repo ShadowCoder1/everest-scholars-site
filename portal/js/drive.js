@@ -1,11 +1,11 @@
-// Creates "<Student Name> - Everest Scholars" in the founder's Google Drive and
+// Creates "<Student Name> - Everest Futures" in the founder's Google Drive and
 // shares it with the student, their parent and their mentor. Uses the drive.file
 // scope, so the portal only ever sees folders it created itself.
 import { googleClientId } from './config.js';
 import { driveFolderName } from './ui.js';
 
 const FOLDER = 'application/vnd.google-apps.folder';
-const PARENT_NAME = 'Everest Scholars Students';
+const PARENT_NAME = 'Everest Futures Students';
 let cached = null;
 
 function loadGis() {
