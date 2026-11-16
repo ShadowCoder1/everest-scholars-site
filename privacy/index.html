@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy | Everest Futures</title>
+<meta name="description" content="How Everest Futures collects, uses and protects information.">
+<link rel="canonical" href="https://www.everestfutures.com/privacy/">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" type="image/png" href="../assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0a0c10;--on-night:#f4f5f7;--on-night-2:#aab1bc;
+  --paper:#ffffff;--mist:#eef2f6;--ink:#0b0d12;--ink-2:#3e444d;--ink-3:#565c66;--line:#e4e6ea;--line-2:#cdd1d7;
+  --glow:#f2a766;--glow-ink:#a9521a;--blue-ink:#1d6896;--green-ink:#3d8a5a;
+  --sans:"Switzer",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:6px;--pad:clamp(16px,5vw,80px);--ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--night)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);font-size:18px;line-height:1.62;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glow-ink);outline-offset:3px;border-radius:2px}
+::selection{background:var(--glow);color:var(--night)}
+
+.wrap{max-width:calc(1200px + 2*var(--pad));margin:0 auto;padding:0 var(--pad)}
+.col{max-width:680px}
+
+/* header */
+.top{background:var(--night);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:80px}
+.mark{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+.mark img{width:49px;height:40px;object-fit:contain}
+.mark-t{display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:1px solid rgba(255,255,255,.2);line-height:1}
+.mark-t b{font-size:15px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;margin-right:-.26em}
+.mark-t i{font-style:normal;font-size:9px;font-weight:500;letter-spacing:.56em;text-transform:uppercase;color:var(--glow);margin-right:-.56em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:46px;padding:0 20px;border-radius:var(--r);font-size:15px;font-weight:500;line-height:1;text-decoration:none;white-space:nowrap;transition:background .2s}
+.btn svg{width:13px;height:13px;flex:none;transition:transform .25s var(--ease)}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+@media (hover:hover){.btn:hover svg{transform:translateX(3px)}.btn-light:hover{background:#e6e8eb}.btn-ink:hover{background:#262a32}.btn-line:hover{background:var(--mist)}}
+
+.hero{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(56px,7vw,96px)}
+.kicker{font-size:15px;color:var(--on-night-2)}
+.hero h1{margin-top:20px;max-width:13em;font-size:clamp(42px,6.6vw,92px);line-height:.98;letter-spacing:-.045em;font-weight:500;text-wrap:balance}
+.lede{margin-top:28px;max-width:34em;font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:rgba(255,255,255,.86);text-wrap:pretty}
+.meta{margin-top:22px;font-size:15px;color:var(--on-night-2)}
+
+/* article */
+main{padding:clamp(48px,6vw,88px) 0 clamp(64px,7vw,104px)}
+.toc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 32px;padding-bottom:clamp(40px,4vw,56px);border-bottom:1px solid var(--line)}
+.toc a{display:block;padding-top:14px;border-top:2px solid var(--ink);text-decoration:none;font-size:16px;font-weight:500;line-height:1.35;letter-spacing:-.01em}
+.toc span{display:block;margin-top:6px;font-size:14px;font-weight:400;color:var(--ink-3)}
+section.f{padding-top:clamp(48px,5vw,72px);scroll-margin-top:24px}
+section.f h2{font-size:clamp(30px,3.4vw,46px);line-height:1.06;letter-spacing:-.035em;font-weight:500;max-width:17em;text-wrap:balance}
+.f p{margin-top:20px;color:var(--ink-2);text-wrap:pretty}
+.f p b{color:var(--ink);font-weight:500}
+.f ul.pts{margin-top:18px;list-style:none}
+.f ul.pts li{position:relative;padding:6px 0 6px 24px;color:var(--ink-2)}
+.f ul.pts li::before{content:"";position:absolute;left:0;top:20px;width:10px;height:2px;background:var(--glow-ink)}
+sup a{font-size:12px;font-weight:500;text-decoration:none;color:var(--blue-ink);padding:0 1px}
+sup a:hover{text-decoration:underline}
+.take{margin-top:28px;padding:22px 24px;background:var(--mist);border-radius:var(--r);border-left:3px solid var(--glow-ink)}
+.take h3{font-size:16px;font-weight:600;letter-spacing:-.005em}
+.take p{margin-top:8px;color:var(--ink-2);font-size:17px}
+
+/* stat rows */
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;margin-top:28px;max-width:680px}
+.stat{border-top:1px solid var(--line-2);padding-top:14px}
+.stat b{display:block;font-size:clamp(30px,3vw,40px);font-weight:500;letter-spacing:-.04em;line-height:1.05}
+.stat span{display:block;margin-top:8px;font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+
+/* dot chart: one dot per traced project */
+.chart{margin-top:32px;max-width:760px;padding:26px 26px 22px;border:1px solid var(--line);border-radius:var(--r)}
+.chart figcaption{font-size:15px;font-weight:500;color:var(--ink)}
+.chart .sub{display:block;margin-top:4px;font-weight:400;color:var(--ink-3)}
+.rows{margin-top:22px;display:grid;gap:18px}
+.row{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:8px 20px;align-items:start}
+.row-l{font-size:15px;line-height:1.35;color:var(--ink)}
+.row-l b{display:block;font-size:26px;font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.dots{display:flex;flex-wrap:wrap;gap:4px;padding-top:6px}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--c);display:block}
+.dots i:hover{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--c)}
+.dots.none{font-size:15px;color:var(--ink-3);padding-top:4px}
+.r1{--c:var(--glow-ink)}.r2{--c:var(--blue-ink)}.r3{--c:var(--green-ink)}
+.note{margin-top:18px;font-size:13.5px;line-height:1.5;color:var(--ink-3)}
+
+/* cta */
+.cta{margin-top:clamp(56px,6vw,88px);padding:clamp(28px,4vw,48px);background:var(--night);color:#fff;border-radius:var(--r)}
+.cta h2{font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-.035em;font-weight:500;max-width:16em;text-wrap:balance}
+.cta p{margin-top:16px;max-width:36em;color:rgba(255,255,255,.82);text-wrap:pretty}
+.cta-a{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cta .btn-line{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+@media (hover:hover){.cta .btn-line:hover{background:rgba(255,255,255,.08)}}
+
+.about{margin-top:clamp(48px,5vw,72px);padding-top:28px;border-top:1px solid var(--line)}
+.about h2{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.about p{margin-top:12px;font-size:16px;color:var(--ink-2);max-width:42em}
+.src{margin-top:18px;padding-left:22px;font-size:14px;line-height:1.5;color:var(--ink-3);max-width:60em}
+.src li{padding:3px 0;overflow-wrap:anywhere}
+.src a{color:var(--ink-2)}
+
+footer{background:var(--night);color:var(--on-night-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:28px;padding-bottom:28px}
+footer a{color:#fff}
+
+@media (max-width:900px){.toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  body{font-size:17px}
+  .bar{min-height:68px}.mark img{width:42px;height:34px}.mark-t b{font-size:13px}
+  .bar .btn{height:40px;padding:0 14px;font-size:14px}
+  .stats{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .chart{padding:20px 16px 18px}
+  .cta-a .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="mark" href="../" aria-label="Everest Futures home"><img src="../assets/brand/mark-on-dark.png" alt="" width="49" height="40"><span class="mark-t" aria-hidden="true"><b>Everest</b><i>Futures</i></span></a>
+    <a class="btn btn-light" href="../">Back to the site</a>
+  </div>
+  <div class="wrap hero">
+    <h1>Privacy</h1>
+    <p class="meta">Last updated November 16, 2026</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="f" style="padding-top:0">
+      <div class="col">
+        <p>This page explains what information Everest Futures collects, why, and what we do with it. We keep it short and plain on purpose.</p>
+        <h2 style="font-size:28px;margin-top:40px">What we collect</h2>
+        <ul class="pts">
+          <li><b>When you apply or ask for a strategy call:</b> the details you type into the application form, such as names, email, grade, school and goals. The form is hosted by Airtable.</li>
+          <li><b>When you request our free guide through an ad:</b> your name, email and your student's grade, collected by the ad platform's form (for example Meta) and passed to us.</li>
+          <li><b>When you use the student portal:</b> account details (name and email) and the work you add, such as sessions, tasks, milestones, questions and links. The portal runs on Google Firebase. Student files stay in Google Drive folders shared with the family.</li>
+          <li><b>When you visit the site:</b> if we turn on analytics, standard usage data such as pages viewed and the referring site. We do not use it to identify you personally.</li>
+        </ul>
+        <h2 style="font-size:28px;margin-top:40px">How we use it</h2>
+        <p>To reply to you, run strategy calls, deliver mentorship, send progress updates to parents, and send occasional emails about our programs. Every email has a way to opt out, and we honor it.</p>
+        <h2 style="font-size:28px;margin-top:40px">What we never do</h2>
+        <ul class="pts">
+          <li>We never sell your information.</li>
+          <li>We never share a student's work, results or name publicly without written permission from the student and, for anyone under 18, a parent.</li>
+          <li>We never contact students through social media direct messages.</li>
+        </ul>
+        <h2 style="font-size:28px;margin-top:40px">Children</h2>
+        <p>Our programs are for high school students. We do not knowingly collect information from children under 13. If you believe a child under 13 has given us information, contact us and we will delete it.</p>
+        <h2 style="font-size:28px;margin-top:40px">Your choices</h2>
+        <p>You can ask us to show you, correct or delete the information we hold about you or your student at any time. Email <a href="mailto:hello@everestscholars.org">hello@everestscholars.org</a> and we will respond within 30 days.</p>
+        <h2 style="font-size:28px;margin-top:40px">Changes</h2>
+        <p>If we change this page, we will update the date at the top.</p>
+      </div>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap"><span>&copy; 2026 Everest Futures.</span><a href="../">everestfutures.com</a></div>
+</footer>
+</body>
+</html>
