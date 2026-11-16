@@ -317,6 +317,28 @@ html{scroll-behavior:smooth}
 #es .es-faq-list details[open] summary i::after{transform:rotate(0)}
 #es .es-faq-list details[open] summary i{color:var(--glow-ink)}
 #es .es-faq-list details p{padding:0 56px 24px 0;color:var(--ink-2);max-width:40em;margin-top:-4px}
+#es .es-faq-list details p a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--line-2)}
+
+/* ---------- sprints ---------- */
+#es .es-status-a{color:#fff;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.45)}
+#es .es-spr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);row-gap:40px;margin-top:clamp(36px,3.5vw,48px)}
+#es .es-spr>li{--acc:var(--glow);--acc-ink:var(--glow-ink);position:relative;display:flex;flex-direction:column;border-top:1px solid var(--line-2);padding-top:22px}
+#es .es-spr>li:nth-child(2){--acc:var(--rose);--acc-ink:var(--rose-ink)}
+#es .es-spr>li:nth-child(3){--acc:var(--glacier);--acc-ink:var(--glacier-ink)}
+#es .es-spr>li::before{content:"";position:absolute;left:0;top:-1px;width:62%;height:2px;background:linear-gradient(90deg,var(--acc-ink),var(--acc) 55%,rgba(255,255,255,0))}
+#es .es-spr-k{font-size:14px;color:var(--ink-3)}
+#es .es-spr h3{margin-top:10px;font-size:clamp(23px,2vw,29px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
+#es .es-spr-p{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-top:16px}
+#es .es-spr-p b{font-size:clamp(30px,2.6vw,38px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--acc-ink)}
+#es .es-spr-p span{font-size:15px;color:var(--ink-2)}
+#es .es-spr-d{margin-top:16px;font-size:16px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+#es .es-spr-l{margin-top:16px}
+#es .es-spr-l li{position:relative;padding:4px 0 4px 20px;font-size:15.5px;line-height:1.45;color:var(--ink)}
+#es .es-spr-l li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:2px;background:var(--acc-ink)}
+#es .es-spr-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:clamp(40px,4vw,56px);padding-top:28px;border-top:1px solid var(--line-2)}
+#es .es-spr-f p{max-width:40em;font-size:16px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+@media (max-width:900px){#es .es-spr{grid-template-columns:1fr;row-gap:36px}}
+@media (max-width:640px){#es .es-spr-f .es-btn{flex:1 1 100%}}
 
 /* ---------- apply ---------- */
 #es .es-apply{position:relative;overflow:hidden;isolation:isolate;padding-top:clamp(230px,21vw,320px);padding-bottom:clamp(72px,7vw,104px)}
@@ -838,6 +860,7 @@ html{scroll-behavior:smooth}
       <a href="#es-route">How it works</a>
       <a href="#es-results">Results</a>
       <a href="#es-paths">Fellowship</a>
+      <a href="#es-sprints">Sprints</a>
       <a href="#es-team">Outcomes</a>
       <a href="#es-faq">FAQ</a>
       <a class="es-links-login" href="portal/">Log in</a>
@@ -866,7 +889,7 @@ html{scroll-behavior:smooth}
     <div class="es-sky-f"><p class="es-sk es-sk-n" style="--x:0%;--r:0"><span></span></p><p class="es-sk es-sk-f" style="--x:36%;--r:0"><span></span></p><p class="es-sk es-sk-m" style="--x:66%;--r:0"><span></span></p><p class="es-sk es-sk-m" style="--x:16%;--r:1"><span></span></p><p class="es-sk es-sk-n" style="--x:50%;--r:1"><span></span></p><p class="es-sk es-sk-f" style="--x:80%;--r:1"><span></span></p></div>
   </div>
   <div class="es-wrap es-hero-body">
-    <p class="es-status">Now enrolling for the <span data-cohort-label>Fall 2027</span> cohort</p>
+    <p class="es-status">Now enrolling for the <span data-cohort-label>January 2027</span> cohort. <a class="es-status-a" href="#es-sprints">Deadline sprints start this week</a></p>
     <h1><span class="es-l"><span>Real research,</span></span><span class="es-l"><span>guided <span class="es-nw">one-on-one.</span></span></span></h1>
     <p class="es-lede">For grades 9–12, fully online. Our mentors include an ISEF Grand Award winner, a National JSHS first&#8209;place finisher and a&nbsp;Regeneron STS Top&nbsp;300&nbsp;Scholar.</p>
     <div class="es-cta">
@@ -1035,6 +1058,43 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<section class="es-sec es-mist es-colgrid es-reg" id="es-sprints" data-tone="light">
+  <div class="es-wrap">
+    <div class="es-grid es-head es-head-c">
+      <p class="es-label">Sprints</p>
+      <h2>Short, focused help for deadlines that are weeks&nbsp;away.</h2>
+      <p class="es-sub es-sub-w">One-on-one with a mentor who has been through the same competition or application. Each sprint has a fixed price and a fixed end, and every word stays the student&rsquo;s&nbsp;own.</p>
+    </div>
+    <ul class="es-spr">
+      <li>
+        <p class="es-spr-k">For seniors</p>
+        <h3>Regular Decision Sprint</h3>
+        <p class="es-spr-p"><b>$1,200</b><span>Now through January&nbsp;5</span></p>
+        <p class="es-spr-d">For seniors finishing Regular Decision or Early Decision&nbsp;II applications, or writing to a school that deferred&nbsp;them.</p>
+        <ul class="es-spr-l"><li>Four one-on-one sessions</li><li>Written feedback on every supplement within 48&nbsp;hours</li><li>A second look at the school list and essay plan</li><li>Deferral letter review</li></ul>
+      </li>
+      <li>
+        <p class="es-spr-k">For grades 9&ndash;11</p>
+        <h3>Program Application Sprint</h3>
+        <p class="es-spr-p"><b>$900</b><span>December through February</span></p>
+        <p class="es-spr-d">For students applying to MITES, Simons, Clark Scholars, SSP and other selective summer research&nbsp;programs.</p>
+        <ul class="es-spr-l"><li>A shortlist matched to eligibility and interests</li><li>Four one-on-one sessions</li><li>Feedback on every essay and research statement</li><li>A mock interview for programs that hold one</li></ul>
+      </li>
+      <li>
+        <p class="es-spr-k">For competitors</p>
+        <h3>Judge-Ready</h3>
+        <p class="es-spr-p"><b>$600</b><span>Any time before your fair</span></p>
+        <p class="es-spr-d">For students entering a regional or state science fair, or a JSHS regional&nbsp;symposium.</p>
+        <ul class="es-spr-l"><li>Review of the abstract, paper and board or slides</li><li>Two live mock judging sessions, run like the real thing</li><li>The questions that tripped you up, and how to answer them</li><li>A walkthrough of the ISEF and JSHS forms, including paid-support disclosure</li></ul>
+      </li>
+    </ul>
+    <div class="es-spr-f">
+      <p>If the first session isn&rsquo;t useful, we refund the sprint in full. Spots are limited because each mentor works with only a few students at a time.</p>
+      <a class="es-btn es-btn-ink" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply for a sprint<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    </div>
+  </div>
+</section>
+
 <section class="es-sec es-dark es-cmp-sec es-topo es-reg" id="es-compound" data-tone="dark">
   <div class="es-wrap">
     <div class="es-grid es-head es-head-c es-head-1l">
@@ -1088,7 +1148,10 @@ html{scroll-behavior:smooth}
     <h2 class="es-faq-h">Questions families&nbsp;ask.</h2>
     <div class="es-faq-list">
       <details open><summary>Who is it for?<i aria-hidden="true"></i></summary><p>High school students in grades 9–12 who want to do real research. Foundations starts at the beginning, with choosing a question.</p></details>
-      <details><summary>How much does it cost?<i aria-hidden="true"></i></summary><p>It depends on the path, or the mix of paths. We walk through options and exact pricing on the strategy call, before you commit to anything.</p></details>
+      <details><summary>How much does it cost?<i aria-hidden="true"></i></summary><p>Sprints have fixed prices, from $600 to $1,200 (see <a href="#es-sprints">Sprints</a>). Full paths depend on the path, or the mix of paths, and on how long you need. We walk through exact pricing on the strategy call, before you commit to anything, and installment plans are available. The first ten families to enroll in a full path get 15% off.</p></details>
+      <details><summary>Who are the mentors?<i aria-hidden="true"></i></summary><p>Recent high school graduates who competed and won at the national level themselves, including an ISEF Grand Award winner, a National JSHS first&#8209;place finisher and a Regeneron STS Top&nbsp;300 Scholar. They are now in college. We keep names off this website and share mentor details privately once you apply.</p></details>
+      <details><summary>Do we have to disclose your help?<i aria-hidden="true"></i></summary><p>Yes, and we make it simple. ISEF&rsquo;s new Student Support Disclosure Form (2A) asks every student to list paid support. Regeneron STS asks students and mentors to disclose program payments, and JSHS asks for a statement of outside help. We keep a dated log of what each session covered, so your disclosure is quick and accurate. Mentors never write any part of the work, so there is nothing to hide.</p></details>
+      <details><summary>What if it isn&rsquo;t a fit?<i aria-hidden="true"></i></summary><p>If the first session isn&rsquo;t useful, tell us and we refund what you paid in full.</p></details>
       <details><summary>How many hours a week?<i aria-hidden="true"></i></summary><p>3–5 hours a week.</p></details>
       <details><summary>Is it online?<i aria-hidden="true"></i></summary><p>Yes, everything is fully online, from the Foundations course and all of our sessions to the materials.</p></details>
       <details><summary>Can you guarantee a professor or lab placement?<i aria-hidden="true"></i></summary><p>No. Whether a professor takes on a student depends on their interest and capacity. We help students find relevant labs and write strong, personalized outreach.</p></details>
@@ -1110,7 +1173,7 @@ html{scroll-behavior:smooth}
     <div class="es-apply-copy">
       <p class="es-label">Strategy call</p>
       <h2><a class="es-apply-title-link" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Start with a free strategy call.<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
-      <p class="es-apply-sub">30 minutes with our team. Student and parent recommended, no obligation. We walk through goals, paths and pricing. The next cohort starts in <span data-cohort-label>Fall 2027</span>.</p>
+      <p class="es-apply-sub">30 minutes with our team. Student and parent recommended, no obligation. We walk through goals, paths and pricing. The next cohort starts in <span data-cohort-label>January 2027</span>, and deadline sprints start right away.</p>
     </div>
   </div>
 </section>
@@ -1138,12 +1201,12 @@ html{scroll-behavior:smooth}
   var root = document.getElementById('es');
   if (!root) return;
 
-  /* cohort label: advances quarterly from Fall 2027 */
+  /* cohort label: the next quarterly start (January, April, July, October) at least a week away */
   var now = new Date();
-  var monthsSinceCohortStart = (now.getFullYear() - 2027) * 12 + now.getMonth() - 8;
-  var cohortStep = Math.max(0, Math.floor(monthsSinceCohortStart / 3));
-  var cohortStart = new Date(2027, 8 + cohortStep * 3, 1);
-  var cohortLabel = ['Fall', 'Winter', 'Spring', 'Summer'][cohortStep % 4] + ' ' + cohortStart.getFullYear();
+  var soon = new Date(now.getTime() + 7 * 864e5);
+  var cohortStart = new Date(soon.getFullYear(), Math.ceil(soon.getMonth() / 3) * 3, 1);
+  while (cohortStart < soon) cohortStart = new Date(cohortStart.getFullYear(), cohortStart.getMonth() + 3, 1);
+  var cohortLabel = ['January', 'April', 'July', 'October'][cohortStart.getMonth() / 3] + ' ' + cohortStart.getFullYear();
   Array.prototype.forEach.call(root.querySelectorAll('[data-cohort-label]'), function (el) {
     el.textContent = cohortLabel;
   });
