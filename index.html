@@ -335,6 +335,7 @@ html{scroll-behavior:smooth}
 #es .es-pm-b .es-spr-l{margin-top:0}
 #es .es-pm-f{margin-top:14px;font-size:14px;line-height:1.5;color:var(--ink-3);text-wrap:pretty}
 #es .es-pm+.es-yr{margin-top:20px}
+#es .es-pm.is-pub{--acc:var(--glacier);--acc-ink:var(--glacier-ink)}
 @media (max-width:900px){#es .es-pm{grid-template-columns:1fr;padding:26px 22px 28px}#es .es-pm::before{left:22px;right:22px}#es .es-pm-a,#es .es-pm-b{grid-column:1/-1}#es .es-pm-b{margin-top:18px}}
 #es .es-yr-note{margin-top:24px;max-width:52em;font-size:15.5px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
 #es .es-pk-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);margin-top:clamp(64px,6vw,88px);padding-top:28px;border-top:1px solid var(--line-2);scroll-margin-top:90px}
@@ -1102,7 +1103,7 @@ html{scroll-behavior:smooth}
         <h3>Research Year</h3>
         <p class="es-spr-p"><b>$4,500</b><span>12 months, 25 one-on-one sessions</span></p>
         <p class="es-spr-d">From a first question to finished work, for students aiming at research competitions, publication and selective summer&nbsp;programs.</p>
-        <ul class="es-spr-l"><li>Project development, from the question and design to the analysis</li><li>ISEF, JSHS and STS preparation, with mock judging</li><li>Guaranteed publication of the finished paper in our in-house journal, within 24&nbsp;hours of submission</li><li>Help submitting to outside journals</li><li>Help finding professors and labs, and writing to them</li><li>Summer research program applications</li><li>Reviews from more than one mentor</li></ul>
+        <ul class="es-spr-l"><li>Project development, from the question and design to the analysis</li><li>ISEF, JSHS and STS preparation, with mock judging</li><li>Guaranteed peer-reviewed publication of the finished paper in our in-house journal, within 24&nbsp;hours of submission</li><li>Help submitting to outside journals</li><li>Help finding professors and labs, and writing to them</li><li>Summer research program applications</li><li>Reviews from more than one mentor</li></ul>
       </li>
       <li>
         <p class="es-spr-k">Admissions</p>
@@ -1148,6 +1149,17 @@ html{scroll-behavior:smooth}
         <ul class="es-spr-l"><li>Review of the abstract, paper and board or slides</li><li>Two live mock judging sessions, run like the real thing</li><li>The questions that tripped you up, and how to answer them</li><li>A walkthrough of the ISEF and JSHS forms, including paid-support disclosure</li></ul>
       </li>
     </ul>
+    <div class="es-pm is-pub" id="es-journal">
+      <div class="es-pm-a">
+        <p class="es-spr-k">On its own</p>
+        <h3>Journal Publication</h3>
+        <p class="es-spr-p"><b>$120</b><span>Published within 24 hours of submission</span></p>
+        <p class="es-spr-d">For students with a finished research paper. Guaranteed peer-reviewed publication in our in-house&nbsp;journal.</p>
+      </div>
+      <div class="es-pm-b">
+        <ul class="es-spr-l"><li>Peer review of the finished paper</li><li>Guaranteed publication in our in-house journal</li><li>Published within 24 hours of submission</li><li>Included in the Research Year at no extra cost</li></ul>
+      </div>
+    </div>
     <div class="es-spr-f">
       <p>Every program starts with a free 30-minute strategy call. Spots are limited because each mentor works with only a few students at a time.</p>
       <a class="es-btn es-btn-ink" href="https://airtable.com/appJECknrdyhA3ndH/pagxZ4MCW5JVRgJ8e/form">Apply for a free strategy call<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
@@ -1208,14 +1220,14 @@ html{scroll-behavior:smooth}
     <h2 class="es-faq-h">Questions families&nbsp;ask.</h2>
     <div class="es-faq-list">
       <details open><summary>Who is it for?<i aria-hidden="true"></i></summary><p>High school students in grades 9–12 who want to do real research. Foundations starts at the beginning, with choosing a question.</p></details>
-      <details><summary>How much does it cost?<i aria-hidden="true"></i></summary><p>Professor Match is $1,200, with a full refund if no professor agrees to mentor the student within 12 weeks. Year-long programs are $4,500 for research or for admissions, or $7,000 for both (see <a href="#es-pricing">Pricing</a>). Short packages for a single deadline are $600 to $1,200, and the full price counts toward a year-long program if you upgrade within 30 days. Everything is one payment, made up front, with no monthly fees. These are founding prices for our first ten families, and they go up after that.</p></details>
+      <details><summary>How much does it cost?<i aria-hidden="true"></i></summary><p>Professor Match is $1,200, with a full refund if no professor agrees to mentor the student within 12 weeks. Year-long programs are $4,500 for research or for admissions, or $7,000 for both (see <a href="#es-pricing">Pricing</a>). Journal Publication on its own is $120. Short packages for a single deadline are $600 to $1,200, and the full price counts toward a year-long program if you upgrade within 30 days. Everything is one payment, made up front, with no monthly fees. These are founding prices for our first ten families, and they go up after that.</p></details>
       <details><summary>Who are the mentors?<i aria-hidden="true"></i></summary><p>Recent high school graduates who competed and won at the national level themselves, including an ISEF Grand Award winner, a National JSHS first&#8209;place finisher and a Regeneron STS Top&nbsp;300 Scholar. They are now in college. We keep names off this website and share mentor details privately once you apply.</p></details>
       <details><summary>Do we have to disclose your help?<i aria-hidden="true"></i></summary><p>Yes, and we make it simple. ISEF&rsquo;s new Student Support Disclosure Form (2A) asks every student to list paid support. Regeneron STS asks students and mentors to disclose program payments, and JSHS asks for a statement of outside help. We keep a dated log of what each session covered, so your disclosure is quick and accurate. If your student&rsquo;s professor came through Professor Match, that connection gets listed too. Mentors never write any part of the work, so there is nothing to hide.</p></details>
       <details><summary>What if it isn&rsquo;t a fit?<i aria-hidden="true"></i></summary><p>If the first session isn&rsquo;t useful, tell us and we refund what you paid in full, for a short package or a year-long program.</p></details>
       <details><summary>How many hours a week?<i aria-hidden="true"></i></summary><p>3–5 hours a week.</p></details>
       <details><summary>Is it online?<i aria-hidden="true"></i></summary><p>Yes, everything is fully online, from the Foundations course and all of our sessions to the materials.</p></details>
       <details><summary>Do you guarantee a professor match?<i aria-hidden="true"></i></summary><p>Yes, with the Professor Match package. We find one professor at a university or research institute who agrees in writing to mentor your student on a research project, in their lab or online. If that hasn&rsquo;t happened within 12 weeks of the first session, we refund the full $1,200.</p></details>
-      <details><summary>Do you guarantee publication, awards or admission?<i aria-hidden="true"></i></summary><p>Publication in our in-house journal, yes. A Research Year student&rsquo;s finished paper is published there within 24 hours of submission. Because Everest Futures runs the journal, students list it as an Everest Futures publication, and Regeneron STS asks students to disclose paid publishing. We can&rsquo;t guarantee acceptance by outside journals, awards or admission. Editors, judges and admissions offices decide those.</p></details>
+      <details><summary>Do you guarantee publication, awards or admission?<i aria-hidden="true"></i></summary><p>Peer-reviewed publication in our in-house journal, yes. It&rsquo;s included in the Research Year, or $120 on its own, and a finished paper is published within 24 hours of submission. Because Everest Futures runs the journal, students list it as an Everest Futures publication, and Regeneron STS asks students to disclose paid publishing. We can&rsquo;t guarantee acceptance by outside journals, awards or admission. Editors, judges and admissions offices decide those.</p></details>
       <details><summary>Will you write any of it?<i aria-hidden="true"></i></summary><p>Never. Mentors ask questions and give feedback. Every word and every line of code is the student’s.</p></details>
       <details><summary>Do you help with college applications?<i aria-hidden="true"></i></summary><p>Yes. The College Admissions path covers school strategy, essays, activities, recommendations and interviews for highly selective universities. We guide and edit; every word is the student’s own.</p></details>
     </div>
